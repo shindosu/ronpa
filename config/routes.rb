@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     resources :arguments, only: [:create]
   end
   resources :debates, only: [:show, :create] do
-    resources :participants, only: [:create]
     resources :uses, only: [:create, :update]
   end
+  resources :participants, only: [:create]
   resources :users, only: [:show]
 end

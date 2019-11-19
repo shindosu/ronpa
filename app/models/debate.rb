@@ -13,6 +13,9 @@ class Debate < ApplicationRecord
     :positive_cross_examination,
     :negative_closing_statement,
     :positive_closing_statement,
-    :waiting_end
+    :waiting_end,
+    :finished
   ]
+
+  scope :active, -> { where.not(phase: :finished) }
 end

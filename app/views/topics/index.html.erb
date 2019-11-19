@@ -1,1 +1,12 @@
-<h1>hello</h1>
+<div class="container">
+  <h1>Debate Topics</h1>
+
+  <% @topics.each do |topic| %>
+  <div class="card">
+    <%= link_to "#{topic.proposition}", topic_path(topic) %>
+    <p><%= topic.description %></p>
+    <p><%= topic.category %></p>
+  </div>
+  <% end %>
+</div>
+

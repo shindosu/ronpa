@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+
 ActiveRecord::Schema.define(version: 2019_11_19_021900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "arguments", force: :cascade do |t|
+    t.bigint "topic_id"
+    t.bigint "user_id"
+    t.string "content"
+    t.integer "side"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["topic_id"], name: "index_arguments_on_topic_id"
+    t.index ["user_id"], name: "index_arguments_on_user_id"
+  end
 
   create_table "debates", force: :cascade do |t|
     t.bigint "topic_id"
@@ -23,6 +35,16 @@ ActiveRecord::Schema.define(version: 2019_11_19_021900) do
     t.index ["topic_id"], name: "index_debates_on_topic_id"
   end
 
+  create_table "participants", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "debate_id"
+    t.integer "role"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["debate_id"], name: "index_participants_on_debate_id"
+    t.index ["user_id"], name: "index_participants_on_user_id"
+  end
+  
   create_table "topics", force: :cascade do |t|
     t.string "proposition"
     t.string "level"
@@ -52,5 +74,25 @@ ActiveRecord::Schema.define(version: 2019_11_19_021900) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+
+  create_table "uses", force: :cascade do |t|
+    t.bigint "debate_id"
+    t.bigint "user_id"
+    t.boolean "success", default: true
+    t.string "content"
+    t.integer "side"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["debate_id"], name: "index_uses_on_debate_id"
+    t.index ["user_id"], name: "index_uses_on_user_id"
+  end
+
+  add_foreign_key "arguments", "topics"
+  add_foreign_key "arguments", "users"
+  add_foreign_key "debates", "topics"
+  add_foreign_key "participants", "debates"
+  add_foreign_key "participants", "users"
+  add_foreign_key "uses", "debates"
+  add_foreign_key "uses", "users"
   add_foreign_key "debates", "topics"
 end

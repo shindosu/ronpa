@@ -4,7 +4,8 @@ class Debate < ApplicationRecord
   has_many :participants
 
   enum phase: [
-    :waiting_start, :affirmative_speech,
+    :waiting_start,
+    :affirmative_speech,
     :negative_cross_examination_preparation,
     :negative_cross_examination,
     :negative_speech,

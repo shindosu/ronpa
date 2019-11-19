@@ -1,6 +1,12 @@
 class ArgumentsController < ApplicationController
   def create
+    @topic = Topic.find(params[:id])
     @argument = Argument.new(argument_params)
+    if @argmuent.save
+      redirect_to topic_path(@topic)
+    else
+      render topic_path(@topic)
+    end
   end
 
   private

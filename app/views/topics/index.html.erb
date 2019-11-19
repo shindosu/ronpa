@@ -1,12 +1,26 @@
 <div class="container">
   <h1>Debate Topics</h1>
+</div>
 
-  <% @topics.each do |topic| %>
-  <div class="card">
-    <%= link_to "#{topic.proposition}", topic_path(topic) %>
-    <p><%= topic.description %></p>
-    <p><%= topic.category %></p>
+<!-- <div id="body-overlay"></div>
+    <nav class="real-menu sidebar-nav" role="navigation">
+        <ul>
+            <li><a href="#">Item 1</a></li>
+            <li><a href="#">Item 2</a></li>
+            <li><a href="#">Item 3</a></li>
+        </ul>
+    </nav>
+    <button id="open-menu"><i class="fas fa-bars"></i></button> -->
+
+<div class="container">
+    <% @topics.each do |topic| %>
+  <div class="card justify-content-end">
+      <h4> <%= link_to "#{topic.proposition}", topic_path(topic)%> </h4>
+        <p><%= topic.description %></p>
+        <p><%= topic.category %></p>
   </div>
   <% end %>
 </div>
+
+
 

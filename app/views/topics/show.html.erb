@@ -26,4 +26,5 @@
     </div>
   </div>
   <%= link_to "Back to Topics", topics_path, class: "btn btn-primary"  %>
+  <%= link_to "Join Debate", participants_path(topic_id: @topic.id), method: :post, class: "btn btn-primary"  %>
 </div>

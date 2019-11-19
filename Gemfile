@@ -17,6 +17,7 @@ gem 'webpacker'
 
 # Our Gems
 gem 'devise'
+gem 'nokogiri'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

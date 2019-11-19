@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   def show
-    if params[:id].present?
-      @user = User.find(params[:id])
-    else
-      @user = current_user
-    end
+    @user = User.find(params[:id])
+  end
+
+  def dashboard
+    @user = current_user
   end
 end

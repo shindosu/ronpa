@@ -10,7 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_19_030521) do
+
+ActiveRecord::Schema.define(version: 2019_11_19_021900) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,7 +44,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_030521) do
     t.index ["debate_id"], name: "index_participants_on_debate_id"
     t.index ["user_id"], name: "index_participants_on_user_id"
   end
-
+  
   create_table "topics", force: :cascade do |t|
     t.string "proposition"
     t.string "level"
@@ -73,6 +74,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_030521) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+
   create_table "uses", force: :cascade do |t|
     t.bigint "debate_id"
     t.bigint "user_id"
@@ -92,4 +94,5 @@ ActiveRecord::Schema.define(version: 2019_11_19_030521) do
   add_foreign_key "participants", "users"
   add_foreign_key "uses", "debates"
   add_foreign_key "uses", "users"
+  add_foreign_key "debates", "topics"
 end

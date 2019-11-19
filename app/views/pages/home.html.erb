@@ -1,2 +1,34 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+
+
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <h1 style="color:">Ronpa</h1>
+    <% unless action_name == "home" %>
+       <%= link_to "Dashboard", user_path(@user)  %>
+    <% end %>
+
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to "Log in", new_user_session_path, class: "nav-link"  %>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row ">
+    <div class="col">
+      <h1>Enhance your language communication through debates</h1>
+      <h2>Become a ronper!</h2>
+      <%= link_to "Sign up", new_user_registration_path , class: "btn btn-primary" %>
+    </div>
+  </div>
+</div>
+

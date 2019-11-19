@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
   root to: 'pages#home'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :topics, only: [:index, :show] do
+    resources :points, only: [:create]
+  end
+  resources :debates, only: [:show, :create] do
+    resources :participants, only: [:create]
+    resources :uses, only: [:create, :update]
+  end
+  resources :users, only: [:show]
 end

@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  LANGUAGE_LEVELS = ['Native', 'Advanced', 'Intermediate', 'Basic', 'Beginner']
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 

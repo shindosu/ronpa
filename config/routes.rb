@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   root to: 'pages#home'
   resources :topics, only: [:index, :show] do
-    resources :points, only: [:create]
+    resources :arguments, only: [:create]
   end
   resources :debates, only: [:show, :create] do
     resources :participants, only: [:create]

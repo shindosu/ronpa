@@ -5,11 +5,12 @@ class ArgumentsController < ApplicationController
     if @argmuent.save
       redirect_to topic_path(@topic)
     else
-      render topic_path(@topic)
+      render 'topics/show'
     end
   end
 
   private
+
   def argument_params
     params.require(:argument).permit(:content, :side)
   end

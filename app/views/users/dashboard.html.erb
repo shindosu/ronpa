@@ -2,11 +2,15 @@
   <div class="nav-right text-center ">
     <div class="nav-user-info">
       <h4><%= current_user.first_name%> <%=  current_user.last_name %></h4>
-      <%= current_user.photo %>
-      <%= @user.email %>
-      <p>User wins <%=  @user.wins %> </p>
-      <p>User losses <%=  @user.losses %> </p>
-      <%= link_to "Browse Topics", topics_path  %>
+      <ul>
+        <li> <%= current_user.photo %></li>
+        <li> <%= @user.email %> </li>
+        <li> User wins <%=  @user.wins %> </li>
+        <li> User losses <%=  @user.losses %> </li>
+      </ul>
+    </div>
+    <div>
+      <i class="fas fa-greater-than"></i> <%= link_to "Browse Topics", topics_path %>
     </div>
     <div>
       <%= link_to "Sign out", destroy_user_session_path, class: "d-block", method: :delete  %>

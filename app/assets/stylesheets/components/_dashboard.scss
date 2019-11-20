@@ -13,7 +13,6 @@
   width: 200px;
   background: #353D47;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 8px;
   color: white;
 }
 
@@ -61,7 +60,14 @@
 }
 
 .nav-user-info {
-  line-height: 50px;
+    border-bottom: 1px solid #4e4e52;
+    color: white;
+    display: block;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 50px;
+    padding: 15px 0 0;
+    width: 100%;
 }
 
 .nav-top {
@@ -71,3 +77,5 @@
   background: #353D47;
   color: white;
 }
+
+

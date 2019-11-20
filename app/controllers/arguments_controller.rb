@@ -9,6 +9,7 @@ class ArgumentsController < ApplicationController
     else
       render 'topics/show'
     end
+    authorize @argument
   end
 
   def update
@@ -18,6 +19,7 @@ class ArgumentsController < ApplicationController
     else
       redirect_to topic_path(@argument.topic)
     end
+    authorize @argument
   end
 
   private

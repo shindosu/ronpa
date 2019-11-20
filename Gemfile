@@ -16,6 +16,7 @@ gem 'uglifier'
 gem 'webpacker'
 
 # Our Gems
+gem 'cloudinary', '~> 1.9.1'
 gem 'devise'
 gem 'nokogiri'
 

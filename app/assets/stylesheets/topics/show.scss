@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
+
+.container-topic-show{
+  position: relative;
+  top: 250px;
+}
+
+#topic-show-title{
+  font-family: 'Rock Salt', cursive;
+  font-size: 2.5em;
+}
+
+.quarter-circle-top-left{
+  position: absolute;
+  top: 0;
+  width: 270px;
+  height: 270px;
+  background: #6A9BEB;
+  border-radius: 0 0 100% 0;
+}

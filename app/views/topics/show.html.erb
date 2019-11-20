@@ -1,30 +1,18 @@
-<div class="container">
-  <h1><%= @topic.proposition %></h1>
-  <h3><%= @topic.description %></h3>
-
+<div class="quarter-circle-top-left">
+  <%= render "shared/topic-icon" %>
+</div>
+<div class="container-topic-show text-center">
   <div>
-  <h4>Add some points in the table </h4>
-    <div class="row">
-      <div class="col">
-        <h5>Affirmative Arguments</h5>
-        <ul>
-          <% current_user.arguments.affirmative.each do |argument| %>
-            <li><%= argument %></li>
-          <% end %>
-          <li>+ Add a new argument</li>
-        </ul>
+    <h1 id="topic-show-title"><%= @topic.proposition %></h1>
+      <div class="rating-section d-flex justify-content-center">
+        <%= render "shared/rating" %>
       </div>
-      <div class="col">
-        <h5>Negative Arguments</h5>
-        <ul>
-          <% current_user.arguments.affirmative.each do |argument| %>
-            <li><%= argument %></li>
-          <% end %>
-          <li>+ Add a new argument</li>
-        </ul>
-      </div>
-    </div>
+    <h3 id="topic-show-desc"><%= @topic.description %></h3>
   </div>
-  <%= link_to "Back to Topics", topics_path, class: "btn btn-primary"  %>
-  <%= link_to "Join Debate", participants_path(topic_id: @topic.id), method: :post, class: "btn btn-primary"  %>
+  <div class="form">
+    <%# <%= render 'arguments/argument_forms' %>
+  </div>
+</div>
+  <%# <%= link_to "Back to Topics", topics_path, class: "btn btn-primary"  %>
+  <%#= link_to "Join Debate", participants_path(topic_id: @topic.id), method: :post, class: "btn btn-primary"  %>
 </div>

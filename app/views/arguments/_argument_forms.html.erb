@@ -1,0 +1,23 @@
+<div>
+  <h4>Add some points in the table </h4>
+  <div class="row">
+    <div class="col">
+      <h5>Affirmative Arguments</h5>
+      <ul>
+        <% current_user.arguments.affirmative.each do |argument| %>
+          <li style="color: green"><%= argument.content %></li>
+        <% end %>
+        <li><%= render "arguments/new_argument_form", argument: @argument, side: "affirmative" %></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h5>Negative Arguments</h5>
+      <ul>
+        <% current_user.arguments.negative.each do |argument| %>
+          <li style="color: red"><%= argument.content %></li>
+        <% end %>
+        <li><%= render "arguments/new_argument_form", argument: @argument, side: "negative" %></li>
+      </ul>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,4 @@
+<%= simple_form_for [@topic, @argument] do |f| %>
+  <%= f.input :content, label: 'Write your argument here!' %>
+  <%= f.submit "+", class: "btn btn-primary form-inline"%>
+<% end %>

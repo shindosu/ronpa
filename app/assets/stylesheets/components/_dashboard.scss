@@ -6,9 +6,11 @@
 .card-dash {
   position: relative;
   border-radius: 12px;
+  text-shadow: 2px 1px 6px #cbcbcb;
   border: 1px solid #F3F3F3;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-  padding: 8px;
+  margin: 1em;
+  padding: 1em;
   transition: transform .4s;
   &:hover {
     transform: scale(1.1);
@@ -70,6 +72,14 @@
   height: 100%;
   top: 0;
   left: 0;
+}
+
+.user-info {
+  border: 1px solid gray;
+  box-shadow: 0 0 3px rgba(0,0,0,0.6);
+  border-radius: 12px;
+  background-color: rgba(black, 0.7);
+  padding: 24px;
 }
 
 

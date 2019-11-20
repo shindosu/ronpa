@@ -11,6 +11,15 @@ class ArgumentsController < ApplicationController
     end
   end
 
+  def update
+    @argument = Argument.find(params[:id])
+    if @argument.update(argument_params)
+      redirect_to topic_path(@argument.topic)
+    else
+      render 'topics/show'
+    end
+  end
+
   private
 
   def argument_params

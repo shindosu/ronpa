@@ -3,21 +3,21 @@
   <div class="row">
     <div class="col">
       <h5>Affirmative Arguments</h5>
-      <ul>
-        <% current_user.arguments.affirmative.each do |argument| %>
-          <li style="color: green"><%= argument.content %></li>
-        <% end %>
-        <li><%= render "arguments/new_argument_form", argument: @argument, side: "affirmative" %></li>
-      </ul>
+      <% current_user.arguments.affirmative.each do |argument| %>
+        <%= render "arguments/new_argument_form", argument: argument, side: "affirmative" %>
+      <% end %>
+      <% (3 - current_user.arguments.affirmative.count).times do %>
+        <%= render "arguments/new_argument_form", argument: @argument, side: "affirmative" %>
+      <% end %>
     </div>
     <div class="col">
       <h5>Negative Arguments</h5>
-      <ul>
-        <% current_user.arguments.negative.each do |argument| %>
-          <li style="color: red"><%= argument.content %></li>
-        <% end %>
-        <li><%= render "arguments/new_argument_form", argument: @argument, side: "negative" %></li>
-      </ul>
+      <% current_user.arguments.negative.each do |argument| %>
+        <%= render "arguments/new_argument_form", argument: argument, side: "negative" %>
+      <% end %>
+      <% (3 - current_user.arguments.negative.count).times do %>
+        <%= render "arguments/new_argument_form", argument: @argument, side: "negative" %>
+      <% end %>
     </div>
   </div>
 </div>

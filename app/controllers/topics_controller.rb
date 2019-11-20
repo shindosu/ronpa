@@ -1,10 +1,16 @@
 class TopicsController < ApplicationController
-  
   def index
-    @topics = Topic.all
+    if params[:query].present?
+      sql_query = "proposition ILIKE :query OR category ILIKE :query"
+      @topics = Topic.where(sql_query, query: "%#{params[:query]}%")
+    else
+      @topics = Topic.all
+    end
+    @topics = policy_scope(Topic)
   end
 
   def show
     @topic = Topic.find(params[:id])
+    @argument = Argument.new
   end
 end

@@ -16,8 +16,11 @@ gem 'uglifier'
 gem 'webpacker'
 
 # Our Gems
+gem 'carrierwave', '~> 1.2'
+gem 'cloudinary', '~> 1.9.1'
 gem 'devise'
 gem 'nokogiri'
+gem 'pundit'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

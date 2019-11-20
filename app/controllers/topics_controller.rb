@@ -6,6 +6,7 @@ class TopicsController < ApplicationController
     else
       @topics = Topic.all
     end
+    @topics = policy_scope(Topic)
   end
 
   def show

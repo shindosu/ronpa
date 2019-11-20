@@ -1,2 +1,18 @@
 // Import page-specific CSS files here.
 @import "home";
+
+body {
+  background-color: #F9FBFF;
+}
+h4 {
+  color: #6A9AEB;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  &:hover {
+    text-decoration: none;
+    color: black;
+  }
+}

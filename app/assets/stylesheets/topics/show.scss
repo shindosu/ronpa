@@ -1,8 +1,23 @@
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
 
+.container-topic-show{
+  position: relative;
+  bottom: 200px;
+  width: 70%;
+  margin: 0 auto;
+}
+
 #topic-show-title{
   font-family: 'Rock Salt', cursive;
-  font-size: 2.5em;
+  font-size: 1.8em;
+}
+
+#topic-show-desc{
+  margin: 0 auto;
+}
+
+#topic-show-desc h3{
+  font-size: 1.2em;
 }
 
 .quarter-circle-top-left{
@@ -11,7 +26,6 @@
   width: 270px;
   height: 270px;
   background: #6A9BEB;
-  // border-radius: 0 0 100% 0;
   clip-path: ellipse(270px 270px at 0% 0%);
 }
 

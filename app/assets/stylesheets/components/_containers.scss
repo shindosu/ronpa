@@ -1,0 +1,10 @@
+.topic-card-container {
+  position:  relative;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.topic-index-container {
+  background-color: #86F590;
+}

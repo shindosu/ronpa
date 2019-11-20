@@ -31,19 +31,24 @@
       <div class="col-6 col-sm-3">
         <h3><%=  current_user.username %></h3>
         <ul>
-          <li>Communication rating</li>
+          <li> Email: <%= @user.email %> </li>
+          <li> User wins: <%=  @user.wins %> </li>
+          <li> User losses: <%=  @user.losses %> </li>
+        </ul>
+        <div class="m-2">
+          <p>Communication rating</p>
             <% 4.times do %>
             <i class="fas fa-star star-yellow"></i>
             <% end %>
-          <li>Debate rating</li>
+          <p>Debate rating</p>
             <% 3.times do %>
             <i class="fas fa-star star-yellow"></i>
             <% end %>
-          <li>Civility rating</li>
+          <p>Civility rating</p>
             <% 5.times do %>
             <i class="fas fa-star star-yellow"></i>
             <% end %>
-        </ul>
+            </div>
       </div>
     </div>
 

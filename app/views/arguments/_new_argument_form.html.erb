@@ -1,7 +1,9 @@
-<%= simple_form_for [@topic, argument], wrapper: :inline_form, html: { class: 'form-inline m-3' } do |f| %>
-  <%= f.input :content, label: 'Write your argument here!' %>
+<div class="custom">
+<%= simple_form_for [@topic, argument], html: { class: "m-3"} do |f| %>
+  <%= f.input :content, label: false %>
   <%= f.input :side, as: :hidden, input_html: { value: side }%>
   <%= f.button :button, class: "btn btn-primary" do %>
     <i class="fas fa-pencil-alt"></i>
   <% end %>
 <% end %>
+</div>

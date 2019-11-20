@@ -1,7 +1,7 @@
 <div>
   <h4>Add some points in the table </h4>
   <div class="row">
-    <div class="col">
+    <div class="col-6">
       <h5>Affirmative Arguments</h5>
       <% current_user.arguments.where(topic_id: @topic.id).affirmative.each do |argument| %>
         <%= render "arguments/new_argument_form", argument: argument, side: "affirmative" %>
@@ -10,7 +10,7 @@
         <%= render "arguments/new_argument_form", argument: @argument, side: "affirmative" %>
       <% end %>
     </div>
-    <div class="col">
+    <div class="col-6">
       <h5>Negative Arguments</h5>
       <% current_user.arguments.where(topic_id: @topic.id).negative.each do |argument| %>
         <%= render "arguments/new_argument_form", argument: argument, side: "negative" %>

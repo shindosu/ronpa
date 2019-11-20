@@ -16,7 +16,7 @@ class ArgumentsController < ApplicationController
     if @argument.update(argument_params)
       redirect_to topic_path(@argument.topic)
     else
-      render 'topics/show'
+      redirect_to topic_path(@argument.topic)
     end
   end
 

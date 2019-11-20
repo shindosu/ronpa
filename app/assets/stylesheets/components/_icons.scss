@@ -3,7 +3,7 @@
 }
 
 .knight-blue {
-  color: #6A9AEB;
+  color: #A7C2F2;
 }
 
 .knight-yellow {
@@ -20,4 +20,19 @@
 
 .knight-grey {
   color: #E5E1EE;
+}
+
+.category-icon {
+  position: absolute;
+  top: -22px;
+  left: 40%;
+  color: white;
+  background-color: #A7C2F2;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  padding-top: 6px;
+  border: 3px solid white;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  opacity: 0.8;
 }

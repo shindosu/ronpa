@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_11_19_030521) do
 
   create_table "debates", force: :cascade do |t|
     t.bigint "topic_id"
-    t.integer "phase"
+    t.string "phase"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["topic_id"], name: "index_debates_on_topic_id"

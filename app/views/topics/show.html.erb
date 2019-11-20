@@ -2,29 +2,7 @@
   <h1><%= @topic.proposition %></h1>
   <h3><%= @topic.description %></h3>
 
-  <div>
-  <h4>Add some points in the table </h4>
-    <div class="row">
-      <div class="col">
-        <h5>Affirmative Arguments</h5>
-        <ul>
-          <% current_user.arguments.affirmative.each do |argument| %>
-            <li><%= argument %></li>
-          <% end %>
-          <li>+ Add a new argument</li>
-        </ul>
-      </div>
-      <div class="col">
-        <h5>Negative Arguments</h5>
-        <ul>
-          <% current_user.arguments.affirmative.each do |argument| %>
-            <li><%= argument %></li>
-          <% end %>
-          <li>+ Add a new argument</li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <%= render "arguments/argument_forms" %>
   <%= link_to "Back to Topics", topics_path, class: "btn btn-primary"  %>
   <%= link_to "Join Debate", participants_path(topic_id: @topic.id), method: :post, class: "btn btn-primary"  %>
 </div>

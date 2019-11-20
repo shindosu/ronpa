@@ -1,6 +1,6 @@
-    <div class="nav-top">
+    <!-- <div class="nav-top">
       <h1 align="center">Dashboard</h1>
-    </div>
+    </div> -->
 
     <div class="row text-center justify-content-around m-5">
 
@@ -26,7 +26,7 @@
       </div>
     </div>
 
-    <div class="row text-center justify-content-center m-5">
+    <div class="row text-center justify-content-around m-5">
       <%= image_tag "default.png", alt: "alttext", id: "avatar-dash" %>
       <div class="col-6 col-sm-3">
         <h3><%=  current_user.username %></h3>
@@ -35,20 +35,21 @@
           <li> User wins: <%=  @user.wins %> </li>
           <li> User losses: <%=  @user.losses %> </li>
         </ul>
-        <div class="m-2">
-          <p>Communication rating</p>
-            <% 4.times do %>
-            <i class="fas fa-star star-yellow"></i>
-            <% end %>
-          <p>Debate rating</p>
-            <% 3.times do %>
-            <i class="fas fa-star star-yellow"></i>
-            <% end %>
-          <p>Civility rating</p>
-            <% 5.times do %>
-            <i class="fas fa-star star-yellow"></i>
-            <% end %>
-            </div>
+      </div>
+      <div class="m-2">
+        <h3>Your ratings</h3>
+        <p>Communication rating</p>
+          <% 4.times do %>
+          <i class="fas fa-star star-yellow"></i>
+          <% end %>
+        <p>Debate rating</p>
+          <% 3.times do %>
+          <i class="fas fa-star star-yellow"></i>
+          <% end %>
+        <p>Civility rating</p>
+          <% 5.times do %>
+          <i class="fas fa-star star-yellow"></i>
+          <% end %>
       </div>
     </div>
 

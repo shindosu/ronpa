@@ -1,39 +1,40 @@
-<div class="topic-card">
-  <h4> <%= link_to "#{topic.proposition}", topic_path(topic)%> </h4>
-    <p><strong>Details:</strong> <%= topic.description %></p>
-    <p><strong>Category:</strong> <%= topic.category %></p>
-    <p>
-      <strong>Difficulty level:</strong>
-      <% if topic.level.to_i == 1 %>
-        <i class="fas fa-chess-knight knight-green"></i>
-        <% 4.times do %>
-          <i class="fas fa-chess-knight knight-grey"></i>
-        <% end %>
-      <% elsif topic.level.to_i == 2 %>
-          <% 2.times do %>
-            <i class="fas fa-chess-knight knight-blue"></i>
-          <% end %>
-          <% 3.times do %>
-            <i class="fas fa-chess-knight knight-grey"></i>
-          <% end %>
-      <% elsif topic.level.to_i == 3 %>
-          <% 3.times do %>
-            <i class="fas fa-chess-knight knight-yellow"></i>
-          <% end %>
-          <% 2.times do %>
-            <i class="fas fa-chess-knight knight-grey"></i>
-          <% end %>
-      <% elsif topic.level.to_i == 4 %>
+<%= link_to topic_path(topic) do  %>
+  <div class="topic-card">
+    <h4><%= topic.proposition %></h4>
+      <p><strong>Category:</strong> <%= topic.category %></p>
+      <p>
+        <strong>Difficulty level:</strong>
+        <% if topic.level.to_i == 1 %>
+          <i class="fas fa-chess-knight knight-green"></i>
           <% 4.times do %>
-            <i class="fas fa-chess-knight knight-orange"></i>
-          <% end %>
-          <% 1.times do %>
             <i class="fas fa-chess-knight knight-grey"></i>
           <% end %>
-      <% elsif topic.level.to_i == 5 %>
-          <% 5.times do %>
-            <i class="fas fa-chess-knight knight-red"></i>
-          <% end %>
-      <% end %>
-      </p>
-</div>
+        <% elsif topic.level.to_i == 2 %>
+            <% 2.times do %>
+              <i class="fas fa-chess-knight knight-blue"></i>
+            <% end %>
+            <% 3.times do %>
+              <i class="fas fa-chess-knight knight-grey"></i>
+            <% end %>
+        <% elsif topic.level.to_i == 3 %>
+            <% 3.times do %>
+              <i class="fas fa-chess-knight knight-yellow"></i>
+            <% end %>
+            <% 2.times do %>
+              <i class="fas fa-chess-knight knight-grey"></i>
+            <% end %>
+        <% elsif topic.level.to_i == 4 %>
+            <% 4.times do %>
+              <i class="fas fa-chess-knight knight-orange"></i>
+            <% end %>
+            <% 1.times do %>
+              <i class="fas fa-chess-knight knight-grey"></i>
+            <% end %>
+        <% elsif topic.level.to_i == 5 %>
+            <% 5.times do %>
+              <i class="fas fa-chess-knight knight-red"></i>
+            <% end %>
+        <% end %>
+        </p>
+  </div>
+<% end %>

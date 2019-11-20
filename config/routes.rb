@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   end
   resources :participants, only: [:create]
   resources :users, only: [:show]
+  get 'dashboard', to: 'users#dashboard'
 end

@@ -1,0 +1,73 @@
+.container-nav-dashboard {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  flex-direction: row-reverse;
+}
+
+.nav-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 0;
+  width: 200px;
+  background: #353D47;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 8px;
+  color: white;
+}
+
+.container-dash {
+  flex-grow: 1;
+}
+
+.card-dash {
+  border: 1px solid gray;
+  height: 225px;
+  width: 120px;
+  margin: 32px;
+  box-shadow: 0 0 3px rgba(0,0,0, 0.7);
+  padding: 8px;
+  border-radius: 12px;
+}
+
+.card-icon {
+  font-size: 64px;
+
+}
+
+.blue {
+  background-color: rgba(170,202,255,0.5);
+}
+
+.red {
+  background-color: rgba(227,122,122,0.5);
+}
+
+.green{
+  background-color: rgba(134,245,145,0.5);
+}
+
+#avatar-dash {
+  height: 200px;
+  width: 200px;
+}
+
+.card-info {
+  border: 1px solid gray;
+  box-shadow: 0 0 3px rgba(0,0,0,0.6);
+  border-radius: 12px;
+  width: 200px;
+}
+
+.nav-user-info {
+  line-height: 50px;
+}
+
+.nav-top {
+  margin: 0;
+  border: 1px white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  background: #353D47;
+  color: white;
+}

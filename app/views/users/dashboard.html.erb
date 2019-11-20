@@ -1,3 +1,18 @@
-<h1>User dashboard</h1>
-<%= render 'infos' %>
-<%= link_to "Sign out", destroy_user_session_path, method: :delete  %>
+<div class="container-nav-dashboard ">
+  <div class="nav-right text-center ">
+    <div class="nav-user-info">
+      <h4><%= current_user.first_name%> <%=  current_user.last_name %></h4>
+      <%= current_user.photo %>
+      <%= @user.email %>
+      <p>User wins <%=  @user.wins %> </p>
+      <p>User losses <%=  @user.losses %> </p>
+      <%= link_to "Browse Topics", topics_path  %>
+    </div>
+    <div>
+      <%= link_to "Sign out", destroy_user_session_path, class: "d-block", method: :delete  %>
+    </div>
+  </div>
+
+  <div class="container-dash">
+  <%= render 'shared/dashboard' %>
+</div>

@@ -1,0 +1,39 @@
+<% case @topic.level.to_i %>
+  <% when 1 %>
+    <p class="rating-background-yellow mb-0 mr-5">Beginner</p>
+    <% 1.times do %>
+      <i class="fas fa-circle mr-2" style="color: #9DEDAA"></i>
+    <% end %>
+    <% 4.times do %>
+      <i class="fas fa-circle mr-2" style="color: #CACACA"></i>
+    <% end %>
+  <% when 2 %>
+    <p class="rating-background-yellow mb-0 mr-5">Beginner</p>
+    <% 2.times do %>
+      <i class="fas fa-circle mr-2" style="color: #9DEDAA"></i>
+    <% end %>
+    <% 3.times do %>
+      <i class="fas fa-circle mr-2" style="color: #CACACA"></i>
+    <% end %>
+  <% when 3 %>
+    <p class="rating-background-orange mb-0 mr-5">Intermediate</p> 
+    <% 3.times do %>
+      <i class="fas fa-circle mr-2" style="color: #9DEDAA"></i>
+    <% end %>
+    <% 2.times do %>
+      <i class="fas fa-circle mr-2" style="color: #CACACA"></i>
+    <% end %>
+  <% when 4 %>
+    <p class="rating-background-orange mb-0 mr-5">Intermediate</p> 
+    <% 4.times do %>
+      <i class="fas fa-circle mr-2" style="color: #9DEDAA"></i>
+    <% end %>
+    <% 1.times do %>
+      <i class="fas fa-circle mr-2" style="color: #CACACA"></i>
+    <% end %>
+  <% when 5 %>
+    <p class="rating-background-red mb-0 mr-5">Professional</p> 
+    <% 5.times do %>
+      <i class="fas fa-circle mr-2" style="color: #9DEDAA"></i>
+    <% end %>
+<% end %>

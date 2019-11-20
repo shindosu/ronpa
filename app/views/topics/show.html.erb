@@ -1,8 +1,21 @@
-<div class="container">
-  <h1><%= @topic.proposition %></h1>
-  <h3><%= @topic.description %></h3>
-
+<div class="quarter-circle-top-left">
+  <%= render "shared/topic-icon" %>
+  <%= link_to '', topics_path, class:"div-link" %>
+</div>
+<div class="container-topic-show text-center">
+  <div>
+    <h1 id="topic-show-title" class="mb-5"><%= @topic.proposition %></h1>
+      <div class="rating-section d-flex justify-content-center align-items-center mb-5">
+        <%= render "shared/rating" %>
+      </div>
+    <h3 id="topic-show-desc" class="mb-5"><%= @topic.description %></h3>
+  </div>
+  <div class="form">
   <%= render "arguments/argument_forms" %>
   <%= link_to "Back to Topics", topics_path, class: "btn btn-primary"  %>
   <%= link_to "Join Debate", participants_path(topic_id: @topic.id), method: :post, class: "btn btn-primary"  %>
+  </div>
+
 </div>
+
+

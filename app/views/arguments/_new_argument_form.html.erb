@@ -1,4 +1,4 @@
-<%= simple_form_for [@topic, argument], wrapper: :inline_form, html: { class: 'form-inline m-3' } do |f| %>
+<%= simple_form_for [@topic, argument], wrapper: :inline_form, html: { class: 'form-inline m-3 justify-content-center' } do |f| %>
   <%= f.input :content, label: 'Write your argument here!' %>
   <%= f.input :side, as: :hidden, input_html: { value: side }%>
   <%= f.button :button, class: "btn btn-primary" do %>

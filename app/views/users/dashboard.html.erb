@@ -10,13 +10,13 @@
       </ul>
     </div>
     <div>
-      <i class="fas fa-greater-than"></i> <%= link_to "Browse Topics", topics_path %>
+      <i class="fas fa-book-open"></i> <%= link_to "Browse Topics", topics_path %>
     </div>
     <div>
       <%= link_to "Sign out", destroy_user_session_path, class: "d-block", method: :delete  %>
     </div>
   </div>
 
-  <div class="container-dash">
+  <div class="container-dash justify-content-between">
   <%= render 'shared/dashboard' %>
 </div>

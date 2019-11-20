@@ -1,31 +1,49 @@
     <div class="nav-top">
       <h1 align="center">Dashboard</h1>
     </div>
-    <div class="row text-center">
-      <div class="col-6 col-sm-3 card-dash blue ">
+
+    <div class="row text-center justify-content-around m-5">
+
+      <div class="col-sm-3 card-dash blue ">
+        <%= link_to "", debates_path, class: "card-link" %>
         <i class="fas fa-dice card-icon"></i>
-        <h1><%= link_to "Quick match", debates_path %></h1>
+        <h1>Quick match</h1>
         <p>Ronp about a random topic with ronpers scattered around the world!</p>
       </div>
-      <div class="col-6 col-sm-3 card-dash red ">
+
+      <div class=" col-sm-3 card-dash red ">
+        <%= link_to "", debates_path, class: "card-link" %>
         <i class="fas fa-chalkboard-teacher card-icon"></i>
-        <h1> <%= link_to "Moderate", debates_path %></h1>
+        <h1>Moderate</h1>
         <p>It’s your turn to judge. Watch over other ronpers and discover something new</p>
       </div>
-      <div class="col-6 col-sm-3 card-dash green ">
+
+      <div class="col-sm-3 card-dash green ">
+        <%= link_to "", topics_path, class: "card-link" %>
         <i class="far fa-check-circle card-icon"></i>
         <h1>Choose</h1>
         <p>Enter the dojo. Select a topic to ronp in and prepare for the fight</p>
       </div>
     </div>
-    <div class="row text-center justify-content-center">
-        <%= image_tag "default.png", alt: "alttext", id: "avatar-dash" %>
-        <div class="col-6 col-sm-3">
-          <h3><%=  current_user.username %></h3>
-          <p>Exp bar</p>
-          <p>Communication rating</p>
-          <p>Debate rating</p>
-          <p>Civility rating</p>
-        </div>
+
+    <div class="row text-center justify-content-center m-5">
+      <%= image_tag "default.png", alt: "alttext", id: "avatar-dash" %>
+      <div class="col-6 col-sm-3">
+        <h3><%=  current_user.username %></h3>
+        <ul>
+          <li>Communication rating</li>
+            <% 4.times do %>
+            <i class="fas fa-star star-yellow"></i>
+            <% end %>
+          <li>Debate rating</li>
+            <% 3.times do %>
+            <i class="fas fa-star star-yellow"></i>
+            <% end %>
+          <li>Civility rating</li>
+            <% 5.times do %>
+            <i class="fas fa-star star-yellow"></i>
+            <% end %>
+        </ul>
+      </div>
     </div>
 

@@ -1,5 +1,16 @@
-<div>
-  <%= @user.email %>
+<div class="container-dash">
+  <div class="map">
+    <div class="row">
+      <div class="col-6">
+        <h4><%= current_user.username %></h4>
+            <%= @user.email %>
+            <%= current_user.photo %>
+      </div>
+      <div class="col-6">
 
-  <%= link_to "Browse Topics", topics_path  %>
+      </div>
+    </div>
+  </div>
 </div>
+
+

@@ -1,20 +1,34 @@
 @import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
 
-.container-topic-show{
-  position: relative;
-  top: 250px;
-}
-
 #topic-show-title{
   font-family: 'Rock Salt', cursive;
   font-size: 2.5em;
 }
 
 .quarter-circle-top-left{
-  position: absolute;
+  position: relative;
   top: 0;
   width: 270px;
   height: 270px;
   background: #6A9BEB;
-  border-radius: 0 0 100% 0;
+  // border-radius: 0 0 100% 0;
+  clip-path: ellipse(270px 270px at 0% 0%);
+}
+
+.rating-background-yellow{
+  background-color: #F6E27F;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.rating-background-orange{
+  background-color: #FF9934;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.rating-background-red{
+  background-color: rgb(212, 64, 64);
+  padding: 10px 20px;
+  border-radius: 20px;
 }

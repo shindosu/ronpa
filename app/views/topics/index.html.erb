@@ -14,7 +14,7 @@
 
 <div class="container">
     <% @topics.each do |topic| %>
-  <div class="card justify-content-end">
+  <div class="card justify-content-center">
       <h4> <%= link_to "#{topic.proposition}", topic_path(topic)%> </h4>
         <p><%= topic.description %></p>
         <p><%= topic.category %></p>

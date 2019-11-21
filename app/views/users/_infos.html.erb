@@ -7,15 +7,15 @@
         <ul>
           <li><%= cl_image_tag @user.photo, class: "dashboard-image"%> </li>
           <li><%= @user.email %></li>
-          <li> User wins: <%=  @user.wins %> </li>
-          <li> User losses: <%=  @user.losses %> </li>
+          <li> Wins: <%=  @user.wins %> </li>
+          <li> Losses: <%=  @user.losses %> </li>
         </ul>
     </div>
   </div>
   <div class="container">
     <div class="row">
       <div class="col-6 p-3 ">
-        <%= link_to "Challenge", debates_path, class: "btn btn-primary" %>
+        <%#= link_to "Challenge", debates_path, class: "btn btn-primary" %>
         <%= link_to "Add Friend", user_path(@user), class: "btn btn-primary"  %>
       </div>
     </div>

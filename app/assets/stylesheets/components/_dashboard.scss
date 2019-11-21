@@ -6,7 +6,6 @@
 .card-dash {
   position: relative;
   border-radius: 12px;
-  text-shadow: 2px 1px 6px #cbcbcb;
   border: 1px solid #F3F3F3;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   margin: 1em;
@@ -74,4 +73,36 @@
   padding: 3px;
   border-radius: 12px;
   word-wrap:break-word;
+}
+
+
+// new dashboard design
+
+.open-debates {
+  padding: 16px;
+  height: 60vh;
+  overflow: scroll;
+}
+
+.dashboard-header {
+  text-align: center;
+  color: white;
+  background-color: #D3D6D9;
+  padding: 24px 0;
+  font-weight: bold;
+}
+
+.info {
+  margin-bottom: 16px;
+}
+
+.actions-controller {
+  width: 70vw;
+  margin: 0px 50px;
+}
+
+.username {
+  padding-bottom: 24px;
+  border-bottom: 1px solid white;
+  text-align: center
 }

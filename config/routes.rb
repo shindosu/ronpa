@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resources :debates, only: [:create]
     resources :arguments, only: [:create, :update]
   end
-  resources :debates, only: [:index, :show] do
+  resources :debates, only: [:show] do
     resources :participants, only: [:create]
     resources :uses, only: [:create, :update]
   end

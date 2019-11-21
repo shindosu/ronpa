@@ -7,4 +7,8 @@
       <p>Hello Mr. <%= participant.role %></p>
     <% end %>
   <% end %>
+
+  <p>You are in the <span style="color: red;"><%= @debate.phase %></span> phase!</p>
+  <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary",
+    method: :patch %>
 </div>

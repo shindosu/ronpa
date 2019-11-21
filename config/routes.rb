@@ -6,7 +6,8 @@ Rails.application.routes.draw do
     resources :debates, only: [:create]
     resources :arguments, only: [:create, :update]
   end
-  resources :debates, only: [:show] do
+  resources :debates, only: [:show, :update] do
+    patch '/next_phase', to: "debates#next_phase", as: :next_phase
     resources :participants, only: [:create]
     resources :uses, only: [:create, :update]
   end

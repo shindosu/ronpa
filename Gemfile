@@ -21,6 +21,7 @@ gem 'cloudinary', '~> 1.9.1'
 gem 'devise'
 gem 'nokogiri'
 gem 'pundit'
+gem 'stateful_enum'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

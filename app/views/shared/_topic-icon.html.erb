@@ -1,7 +1,12 @@
 <% case @topic.category %>
-  <% when "Food" %>
-    <i class="fas fa-utensils topic-show-icon fa-3x"></i>
+  <% when "General" %>
+    <i class="fas fa-globe-americas topic-show-icon fa-3x"></i>
+  <% when "Entertainment" %>
+    <i class="fas fa-tv topic-show-icon fa-3x"></i>
   <% when "Apparel" %>
-    <i class="fas fa-utensils topic-show-icon fa-3x"></i>
+    <i class="fas fa-tshirt topic-show-icon fa-3x"></i>
+  <% when "Politics" %>
+    <i class="fas fa-landmark topic-show-icon fa-3x"></i>
   <% else %>
+    <i class="fas fa-utensils topic-show-icon fa-3x"></i>
 <% end %>

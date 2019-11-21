@@ -1,14 +1,16 @@
 <div class="quarter-circle-top-left">
-  <%= render "shared/topic-icon"%>
+  <%= link_to "", topics_path, class:"div-link" %>
   <%= link_to '', topics_path, class:"div-link" %>
 </div>
-<div class="container-topic-show text-center">
+<div class="container-topic-show text-center mt-5">
   <div>
     <h1 id="topic-show-title" class="mb-5"><%= @topic.proposition %></h1>
       <div class="rating-section d-flex justify-content-center align-items-center mb-5">
         <%= render "shared/rating" %>
       </div>
-    <h3 id="topic-show-desc" class="mb-5"><%= @topic.description %></h3>
+      <div id="topic-show-desc" class="w-100 mb-5">
+        <p><%= @topic.description %></p>
+      </div>
   </div>
   <div class="form">
     <%= render "arguments/argument_forms" %>
@@ -19,7 +21,4 @@
       <%= link_to "Moderate Debate", topic_debates_path(@topic), method: :post, class: "btn btn-primary"  %>
     <% end %>
   </div>
-
 </div>
-
-

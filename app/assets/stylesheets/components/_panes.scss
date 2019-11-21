@@ -43,10 +43,35 @@
 
 .text-moderator {
   position: relative;
-  top: -179px;
+  top: -240px;
 }
 
 .text-clock {
   position: relative;
   top: 85px;
 }
+
+.user-icon-left {
+  padding-top: 90px;
+  padding-right: 350px;
+}
+
+.user-icon-right {
+  padding-top: 90px;
+  padding-left: 350px;
+}
+
+#argument-uses-left {
+  margin-top: 90px;
+  background-color: white;
+}
+
+#argument-uses-right {
+  margin-top: 90px;
+  background-color: white;
+}
+
+.argument-use {
+  padding-bottom: 20px;
+}
+

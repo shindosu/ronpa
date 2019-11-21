@@ -1,5 +1,5 @@
 class DebatesController < ApplicationController
-   def show
+  def show
     @debate = Debate.find(params[:id])
     authorize @debate
   end

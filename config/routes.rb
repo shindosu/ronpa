@@ -11,5 +11,5 @@ Rails.application.routes.draw do
     resources :uses, only: [:create, :update]
   end
   resources :users, only: [:show]
-  get 'dashboard', to: 'users#dashboard'
+  get 'dashboard', to: 'users#dashboard', as:'dashboard'
 end

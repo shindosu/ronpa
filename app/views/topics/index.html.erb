@@ -14,7 +14,7 @@
         <%= link_to "Dashboard", dashboard_path, class:"btn btn-default" %>
       </div>
     </div>
-      <h1 class="text-center mb-5">Debate Topics</h1>
+      <h1 class="text-center mb-5" id = "topic-index-header">Debate Topics</h1>
   <div class="topic-card-container">
     <% @topics.each do |topic| %>
         <%= render 'topic_card', topic: topic %>

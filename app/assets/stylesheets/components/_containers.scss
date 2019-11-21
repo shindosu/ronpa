@@ -1,3 +1,15 @@
+@media(max-width: 992px) {
+  .debates-show-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .debates-show-container {
+    grid-template-columns: 1fr ;
+  }
+}
+
 .topic-card-container {
   position:  relative;
   display: grid;
@@ -7,4 +19,8 @@
 
 .topic-index-container {
   background-color: #86F590;
+}
+
+.debates-show-container {
+
 }

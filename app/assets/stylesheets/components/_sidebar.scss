@@ -15,16 +15,14 @@
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
 }
 
-.username {
-  padding: 8px;
-  border-bottom: 1px solid white;
-  text-align: center
-}
 
 .actions {
   text-align: center;
   color: charcoal;
   margin-top: 8px;
+    & li {
+    margin-bottom: 8px;
+  }
 }
 
 .user-dashboard {

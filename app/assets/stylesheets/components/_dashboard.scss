@@ -80,24 +80,29 @@
 
 .open-debates {
   padding: 16px;
-  height: 80vh;
+  height: 60vh;
   overflow: scroll;
-
 }
 
 .dashboard-header {
   text-align: center;
   color: white;
-  background-color: $primary;
+  background-color: #D3D6D9;
   padding: 24px 0;
-
-}
-
-.moderate-debates {
-  background-color: rgba(227,122,122,0.9);
-  color: white;
+  font-weight: bold;
 }
 
 .info {
   margin-bottom: 16px;
+}
+
+.actions-controller {
+  width: 70vw;
+  margin: 0px 50px;
+}
+
+.username {
+  padding-bottom: 24px;
+  border-bottom: 1px solid white;
+  text-align: center
 }

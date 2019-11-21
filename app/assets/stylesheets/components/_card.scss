@@ -27,12 +27,13 @@
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   padding: 8px;
   padding-top: 24px;
-  margin: 5px;
+  margin: 5px 5px 20px 10px;
   transition: transform .4s;
   &:hover {
     transform: scale(1.07);
   }
   h4 {
+    height: 70px;
     color: rgb(80, 80, 80);
     font-size: 18px;
     text-align: center;

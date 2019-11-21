@@ -1,0 +1,52 @@
+.user-pane-left {
+  background-color: #E9FFDB;
+  height: 100vh;
+  width: 50%;
+  text-align: center;
+  padding: 8px;
+  position: relative;
+  top: -154px;
+  z-index: -1;
+  h3 {
+    border-bottom: 1px solid rgb(200, 200, 200);
+    padding-bottom: 4px;
+  }
+}
+
+.user-pane-right {
+  background-color: #DBF0FF;
+  height: 100vh;
+  width: 50%;
+  text-align: center;
+  position: relative;
+  top: -154px;
+  z-index: -1;
+  padding: 8px;
+  h3 {
+    border-bottom: 1px solid rgb(200, 200, 200);
+    padding-bottom: 4px;
+  }
+}
+
+.debate-panes {
+  position: relative;
+}
+
+.role {
+  padding-top: 60px;
+}
+
+.text-phase {
+  position: relative;
+  top: 90px;
+}
+
+.text-moderator {
+  position: relative;
+  top: -179px;
+}
+
+.text-clock {
+  position: relative;
+  top: 85px;
+}

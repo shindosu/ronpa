@@ -1,4 +1,5 @@
 <div class="quarter-circle-top-left">
+  <%= render "shared/topic-icon" %>
   <%= link_to "", topics_path, class:"div-link" %>
   <%= link_to '', topics_path, class:"div-link" %>
 </div>
@@ -12,6 +13,7 @@
         <p><%= @topic.description %></p>
       </div>
   </div>
+
   <div class="form">
     <%= render "arguments/argument_forms" %>
     <%= link_to "Back to Topics", topics_path, class: "btn btn-primary"  %>

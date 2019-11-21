@@ -6,6 +6,7 @@ class UsersController < ApplicationController
 
   def dashboard
     @user = current_user
+    @topics = Topic.first(10)
     authorize_user
   end
 

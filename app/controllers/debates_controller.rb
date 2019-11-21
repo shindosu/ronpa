@@ -1,6 +1,7 @@
 class DebatesController < ApplicationController
   def index
     @debates = policy_scope(Debate)
+    @topics = Topic.all
   end
 
   def show

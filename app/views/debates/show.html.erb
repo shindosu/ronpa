@@ -1,10 +1,16 @@
-<div class="container">
-  <h1><%= @debate.topic.proposition %></h1>
-  <% @debate.participants.each do |participant| %>
-    <% if participant.role == "moderator" %>
-      <p>Hello Mr. Moderator</p>
-    <% else %>
-      <p>Hello Mr. <%= participant.role %></p>
-    <% end %>
-  <% end %>
-</div>
+<h1 class="text-center"><%= @debate.topic.proposition%></h1>
+  <div class="container pl-0 pr-0">
+    <div class="d-flex justify-content-between">
+      <% @debate.participants.each do |participant| %>
+          <% if participant.role == "affirmative" %>
+            <div class="user-pane-left pt-2">
+              <%= render 'user_pane_left', participant: participant %>
+            </div>
+          <% elsif participant.role == "negative" %>
+            <div class="user-pane-right pt-2">
+              <%= render 'user_pane_right', participant: participant %>
+            </div>
+          <% end %>
+      <% end %>
+    </div>
+  </div>

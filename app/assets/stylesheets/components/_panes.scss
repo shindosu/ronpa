@@ -1,0 +1,22 @@
+.user-pane-left {
+  background-color: blue;
+  height: 100vh;
+  width: 50%;
+  text-align: center;
+}
+
+.user-pane-right {
+  background-color: red;
+  height: 100vh;
+  width: 50%;
+  text-align: center;
+  position: relative;
+}
+
+.debate-panes {
+  position: relative;
+}
+
+.topic-proposition {
+  position: absolute;
+}

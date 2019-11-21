@@ -7,6 +7,8 @@
   position: relative;
   top: -154px;
   z-index: -1;
+  border-left: 1px solid gray;
+  border-bottom: 1px solid gray;
   h3 {
     border-bottom: 1px solid rgb(200, 200, 200);
     padding-bottom: 4px;
@@ -22,6 +24,8 @@
   top: -154px;
   z-index: -1;
   padding: 8px;
+  border-right: 1px solid gray;
+  border-bottom: 1px solid gray;
   h3 {
     border-bottom: 1px solid rgb(200, 200, 200);
     padding-bottom: 4px;
@@ -43,7 +47,7 @@
 
 .text-moderator {
   position: relative;
-  top: -240px;
+  top: -300px;
 }
 
 .text-clock {
@@ -63,15 +67,22 @@
 
 #argument-uses-left {
   margin-top: 90px;
-  background-color: white;
 }
 
 #argument-uses-right {
   margin-top: 90px;
-  background-color: white;
 }
 
 .argument-use {
-  padding-bottom: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+  padding: 8px;
+}
+
+.moderator-image {
+ height: 100px;
+ width: 100px;
+ position: relative;
+ border: 2px solid red;
 }
 

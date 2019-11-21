@@ -1,11 +1,13 @@
 class DebatesController < ApplicationController
   def show
     @debate = Debate.find(params[:id])
+    authorize @debate
   end
 
   def create
-    @topic = Topic.find(params[:id])
+    @topic = Topic.find(params[:topic_id])
     @debate = Debate.new(topic: @topic)
+    authorize @debate
     if @debate.save
       Participant.create(debate: @debate, role: "moderator", user: current_user)
       redirect_to debate_path(@debate)

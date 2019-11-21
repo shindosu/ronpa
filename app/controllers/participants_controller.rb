@@ -11,7 +11,6 @@ class ParticipantsController < ApplicationController
         @participant.negative!
       end
     else
-      authorize @participant
       render "topics/show"
     end
   end

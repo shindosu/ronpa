@@ -1,3 +1,10 @@
 <div class="container">
   <h1><%= @debate.topic.proposition %></h1>
+  <% @debate.participants.each do |participant| %>
+    <% if participant.role == "moderator" %>
+      <p>Hello Mr. Moderator</p>
+    <% else %>
+      <p>Hello Mr. <%= participant.role %></p>
+    <% end %>
+  <% end %>
 </div>

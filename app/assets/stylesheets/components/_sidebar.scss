@@ -21,10 +21,25 @@
 
 .actions {
   text-align: center;
-  color: white
+  color: white;
+  margin-top: 8px;
 }
 
 .user-dashboard {
   display: flex;
   flex-direction: column;
+}
+
+.dashboard-image {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.dashboard img{
+  position:absolute;
+  left: 88px;
+  top: 59px;
+  height: 200px;
+
 }

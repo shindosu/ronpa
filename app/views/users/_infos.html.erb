@@ -5,7 +5,7 @@
     </div>
     <div class="actions">
         <ul>
-          <li><%= current_user.photo %> </li>
+          <li><%= cl_image_tag @user.photo, class: "dashboard-image"%> </li>
           <li><%= @user.email %></li>
           <li> User wins: <%=  @user.wins %> </li>
           <li> User losses: <%=  @user.losses %> </li>

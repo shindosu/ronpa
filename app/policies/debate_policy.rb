@@ -12,4 +12,9 @@ class DebatePolicy < ApplicationPolicy
   def show?
     true
   end
+
+
+  def next_phase?
+    true
+  end
 end

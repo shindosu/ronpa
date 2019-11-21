@@ -17,10 +17,9 @@
   <div class="form">
     <%= render "arguments/argument_forms" %>
     <%= link_to "Back to Topics", topics_path, class: "btn btn-primary"  %>
-    <% if @topic.debates.any? %>
-      <%= link_to "Join Debate", debate_participants_path(@topic.debates.first), method: :post, class: "btn btn-primary"  %>
-    <% else %>
-      <%= link_to "Moderate Debate", topic_debates_path(@topic), method: :post, class: "btn btn-primary"  %>
+    <% if @topic.debates.waiting_start.any? %>
+      <%= link_to "Debate This Topic", debate_participants_path(@topic.debates.waiting_start.first), method: :post, class: "btn btn-primary"  %>
     <% end %>
+    <%= link_to "Moderate This Topic", topic_debates_path(@topic), method: :post, class: "btn btn-primary"  %>
   </div>
 </div>

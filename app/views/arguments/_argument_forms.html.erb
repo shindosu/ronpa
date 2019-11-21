@@ -1,8 +1,8 @@
 <div>
-  <h4 class="mb-4">Enter 6 arguments to debate on this topic </h4>
+  <h4 class="argument-form-header mb-5">Enter 6 arguments to debate on this topic </h4>
   <div class="row">
     <div class="col-6">
-      <h5>Affirmative Arguments</h5>
+      <h5 class = "argument-form-header">Affirmative Arguments</h5>
       <% current_user.arguments.where(topic_id: @topic.id).affirmative.each do |argument| %>
         <%= render "arguments/new_argument_form", argument: argument, side: "affirmative" %>
       <% end %>
@@ -11,7 +11,7 @@
       <% end %>
     </div>
     <div class="col-6">
-      <h5>Negative Arguments</h5>
+      <h5 class = "argument-form-header">Negative Arguments</h5>
       <% current_user.arguments.where(topic_id: @topic.id).negative.each do |argument| %>
         <%= render "arguments/new_argument_form", argument: argument, side: "negative" %>
       <% end %>

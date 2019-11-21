@@ -1,4 +1,8 @@
 class DebatesController < ApplicationController
+  def index
+    @debates = policy_scope(Debate)
+  end
+
   def show
     @debate = Debate.find(params[:id])
     authorize @debate

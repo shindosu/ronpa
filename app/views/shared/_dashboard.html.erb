@@ -23,10 +23,11 @@
 </div>
 
 <div class="row text-center justify-content-around flex-grow-1 m-5 user-info ">
-  <%= image_tag "default.png", alt: "alttext", id: "avatar-dash" %>
+
   <div class="col-6 col-sm-3" style="color: white">
     <h3><%=  current_user.username %></h3>
     <ul>
+      <li><%= cl_image_tag current_user.photo, class: "dashboard-image"%></li>
       <li> Email: <%= current_user.email %> </li>
       <li> User wins: <%=  @user.wins %> </li>
       <li> User losses: <%=  @user.losses %> </li>

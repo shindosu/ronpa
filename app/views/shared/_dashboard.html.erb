@@ -1,55 +1,51 @@
-    <!-- <div class="nav-top">
-      <h1 align="center">Dashboard</h1>
-    </div> -->
+<div class="row text-center justify-content-around p-5">
 
-    <div class="row text-center justify-content-around m-5">
+  <div class="col-sm-3 card-dash blue ">
+    <%= link_to "", debates_path, class: "card-link" %>
+    <i class="fas fa-dice card-icon"></i>
+    <h1>Quick match</h1>
+    <p>Ronp about a random topic with ronpers scattered around the world!</p>
+  </div>
 
-      <div class="col-sm-3 card-dash blue ">
-        <%= link_to "", debates_path, class: "card-link" %>
-        <i class="fas fa-dice card-icon"></i>
-        <h1>Quick match</h1>
-        <p>Ronp about a random topic with ronpers scattered around the world!</p>
-      </div>
+  <div class=" col-sm-3 card-dash red ">
+    <%= link_to "", debates_path, class: "card-link" %>
+    <i class="fas fa-chalkboard-teacher card-icon"></i>
+    <h1>Moderate</h1>
+    <p>It’s your turn to judge. Watch over other ronpers and discover something new</p>
+  </div>
 
-      <div class=" col-sm-3 card-dash red ">
-        <%= link_to "", debates_path, class: "card-link" %>
-        <i class="fas fa-chalkboard-teacher card-icon"></i>
-        <h1>Moderate</h1>
-        <p>It’s your turn to judge. Watch over other ronpers and discover something new</p>
-      </div>
+  <div class="col-sm-3 card-dash green ">
+    <%= link_to "", topics_path, class: "card-link" %>
+    <i class="far fa-check-circle card-icon"></i>
+    <h1>Choose</h1>
+    <p>Enter the dojo. Select a topic to ronp in and prepare for the fight</p>
+  </div>
+</div>
 
-      <div class="col-sm-3 card-dash green ">
-        <%= link_to "", topics_path, class: "card-link" %>
-        <i class="far fa-check-circle card-icon"></i>
-        <h1>Choose</h1>
-        <p>Enter the dojo. Select a topic to ronp in and prepare for the fight</p>
-      </div>
-    </div>
-
-    <div class="row text-center justify-content-around m-5">
-      <%= image_tag "default.png", alt: "alttext", id: "avatar-dash" %>
-      <div class="col-6 col-sm-3">
-        <h3><%=  current_user.username %></h3>
-        <ul>
-          <li> Email: <%= @user.email %> </li>
-          <li> User wins: <%=  @user.wins %> </li>
-          <li> User losses: <%=  @user.losses %> </li>
-        </ul>
-      </div>
-      <div class="m-2">
-        <h3>Your ratings</h3>
-        <p>Communication rating</p>
-          <% 4.times do %>
-          <i class="fas fa-star star-yellow"></i>
-          <% end %>
-        <p>Debate rating</p>
-          <% 3.times do %>
-          <i class="fas fa-star star-yellow"></i>
-          <% end %>
-        <p>Civility rating</p>
-          <% 5.times do %>
-          <i class="fas fa-star star-yellow"></i>
-          <% end %>
-      </div>
-    </div>
+<div class="row text-center justify-content-around flex-grow-1 m-5 user-info ">
+  <%= image_tag "default.png", alt: "alttext", id: "avatar-dash" %>
+  <div class="col-6 col-sm-3" style="color: white">
+    <h3><%=  current_user.username %></h3>
+    <ul>
+      <li> Email: <%= current_user.email %> </li>
+      <li> User wins: <%=  @user.wins %> </li>
+      <li> User losses: <%=  @user.losses %> </li>
+    </ul>
+  </div>
+  <div class="m-2" style="color: white">
+    <h3>Your ratings</h3>
+    <p>Communication rating</p>
+    <% 4.times do %>
+      <i class="fas fa-star star-yellow"></i>
+    <% end %>
+    <p>Debate rating</p>
+    <% 3.times do %>
+      <i class="fas fa-star star-yellow"></i>
+    <% end %>
+    <p>Civility rating</p>
+    <% 5.times do %>
+      <i class="fas fa-star star-yellow"></i>
+    <% end %>
+  </div>
+</div>
 

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css?family=Rock+Salt&display=swap');
-
 .container-topic-show{
   position: relative;
   bottom: 200px;
@@ -8,16 +6,18 @@
 }
 
 #topic-show-title{
-  font-family: 'Rock Salt', cursive;
   font-size: 1.8em;
+  font-family: 'Orbitron', sans-serif;
 }
 
 #topic-show-desc{
   margin: 0 auto;
+  font-family: 'Orbitron', sans-serif;
 }
 
 #topic-show-desc h3{
   font-size: 1.2em;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .quarter-circle-top-left{
@@ -30,18 +30,21 @@
 }
 
 .rating-background-yellow{
+  font-family: 'Orbitron', sans-serif;
   background-color: #F6E27F;
   padding: 10px 20px;
   border-radius: 20px;
 }
 
 .rating-background-orange{
+  font-family: 'Orbitron', sans-serif;
   background-color: #FF9934;
   padding: 10px 20px;
   border-radius: 20px;
 }
 
 .rating-background-red{
+  font-family: 'Orbitron', sans-serif;
   background-color: rgb(212, 64, 64);
   padding: 10px 20px;
   border-radius: 20px;

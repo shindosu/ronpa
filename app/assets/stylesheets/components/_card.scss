@@ -22,12 +22,28 @@
 }
 
 .topic-card {
+  position: relative;
   border: 1px solid #F3F3F3;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   padding: 8px;
+  padding-top: 24px;
   margin: 5px;
   transition: transform .4s;
   &:hover {
-    transform: scale(1.1);
+    transform: scale(1.07);
+  }
+  h4 {
+    color: rgb(80, 80, 80);
+    font-size: 18px;
+    text-align: center;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    padding-bottom: 12px;
+  }
+  .details-text {
+    font-size: 16px;
+    font-weight: lighter;
+    padding-top: 12px;
+    padding-bottom: 0px;
+    color: rgb(150, 150, 150);
   }
 }

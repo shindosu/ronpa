@@ -6,9 +6,11 @@
 .card-dash {
   position: relative;
   border-radius: 12px;
+  text-shadow: 2px 1px 6px #cbcbcb;
   border: 1px solid #F3F3F3;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-  padding: 8px;
+  margin: 1em;
+  padding: 1em;
   transition: transform .4s;
   &:hover {
     transform: scale(1.1);
@@ -22,15 +24,15 @@
 }
 
 .blue {
-  background-color: rgba(170,202,255,0.5);
+  background-color: rgba(170,202,255,0.9);
 }
 
 .red {
-  background-color: rgba(227,122,122,0.5);
+  background-color: rgba(227,122,122,0.9);
 }
 
 .green{
-  background-color: rgba(134,245,145,0.5);
+  background-color: rgba(134,245,145,0.9);
 }
 
 #avatar-dash {
@@ -46,13 +48,6 @@
 }
 
 
-.nav-top {
-  margin: 0;
-  border: 1px white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  background: #353D47;
-  color: white;
-}
 
 .card-link {
   position: absolute;
@@ -61,6 +56,32 @@
   top: 0;
   left: 0;
 }
+
+
+// .nav-top {
+//   margin: 0;
+//   border: 1px white;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   background: #353D47;
+//   color: white;
+// }
+
+.card-link {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.user-info {
+  border: 1px solid gray;
+  box-shadow: 0 0 3px rgba(0,0,0,0.6);
+  border-radius: 12px;
+  background-color: rgba(black, 0.9);
+  padding: 24px;
+}
+
 
 
 

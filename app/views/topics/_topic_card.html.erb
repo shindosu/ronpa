@@ -1,40 +1,59 @@
-<%= link_to topic_path(topic) do  %>
-  <div class="topic-card">
-    <h4><%= topic.proposition %></h4>
-      <p><strong>Category:</strong> <%= topic.category %></p>
-      <p>
-        <strong>Difficulty level:</strong>
-        <% if topic.level.to_i == 1 %>
-          <i class="fas fa-chess-knight knight-green"></i>
-          <% 4.times do %>
-            <i class="fas fa-chess-knight knight-grey"></i>
-          <% end %>
-        <% elsif topic.level.to_i == 2 %>
-            <% 2.times do %>
-              <i class="fas fa-chess-knight knight-blue"></i>
-            <% end %>
-            <% 3.times do %>
-              <i class="fas fa-chess-knight knight-grey"></i>
-            <% end %>
-        <% elsif topic.level.to_i == 3 %>
-            <% 3.times do %>
-              <i class="fas fa-chess-knight knight-yellow"></i>
-            <% end %>
-            <% 2.times do %>
-              <i class="fas fa-chess-knight knight-grey"></i>
-            <% end %>
-        <% elsif topic.level.to_i == 4 %>
-            <% 4.times do %>
-              <i class="fas fa-chess-knight knight-orange"></i>
-            <% end %>
-            <% 1.times do %>
-              <i class="fas fa-chess-knight knight-grey"></i>
-            <% end %>
-        <% elsif topic.level.to_i == 5 %>
-            <% 5.times do %>
-              <i class="fas fa-chess-knight knight-red"></i>
-            <% end %>
+<div class="topic-card-links">
+  <%= link_to topic_path(topic) do  %>
+    <div class="topic-card">
+      <div class="category-icon text-center">
+        <% case topic.category %>
+          <% when "General" %>
+            <i class="fas fa-globe-americas fa-lg"></i>
+          <% when "Entertainment" %>
+            <i class="fas fa-tv fa-lg"></i>
+          <% when "Apparel" %>
+            <i class="fas fa-tshirt fa-lg"></i>
+          <% when "Politics" %>
+            <i class="fas fa-landmark fa-lg"></i>
+          <% else %>
+             <i class="fas fa-utensils fa-lg"></i>
         <% end %>
-        </p>
-  </div>
-<% end %>
+      </div>
+      <h4><%= topic.proposition %></h4>
+        <div class="details-text d-flex justify-content-between">
+          <p><strong><%= topic.category %></strong></p>
+          <p>
+            <% case topic.level.to_i %>
+            <% when 1 %>
+              <i class="fas fa-chess-knight knight-blue"></i>
+              <% 4.times do %>
+                <i class="fas fa-chess-knight knight-grey"></i>
+              <% end %>
+            <% when 2 %>
+                <% 2.times do %>
+                  <i class="fas fa-chess-knight knight-blue"></i>
+                <% end %>
+                <% 3.times do %>
+                  <i class="fas fa-chess-knight knight-grey"></i>
+                <% end %>
+            <% when 3 %>
+                <% 3.times do %>
+                  <i class="fas fa-chess-knight knight-blue"></i>
+                <% end %>
+                <% 2.times do %>
+                  <i class="fas fa-chess-knight knight-grey"></i>
+                <% end %>
+            <% when 4 %>
+                <% 4.times do %>
+                  <i class="fas fa-chess-knight knight-blue"></i>
+                <% end %>
+                <% 1.times do %>
+                  <i class="fas fa-chess-knight knight-grey"></i>
+                <% end %>
+            <% else %>
+                <% 5.times do %>
+                  <i class="fas fa-chess-knight knight-blue"></i>
+                <% end %>
+            <% end %>
+          </p>
+        </div>
+    </div>
+  <% end %>
+</div>
+

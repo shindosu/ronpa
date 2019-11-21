@@ -1,13 +1,22 @@
-<div class="container-dash">
-  <div class="map">
+<div class="user-sidebar">
+  <div class="sidebar">
+    <div class="info">
+      <h4><%= current_user.username %>'s page</h4>
+    </div>
+    <div class="actions">
+        <ul>
+          <li><%= current_user.photo %> </li>
+          <li><%= @user.email %></li>
+          <li> User wins: <%=  @user.wins %> </li>
+          <li> User losses: <%=  @user.losses %> </li>
+        </ul>
+    </div>
+  </div>
+  <div class="container">
     <div class="row">
-      <div class="col-6">
-        <h4><%= current_user.username %></h4>
-            <%= @user.email %>
-            <%= current_user.photo %>
-      </div>
-      <div class="col-6">
-
+      <div class="col-6 p-3 ">
+        <%= link_to "Challenge", debates_path, class: "btn btn-primary" %>
+        <%= link_to "Add Friend", user_path(@user), class: "btn btn-primary"  %>
       </div>
     </div>
   </div>

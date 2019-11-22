@@ -13,9 +13,8 @@
           <li> Wins: <i class="fas fa-trophy"></i> <%=  @user.wins %> </li>
           <li> Losses: <i class="fas fa-skull"></i> <%=  @user.losses %> </li>
         <hr>
-          <li>Communication: </li>
-          <li>Debate: </li>
-          <li>Civility: </li>
+        <h3>Battlepoints: 123</h3>
+        <%= render "users/dashboard_rating" %>
         <hr>
           <li><%= link_to "Browse Topics", topics_path, class: "btn-new" %></li>
         </ul>

@@ -15,11 +15,13 @@
 
   <div class="form">
     <%= render "arguments/argument_forms" %>
-    <%= link_to "Back to Topics", topics_path, class: "btn btn-primary"  %>
-    <% if @topic.debates.waiting_start.any? %>
-      <%= link_to "Debate This Topic", debate_participants_path(@topic.debates.waiting_start.first), method: :post, class: "btn btn-primary"  %>
-    <% end %>
-    <%= link_to "Moderate This Topic", topic_debates_path(@topic), method: :post, class: "btn btn-primary"  %>
+    <div class="d-flex justify-content-around">
+      <%= link_to "Back to Topics", topics_path, class: "btn btn-primary"  %>
+      <% if current_user.debates.active.none? %>
+        <%= link_to "Join as Debator", topic_participants_path(@topic, debator: true), method: :post, class: "btn btn-primary"  %>
+        <%= link_to "Join as Moderator", topic_participants_path(@topic, moderator: true), method: :post, class: "btn btn-primary"  %>
+      <% end %>
+    </div>
   </div>
 </div>
 

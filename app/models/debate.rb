@@ -5,18 +5,35 @@ class Debate < ApplicationRecord
 
   enum phase: {
     waiting_start: 0,
-    affirmative_speech: 1,
-    negative_cross_examination_preparation: 2,
-    negative_cross_examination: 3,
-    negative_speech: 4,
-    positive_cross_examination_preparation: 5,
-    positive_cross_examination: 6,
-    negative_closing_statement: 7,
-    positive_closing_statement: 8,
-    waiting_end: 9,
-    finished: 10
+    count_in: 1,
+    affirmative_speech: 2,
+    negative_cross_examination_preparation: 3,
+    negative_cross_examination: 4,
+    negative_speech: 5,
+    affirmative_cross_examination_preparation: 6,
+    affirmative_cross_examination: 7,
+    negative_closing_statement: 8,
+    affirmative_closing_statement: 9,
+    waiting_end: 10,
+    finished: 11
   } do
-    end
+  end
 
   scope :active, -> { where.not(phase: :finished) }
+  scope :affirmative_turn, -> do
+    where(phase: [:affirmative_speech,
+                  :affirmative_cross_examination_preparation,
+                  :affirmative_cross_examination,
+                  :affirmative_closing_statement])
+  end
+  scope :negative_turn, -> do
+    where(phase: [:negative_speech,
+                  :negative_cross_examination_preparation,
+                  :negative_cross_examination,
+                  :negative_closing_statement])
+  end
+
+  def with_slot?(role)
+    participants.send(role).none?
+  end
 end

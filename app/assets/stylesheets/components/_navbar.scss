@@ -19,6 +19,7 @@
   transition: 0.5s background-color ease;
   top: 0;
   z-index: 2;
+  margin-bottom: 120px;
   // box-shadow: 0 0 3px rgba(0,0,0,0.6);
 }
 
@@ -37,5 +38,7 @@
 }
 
 .dropdown-item:hover {
-  color: #6A9AEB;
+  background-color: #ecaba8;
+  width: auto;
 }
+

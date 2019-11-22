@@ -1,10 +1,11 @@
 <%= render 'shared/navbar' %>
 <div class="container-dash justify-content-between" >
-  <div class="username text-capitalize">
-    <h3><%= current_user.username %>'s Dashboard</h3>
-  </div>
+
   <div class="user-sidebar justify-content-around">
     <div class="sidebar">
+      <div class="username text-capitalize">
+        <h3><%= current_user.username %>'s Dashboard</h3>
+      </div>
       <div class="actions">
         <ul>
           <li><%= cl_image_tag current_user.photo, class: "dashboard-image"%> </li>
@@ -16,7 +17,7 @@
           <li>Debate: </li>
           <li>Civility: </li>
         <hr>
-          <li><%= link_to "Browse Topics", topics_path, class: "btn btn-primary" %></li>
+          <li><%= link_to "Browse Topics", topics_path, class: "btn-new" %></li>
         </ul>
       </div>
     </div>

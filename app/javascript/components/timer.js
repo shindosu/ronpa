@@ -8,9 +8,9 @@ let button = document.querySelector(".next-phase")
 console.log(phase_status == "Waiting for match to start...")
 switch (phase_status) {
 
-  case "Waiting for match to start...":
-      timer.start({countdown: true, startValues: {seconds: 11}});
-  break;
+  // case "Waiting for match to start...":
+  //     timer.start({countdown: true, startValues: {seconds: 11}});
+  // break;
   case "Affirmative opening arguments will start in:":
       timer.start({countdown: true, startValues: {seconds: 21}});
   break;

@@ -10,7 +10,7 @@
   border-left: 1px solid gray;
   border-bottom: 1px solid gray;
   h3 {
-    border-bottom: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(150, 150, 150);
     padding-bottom: 4px;
   }
 }
@@ -27,7 +27,7 @@
   border-right: 1px solid gray;
   border-bottom: 1px solid gray;
   h3 {
-    border-bottom: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(150, 150, 150);
     padding-bottom: 4px;
   }
 }
@@ -38,33 +38,46 @@
 
 .role {
   padding-top: 60px;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+}
+
+.topic-proposition-text {
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
 
 .text-phase {
   position: relative;
   top: 90px;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+  color: #D95852;
 }
 
 .text-moderator {
   position: relative;
   top: -360px;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
 
 .text-clock {
   position: relative;
   top: 85px;
+  text-shadow: 2px 2px 2px rgba(0,0,0,0.2);
 }
 
 .user-icon-left {
   justify-content: center;
   align-items: center;
   padding-top: 90px;
+  border-bottom: 2px solid rgb(150, 150, 150);
+  width: 270px;
 }
 
 .user-icon-right {
   justify-content: center;
   align-items: center;
   padding-top: 90px;
+  border-bottom: 2px solid rgb(150, 150, 150);
+  width: 270px;
 }
 
 #argument-uses-left {
@@ -79,12 +92,16 @@
   margin-bottom: 20px;
   background-color: #FFFFFF;
   padding: 8px 32px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
 }
 
 .argument-use-negative {
   margin-bottom: 20px;
   background-color: white;
   padding: 8px 32px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
 }
 
 .moderator-image {

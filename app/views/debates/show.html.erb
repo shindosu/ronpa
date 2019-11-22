@@ -54,7 +54,7 @@
           <%= cl_image_tag participant.user.photo, class:"text-center moderator-image" %>
         </div>
         <h4><%= participant.user.username %> is <%= participant.role %></h4>
-        <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary", id: "next-phase",
+        <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase",
           method: :patch %>
         </div>
       <% end %>

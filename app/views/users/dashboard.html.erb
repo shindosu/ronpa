@@ -3,7 +3,7 @@
   <div class="username text-capitalize">
     <h3><%= current_user.username %>'s Dashboard</h3>
   </div>
-  <div class="user-sidebar">
+  <div class="user-sidebar justify-content-around">
     <div class="sidebar">
       <div class="actions">
         <ul>
@@ -12,23 +12,26 @@
           <li> Wins: <i class="fas fa-trophy"></i> <%=  @user.wins %> </li>
           <li> Losses: <i class="fas fa-skull"></i> <%=  @user.losses %> </li>
         <hr>
-          <li><%= link_to "Prepare Topics", topics_path, class: "btn btn-primary" %></li>
-          <li><%= link_to "New Topic", topics_path, class: "btn btn-primary" %></li>
+          <li>Communication: </li>
+          <li>Debate: </li>
+          <li>Civility: </li>
+        <hr>
+          <li><%= link_to "Browse Topics", topics_path, class: "btn btn-primary" %></li>
         </ul>
       </div>
     </div>
    <div class="actions-controller d-flex">
-        <div class="col-sm-6 ">
-          <div class="dashboard-header"><h5>Open Debates</h5></div>
-            <div class="open-debates">
+        <div class="col-sm-6 col-xs-12 ">
+          <div class="dashboard-header"><h5>Available Debates</h5></div>
+            <div class="open-debates border pt-5">
               <% @topics.each do  |topic| %>
                 <%= render 'topics/topic_card', topic: topic  %>
               <% end %>
             </div>
         </div>
-        <div class="col-sm-6 ">
+        <div class="col-sm-6 col-xs-12">
           <div class="dashboard-header"><h5>Moderate</h5></div>
-            <div class="open-debates">
+            <div class="open-debates border pt-5">
               <% @topics.reverse.each do  |topic| %>
                 <%= render 'topics/topic_card', topic: topic %>
               <% end %>

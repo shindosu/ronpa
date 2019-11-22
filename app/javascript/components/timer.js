@@ -3,9 +3,6 @@ import { Timer } from 'easytimer.js';
 const setTimer = (phase_status, timer) => {
   switch (phase_status) {
 
-  case "Waiting for match to start...":
-      timer.start({countdown: true, startValues: {seconds: 11}});
-  break;
   case "Affirmative opening arguments will start in:":
       timer.start({countdown: true, startValues: {seconds: 21}});
   break;

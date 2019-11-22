@@ -39,6 +39,8 @@
           <div class="user-pane-left pt-2">
             <%= render 'user_pane_left', participant: participant %>
           </div>
+          <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase d-none",
+          method: :patch %>
         <% elsif participant.role == "negative" %>
           <div class="user-pane-right pt-2">
             <%= render 'user_pane_right', participant: participant %>

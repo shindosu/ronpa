@@ -1,6 +1,6 @@
 <div class="container pl-0 pr-0">
-  <h1 class="text-center"><%= @debate.topic.proposition%></h1>
-  <h3 class="text-center text-phase" style="color: red;">
+  <h1 class="text-center topic-proposition-text"><%= @debate.topic.proposition%></h1>
+  <h3 class="text-center text-phase">
     <% case @debate.phase %>
     <% when "waiting_start"%>
       Waiting for match to start...
@@ -12,29 +12,35 @@
       Negative cross examination preparation
     <% when "negative_cross_examination"%>
       Negative cross examination
+    <% when "negative_speech_preparation"%>
+      Negative opening argument preparation
     <% when "negative_speech"%>
       Negative opening arguments
     <% when "affirmative_cross_examination_preparation"%>
       Affirmative cross examination preparation
     <% when "affirmative_cross_examination"%>
       Affirmative cross examination
-    <% when "negative_closing_statement"%>
-      Negative closing statements
+    <% when "affirmative_closing_statement_preparation"%>
+      Affirmative closing statement prepatation
     <% when "affirmative_closing_statement"%>
       Affirmative closing statements
+    <% when "negative_closing_statement_preparation"%>
+      Negative closing statement preparation
+    <% when "negative_closing_statement"%>
+      Negative closing statements
     <% when "waiting_end"%>
       Moderator giving final score...
-    <% when "affirmative_closing_statement"%>
-      Waiting for match to start
     <% end %>
   </h3>
-  <h4 class="text-center text-clock"><i class="fas fa-stopwatch fa-2x"></i></h4>
+  <h4 class="text-center text-clock"><i class="fas fa-stopwatch fa-2x"></i><%= render 'shared/timer' %></h4>
   <div class="d-flex justify-content-between">
     <% @debate.participants.each do |participant| %>
         <% if participant.role == "affirmative" %>
           <div class="user-pane-left pt-2">
             <%= render 'user_pane_left', participant: participant %>
           </div>
+          <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase d-none",
+          method: :patch %>
         <% elsif participant.role == "negative" %>
           <div class="user-pane-right pt-2">
             <%= render 'user_pane_right', participant: participant %>

@@ -8,7 +8,7 @@
       </div>
       <div class="actions">
         <ul>
-          <li><%= cl_image_tag current_user.photo, class: "dashboard-image"%> </li>
+          <li><%= cl_image_tag current_user.photo.url(:user_photo_main), class: "dashboard-image"%> </li>
           <li><%= current_user.email %></li>
           <li> Wins: <i class="fas fa-trophy"></i> <%=  @user.wins %> </li>
           <li> Losses: <i class="fas fa-skull"></i> <%=  @user.losses %> </li>

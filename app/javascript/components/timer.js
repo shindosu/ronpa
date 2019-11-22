@@ -1,12 +1,7 @@
-import Timer from 'easytimer.js';
+import { Timer } from 'easytimer.js';
 
-let timer = new Timer();
-let phase_status = document.querySelector(".text-phase").innerText;
-let values = document.querySelector(".values")
-let button = document.querySelector(".next-phase")
-
-console.log(phase_status == "Waiting for match to start...")
-switch (phase_status) {
+const setTimer = (phase_status, timer) => {
+  switch (phase_status) {
 
   case "Waiting for match to start...":
       timer.start({countdown: true, startValues: {seconds: 11}});
@@ -49,12 +44,28 @@ switch (phase_status) {
   break;
   case "Moderator giving final score...":
       timer.start({countdown: true, startValues: {seconds: 31}});
+  }
 }
 
-timer.addEventListener('secondsUpdated', (event) => {
-  values.innerHTML = timer.getTimeValues().toString().split("").slice(3,8).join("")
-});
+const initTimer = () => {
+  const phaseNode = document.querySelector(".text-phase")
+  if (phaseNode) {
+    const timer = new Timer();
+    let values = document.querySelector(".values");
+    let button = document.querySelector(".next-phase");
+    let phase_status = phaseNode.innerText;
 
-timer.addEventListener('targetAchieved', (event) => {
-  button.click();
-});
+    setTimer(phase_status, timer);
+
+
+    timer.addEventListener('secondsUpdated', (event) => {
+      values.innerHTML = timer.getTimeValues().toString().split("").slice(3,8).join("")
+    });
+
+    timer.addEventListener('targetAchieved', (event) => {
+      button.click();
+    });
+  }
+}
+
+export { initTimer };

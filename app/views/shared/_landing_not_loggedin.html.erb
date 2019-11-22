@@ -1,10 +1,33 @@
-<div class="container">
-  <div class="row ">
-    <div class="col">
-      <h1>Enhance your language communication through debates</h1>
-      <h2>Become a ronper!</h2>
-      <%= link_to "Sign up", new_user_registration_path , class: "btn btn-primary" %>
-      <%= link_to "Log in", new_user_session_path, class: "btn btn-primary"  %>
-    </div>
+<div class="landing-nav navbar-expand-sm navbar-light navbar d-flex justify-content-between p-4">
+  <div>
+    <h2>RONPA</h2>
   </div>
+      <div>
+        <%= link_to "Log in", new_user_session_path, class: "btn-landing"  %>
+      </div>
+  </div>
+    <div class="home-header">
+      <div class="container">
+        <div class="row ">
+          <div class="col-12-12">
+            <h1>Enhance your language communication
+              <br>
+                through debates
+            </h1>
+            <div class="col-12 mt-5">
+              <%= link_to "Sign up", new_user_registration_path , class: "btn-landing" %>
+            </div>
+            <div class="row">
+              <div class="col-bottom">
+                <h2>Challenge yourself
+                  <br>
+                  <hr>
+                Join the worlds second biggest debating community!
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 </div>

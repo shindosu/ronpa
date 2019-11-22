@@ -1,0 +1,36 @@
+
+.home-header {
+  background: linear-gradient(158deg, #D95852 45%, #F9F4D4 45%);
+}
+
+.home-header .row {
+    height: 900px;
+}
+
+.container .row {
+  color: #F9F4D4;
+    max-width: 1190px;
+  position: relative;
+  }
+
+
+.landing-nav {
+  background-color: #D95852;
+  transition: 0.5s background-color ease;
+  top: 0;
+  z-index: 2;
+  flex-grow: 0;
+}
+
+#site-nav{
+  background-color: transparent;
+}
+
+.col-bottom {
+  position: absolute;
+  left: 600px;
+  top: 330px;
+  color: #D95852;
+  width: 540px;
+}
+

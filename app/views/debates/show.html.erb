@@ -1,6 +1,6 @@
 <div class="container pl-0 pr-0">
-  <h1 class="text-center"><%= @debate.topic.proposition%></h1>
-  <h3 class="text-center text-phase" style="color: red;">
+  <h1 class="text-center topic-proposition-text"><%= @debate.topic.proposition%></h1>
+  <h3 class="text-center text-phase">
     <% case @debate.phase %>
     <% when "waiting_start"%>
       Waiting for match to start...
@@ -49,6 +49,15 @@
   <div>
     <% @debate.participants.each do |participant| %>
       <% if participant.role == "moderator" %>
+<<<<<<< HEAD
+         <div class="text-center text-moderator">
+         <div>
+           <%= cl_image_tag participant.user.photo, class:"text-center moderator-image" %>
+         </div>
+         <h4><%= participant.user.username %> is <%= participant.role %></h4>
+         <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-new",
+            method: :patch %>
+=======
         <div class="text-center text-moderator">
         <div>
           <%= cl_image_tag participant.user.photo, class:"text-center moderator-image" %>
@@ -56,6 +65,7 @@
         <h4><%= participant.user.username %> is <%= participant.role %></h4>
         <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase",
           method: :patch %>
+>>>>>>> master
         </div>
       <% end %>
     <% end %>

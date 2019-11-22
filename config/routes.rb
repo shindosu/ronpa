@@ -3,12 +3,12 @@ Rails.application.routes.draw do
   authenticated { root to: 'users#dashboard' }
   root to: 'pages#home'
   resources :topics, only: [:index, :show] do
+    resources :participants, only: [:create]
     resources :debates, only: [:create]
     resources :arguments, only: [:create, :update]
   end
   resources :debates, only: [:show, :update] do
     patch '/next_phase', to: "debates#next_phase", as: :next_phase
-    resources :participants, only: [:create]
     resources :uses, only: [:create, :update]
   end
   resources :users, only: [:show]

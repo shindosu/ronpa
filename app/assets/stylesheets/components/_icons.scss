@@ -1,21 +1,5 @@
-.knight-green {
-  color: #86F590;
-}
-
 .knight-blue {
-  color: #A7C2F2;
-}
-
-.knight-yellow {
-  color: #EDD892;
-}
-
-.knight-orange {
-  color: #FEC196;
-}
-
-.knight-red {
-  color: #E3797A;
+  color: #D95852;
 }
 
 .knight-grey {
@@ -26,8 +10,8 @@
   position: absolute;
   top: -22px;
   left: 40%;
-  color: white;
-  background-color: #A7C2F2;
+  color: #F9F4D4;
+  background-color: #D95852;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -35,4 +19,8 @@
   border: 3px solid white;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   opacity: 0.8;
+}
+
+.fa-lg {
+  vertical-align: -3px;
 }

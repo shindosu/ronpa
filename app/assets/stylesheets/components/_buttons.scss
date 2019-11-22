@@ -6,6 +6,13 @@
 .btn-new {
   background-color: #D95852;
   color: #F9F4D4;
-  padding: 8px;
+  padding: 10px;
   border-radius: 8px;
+  &:hover {
+    color: #F9F4D4;
+    transition: transform .3s;
+    background-color: #c34f49;
+  }
 }
+
+

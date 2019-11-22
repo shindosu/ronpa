@@ -16,7 +16,11 @@ class Debate < ApplicationRecord
     waiting_end: 9,
     finished: 10
   } do
-    end
+  end
 
   scope :active, -> { where.not(phase: :finished) }
+
+  def with_slot?(role)
+    participants.send(role).none?
+  end
 end

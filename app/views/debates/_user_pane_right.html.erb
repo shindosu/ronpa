@@ -8,7 +8,7 @@
   </div>
 </div>
 <div id="argument-uses-right">
-  <div><p class="argument-use">Argument 1</p></div>
-  <div><p class="argument-use">Argument 2</p></div>
-  <div><p class="argument-use">Argument 3</p></div>
+  <% @debate.participants.negative.first.user.arguments.negative.where(topic: @debate.topic).each do |argument| %>
+    <div class="argument-use-negative d-flex justify-content-end"><h5><%= argument.content %></h5> </div>
+  <% end %>
 </div>

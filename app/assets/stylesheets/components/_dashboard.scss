@@ -82,6 +82,7 @@
   padding: 16px;
   height: 60vh;
   overflow: scroll;
+  border-radius: 0 0 16px 16px;
 }
 
 .dashboard-header {
@@ -90,6 +91,8 @@
   background-color: #D3D6D9;
   padding: 24px 0;
   font-weight: bold;
+  border-radius: 16px 16px 0 0;
+
 }
 
 .info {
@@ -106,3 +109,4 @@
   text-align: center;
 
 }
+// end of new dashboard design -- add inside if have new changes

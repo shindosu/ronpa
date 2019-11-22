@@ -1,14 +1,12 @@
 .user-sidebar {
   display: flex;
-  height: 70vh;
-
 }
 
 .sidebar {
   display: flex;
   flex-direction: column;
   width: 300px;
-  background-color:rgba(#C8CED0, 0.8);
+  background-color:rgba(253, 251, 242, 0.8);
   border-radius: 16px;
   padding: 8px;
   margin-left: 16px;
@@ -32,9 +30,11 @@
 }
 
 .dashboard-image {
-  width: 100%;
+  width: 280px ;
+  height: 180px;
   text-align: center;
   margin-bottom: 8px;
   border-radius: 16px;
+  object-fit: cover;
 }
 

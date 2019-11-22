@@ -20,6 +20,8 @@
       <% if current_user.debates.active.none? %>
         <%= link_to "Join as Debator", topic_participants_path(@topic, debator: true), method: :post, class: "btn-new"  %>
         <%= link_to "Join as Moderator", topic_participants_path(@topic, moderator: true), method: :post, class: "btn-new"  %>
+      <% else %>
+        <%= link_to "YOU ARE IN A DEBATE!! GO BACK", debate_path(current_user.debates.active.first), class: "btn-new"  %>
       <% end %>
     </div>
   </div>

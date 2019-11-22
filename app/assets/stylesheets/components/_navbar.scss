@@ -27,6 +27,9 @@
   height: 40px;
   overflow: hidden;
   border-radius: 50%;
+  &:hover{
+    cursor: pointer;
+  }
 }
 
 .dropdown-item {

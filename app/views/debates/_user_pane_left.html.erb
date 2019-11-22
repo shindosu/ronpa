@@ -1,5 +1,12 @@
 <h3 class="role">Affirmative position</h3>
-<p class="user-icon-left">Rendered User stuff</p>
+<div class="user-icon-left text-left d-flex justify-content-start">
+  <div class="mr-2">
+    <%= cl_image_tag participant.user.photo, class:"affirmative-image" %>
+  </div>
+  <div>
+    <h4><%= participant.user.username %></h4>
+  </div>
+</div>
 <div id="argument-uses-left">
   <div><p class="argument-use">Argument 1</p></div>
   <div><p class="argument-use">Argument 2</p></div>

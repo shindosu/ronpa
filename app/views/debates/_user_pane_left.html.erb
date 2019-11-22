@@ -1,7 +1,7 @@
-<h3 class="role">Affirmative position</h3>
+<h3 class="role">Affirmative</h3>
 <p class="user-icon-left">Rendered User stuff</p>
 <div id="argument-uses-left">
-  <div><p class="argument-use">Argument 1</p></div>
-  <div><p class="argument-use">Argument 2</p></div>
-  <div><p class="argument-use">Argument 3</p></div>
+  <% @debate.participants.affirmative.first.user.arguments.affirmative.where(topic: @debate.topic).each do |argument| %>
+    <div class="argument-use-affirmative d-flex"><h5><%= argument.content %></h5> </div>
+  <% end %>
 </div>

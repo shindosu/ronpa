@@ -1,7 +1,7 @@
 <div class="container pl-0 pr-0">
   <h1 class="text-center"><%= @debate.topic.proposition%></h1>
   <h3 class="text-center text-phase" style="color: red;">
-    <% case @debate.phase.gsub("_", " ") %>
+    <% case @debate.phase %>
     <% when "waiting_start"%>
       Waiting for match to start...
     <% when "count_in"%>
@@ -28,7 +28,7 @@
       Waiting for match to start
     <% end %>
   </h3>
-  <h4 class="text-center text-clock"><i class="fas fa-stopwatch fa-2x"></i></h4>
+  <h4 class="text-center text-clock"><i class="fas fa-stopwatch fa-2x"></i><%= render 'shared/timer' %></h4>
   <div class="d-flex justify-content-between">
     <% @debate.participants.each do |participant| %>
         <% if participant.role == "affirmative" %>
@@ -57,5 +57,3 @@
     <% end %>
   </div>
 </div>
-
-<%= render 'shared/timer' %>

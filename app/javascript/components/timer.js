@@ -1,55 +1,46 @@
 import Timer from 'easytimer.js';
 
 let timer = new Timer();
-let phase_status = document.querySelector(".phase-status")
+let phase_status = document.querySelector(".text-phase").innerText;
+let values = document.querySelector(".values")
 
+console.log(phase_status == "Waiting for match to start...")
 switch (phase_status) {
 
-  case "waiting_start":
+  case "Waiting for match to start...":
+      timer.start({countdown: true, startValues: {seconds: 10}});
+  break;
+  case "Affirmative opening arguments will start in:":
+      timer.start({countdown: true, startValues: {seconds: 10}});
+  break;
+  case "Affirmative opening arguments":
+      timer.start({countdown: true, startValues: {seconds: 480}});
+  break;
+  case "Negative cross examination preparation":
+      timer.start({countdown: true, startValues: {seconds: 10}});
+  break;
+  case "Negative cross examination":
+      timer.start({countdown: true, startValues: {seconds: 480}});
+  break;
+  case "Negative opening arguments":
+      timer.start({countdown: true, startValues: {seconds: 480}});
+  break;
+  case "Affirmative cross examination preparation":
+      timer.start({countdown: true, startValues: {seconds: 10}});
+  break;
+  case "Affirmative cross examination":
+      timer.start({countdown: true, startValues: {seconds: 480}});
+  break;
+  case "Negative closing statements":
+      timer.start({countdown: true, startValues: {seconds: 480}});
+  break;
+  case "Affirmative closing statements":
+      timer.start({countdown: true, startValues: {seconds: 480}});
+  break;
+  case "Moderator giving final score...":
       timer.start({countdown: true, startValues: {seconds: 30}});
-  break;
-  case "count_in":
-      timer.start({countdown: true, startValues: {seconds: 10}});
-  break;
-  case "affirmative_speech":
-      timer.start({countdown: true, startValues: {seconds: 480}});
-  break;
-  case "negative_cross_examination_preparation":
-      timer.start({countdown: true, startValues: {seconds: 10}});
-  break;
-  case "negative_cross_examination":
-      timer.start({countdown: true, startValues: {seconds: 480}});
-  break;
-  case "negative_speech":
-      timer.start({countdown: true, startValues: {seconds: 480}});
-  break;
-  case "affirmative_cross_examination_preparation":
-      timer.start({countdown: true, startValues: {seconds: 10}});
-  break;
-  case "affirmative_cross_examination":
-      timer.start({countdown: true, startValues: {seconds: 480}});
-  break;
-  case "negative_closing_statement":
-      timer.start({countdown: true, startValues: {seconds: 480}});
-  break;
-  case "affirmative_closing_statement":
-      timer.start({countdown: true, startValues: {seconds: 480}});
-  break;
-  case "waiting_end":
-      timer.start({countdown: true, startValues: {seconds: 30}});
-  break;
-  case "finished":
-      timer.start({countdown: true, startValues: {seconds: 0}});
-  break;
 }
-
-let values = document.querySelector(".values")
-const button = document.querySelector(".button")
 
 timer.addEventListener('secondsUpdated', (event) => {
   values.innerHTML = timer.getTimeValues().toString()
 });
-
-button.addEventListener("click", (event) => {
-  timer.stop();
-})

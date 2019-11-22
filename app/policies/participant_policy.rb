@@ -8,4 +8,8 @@ class ParticipantPolicy < ApplicationPolicy
   def create?
     true
   end
+
+  def set_result?
+    true
+  end
 end

@@ -35,33 +35,37 @@
   <h4 class="text-center text-clock"><%= render 'shared/timer' %></h4>
   <div class="d-flex justify-content-between">
     <% @debate.participants.each do |participant| %>
-        <% if participant.role == "affirmative" %>
+        <% if participant.affirmative? %>
           <div class="user-pane-left pt-2">
             <%= render 'user_pane_left', participant: participant %>
           </div>
           <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase d-none",
           method: :patch %>
-        <% elsif participant.role == "negative" %>
+        <% elsif participant.negative? %>
           <div class="user-pane-right pt-2">
             <%= render 'user_pane_right', participant: participant %>
           </div>
+          <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase d-none",
+          method: :patch %>
         <% end %>
     <% end %>
   </div>
   <div>
-    <% if current_user.participants.where(debate_id: @debate).first.moderator? %>
-      <div class="text-center text-moderator">
-        <div>
-          <%= cl_image_tag current_user.photo, class:"text-center moderator-image" %>
-        </div>
-        <h4><%= current_user.username %> is Moderator</h4>
-        <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new",
-          method: :patch %>
-        <% if @debate.waiting_end? %>
-          <%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %>
-          <%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>
-        <% end %>
+    <div class="text-center text-moderator">
+      <div>
+        <%= cl_image_tag current_user.photo, class:"text-center moderator-image" %>
       </div>
-    <% end %>
+      <% if @debate.participants.moderator.any? %>
+        <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h4>
+        <% if current_user.participants.where(debate_id: @debate).first.moderator? %>
+          <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new next-phase",
+            method: :patch %>
+          <% if @debate.waiting_end? %>
+            <%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %>
+            <%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 </div>

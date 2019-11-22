@@ -15,7 +15,8 @@ class Debate < ApplicationRecord
     negative_closing_statement: 8,
     affirmative_closing_statement: 9,
     waiting_end: 10,
-    finished: 11
+    results: 11,
+    finished: 12
   } do
   end
 

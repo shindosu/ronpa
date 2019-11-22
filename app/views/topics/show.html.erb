@@ -15,10 +15,10 @@
 
   <div class="form">
     <%= render "arguments/argument_forms" %>
-    <%= link_to "Back to Topics", topics_path, class: "btn btn-primary"  %>
+    <%= link_to "Back to Topics", topics_path, class: "btn-new"  %>
     <% if @topic.debates.waiting_start.any? %>
-      <%= link_to "Debate This Topic", debate_participants_path(@topic.debates.waiting_start.first), method: :post, class: "btn btn-primary"  %>
+      <%= link_to "Debate This Topic", debate_participants_path(@topic.debates.waiting_start.first), method: :post, class: "btn-new"  %>
     <% end %>
-    <%= link_to "Moderate This Topic", topic_debates_path(@topic), method: :post, class: "btn btn-primary"  %>
+    <%= link_to "Moderate This Topic", topic_debates_path(@topic), method: :post, class: "btn-new"  %>
   </div>
 </div>

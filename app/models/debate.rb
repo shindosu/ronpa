@@ -9,13 +9,16 @@ class Debate < ApplicationRecord
     affirmative_speech: 2,
     negative_cross_examination_preparation: 3,
     negative_cross_examination: 4,
-    negative_speech: 5,
-    affirmative_cross_examination_preparation: 6,
-    affirmative_cross_examination: 7,
-    negative_closing_statement: 8,
-    affirmative_closing_statement: 9,
-    waiting_end: 10,
-    finished: 11
+    negative_speech_preparation: 5,
+    negative_speech: 6,
+    affirmative_cross_examination_preparation: 7,
+    affirmative_cross_examination: 8,
+    affirmative_closing_statement_preparation: 9,
+    affirmative_closing_statement: 10,
+    negative_closing_statement_preparation: 11,
+    negative_closing_statement: 12,
+    waiting_end: 13,
+    finished: 14
   } do
   end
 

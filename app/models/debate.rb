@@ -1,7 +1,7 @@
 class Debate < ApplicationRecord
   belongs_to :topic
-  has_many :uses
-  has_many :participants
+  has_many :uses, dependent: :destroy
+  has_many :participants, dependent: :destroy
 
   enum phase: {
     waiting_start: 0,

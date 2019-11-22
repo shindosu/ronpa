@@ -1,6 +1,6 @@
 <div class="container pl-0 pr-0">
   <h1 class="text-center"><%= @debate.topic.proposition%></h1>
-  <h3 class="text-center text-phase"><p>You are in the <span style="color: red;"><%= @debate.phase %></span> phase!</p></h3>
+  <h3 class="text-center text-phase"><p>You are in the <span style="color: red;", class="phase-status"><%= @debate.phase.gsub("_", " ") %></span> phase!</p></h3>
   <h4 class="text-center text-clock"><i class="fas fa-stopwatch fa-2x"></i></h4>
   <div class="d-flex justify-content-between">
     <% @debate.participants.each do |participant| %>

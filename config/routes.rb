@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   end
   resources :debates, only: [:show, :update] do
     patch '/next_phase', to: "debates#next_phase", as: :next_phase
+    patch '/set_result', to: "participants#set_result", as: :set_result
     resources :uses, only: [:create, :update]
   end
   resources :users, only: [:show]

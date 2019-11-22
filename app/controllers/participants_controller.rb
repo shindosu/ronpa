@@ -24,6 +24,19 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  def set_result
+    @debate = Debate.find(params[:debate_id])
+    @winner = Participant.find(params[:winner_id])
+    authorize @winner
+    @winner.result = :winner
+    @loser = @winner.affirmative? ? @debate.participants.negative.first : @debate.participants.affirmative.first
+    @loser.result = :loser
+    if @winner.save && @loser.save
+      @debate.update(phase: Debate.phases[@debate.phase] + 1)
+    end
+    redirect_to debate_path(@debate)
+  end
+
   private
 
   def debate_with_slot(role)

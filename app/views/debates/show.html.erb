@@ -49,7 +49,6 @@
   <div>
     <% @debate.participants.each do |participant| %>
       <% if participant.role == "moderator" %>
-<<<<<<< HEAD
          <div class="text-center text-moderator">
          <div>
            <%= cl_image_tag participant.user.photo, class:"text-center moderator-image" %>
@@ -57,15 +56,6 @@
          <h4><%= participant.user.username %> is <%= participant.role %></h4>
          <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-new",
             method: :patch %>
-=======
-        <div class="text-center text-moderator">
-        <div>
-          <%= cl_image_tag participant.user.photo, class:"text-center moderator-image" %>
-        </div>
-        <h4><%= participant.user.username %> is <%= participant.role %></h4>
-        <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase",
-          method: :patch %>
->>>>>>> master
         </div>
       <% end %>
     <% end %>

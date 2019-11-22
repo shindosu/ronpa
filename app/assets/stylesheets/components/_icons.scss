@@ -1,21 +1,5 @@
-.knight-green {
-  color: #86F590;
-}
-
 .knight-blue {
-  color: #A7C2F2;
-}
-
-.knight-yellow {
-  color: #EDD892;
-}
-
-.knight-orange {
-  color: #FEC196;
-}
-
-.knight-red {
-  color: #E3797A;
+  color: #D95852;
 }
 
 .knight-grey {
@@ -25,9 +9,9 @@
 .category-icon {
   position: absolute;
   top: -22px;
-  left: 43%;
-  color: white;
-  background-color: #A7C2F2;
+  left: 40%;
+  color: #F9F4D4;
+  background-color: #D95852;
   height: 40px;
   width: 40px;
   border-radius: 50%;
@@ -37,10 +21,8 @@
   opacity: 0.8;
 }
 
-.topic-show-icon{
-  color: white;
-  position: relative;
-  left: 50px;
-  top: 50px;
+.fa-lg {
+  vertical-align: -3px;
 }
+
 

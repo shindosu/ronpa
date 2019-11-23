@@ -5,7 +5,7 @@
   text-align: center;
   padding: 8px;
   position: relative;
-  top: -153px;
+  top: -172px;
   z-index: -1;
   border-left: 1px solid gray;
   border-bottom: 1px solid gray;
@@ -21,7 +21,7 @@
   width: 50%;
   text-align: center;
   position: relative;
-  top: -153px;
+  top: -172px;
   z-index: -1;
   padding: 8px;
   border-right: 1px solid gray;
@@ -65,7 +65,7 @@
 }
 
 .user-icon-left {
-  justify-content: center;
+  text-align: center;
   align-items: center;
   padding-top: 90px;
   border-bottom: 2px solid rgb(150, 150, 150);
@@ -74,7 +74,7 @@
 }
 
 .user-icon-right {
-  justify-content: center;
+  text-align: center;
   align-items: center;
   padding-top: 90px;
   border-bottom: 2px solid rgb(150, 150, 150);

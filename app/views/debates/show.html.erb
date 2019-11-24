@@ -6,7 +6,13 @@
       <h3 class="role text-center">Negative position</h3>
     </div>
     <%= render 'debate_phase', debate: @debate%>
-    <h4 class="text-center text-clock"><%= render 'shared/timer' %></h4>
+    <h4 class="text-center text-clock">
+      <% if @debate.phase == "waiting_start" %>
+        Please wait
+      <% else %>
+        <%= render 'shared/timer' %></h4>
+      <% end %>
+    </h4>
     <div class="d-flex justify-content-around pb-4">
       <%= render 'user_info', participant: @debate.participants.affirmative.first%>
       <%= render 'user_info', participant: @debate.participants.negative.first%>

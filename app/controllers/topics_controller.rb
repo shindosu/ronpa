@@ -1,4 +1,5 @@
 class TopicsController < ApplicationController
+  before_action 
   def index
     @topics = policy_scope(Topic)
     if params[:query].present?
@@ -13,5 +14,26 @@ class TopicsController < ApplicationController
     @topic = Topic.find(params[:id])
     authorize @topic
     @argument = Argument.new
+  end
+
+  def new
+    @topic = Topic.new
+    authorize @topic
+  end
+
+  def create
+    @topic = Topic.new(topic_params)
+    authorize @topic
+    if @topic.save
+      redirect_to @topic
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def topic_params
+    params.require(:topic).permit(:proposition, :level, :description, :category)
   end
 end

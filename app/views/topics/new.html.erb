@@ -1,0 +1,10 @@
+<div class="container">
+  <%= simple_form_for @topic do |f| %>
+    <%= f.input :proposition %>
+    <%= f.input :level, collection: Topic::LEVELS %>
+    <%= f.input :description %>
+    <%= f.input :category, collection: Topic::CATEGORIES %>
+    <%= f.button :submit, class: "btn-new" %>
+  <% end %>
+</div>
+

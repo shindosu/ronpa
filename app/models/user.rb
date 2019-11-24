@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :uses
   has_many :participants
   has_many :debates, through: :participants
+  has_many :topics
 
   validates :first_name, :last_name, :username, :email, :language_level, presence: true
   validates :username, :email, uniqueness: true

@@ -42,9 +42,14 @@
         </div>
         <div class="col-size">
           <div class="dashboard-header"><h5>Create</h5></div>
-            <div class="open-debates border pt-4">
-              <% @topics.shuffle.each do  |topic| %>
-                <%= render 'topics/topic_card_dashboard', topic: topic %>
+            <div class="open-debates border pt-5">
+              <div class="topic-card mb-5 text-center">
+                <i class="fas fa-plus"></i>
+                <h4>Create a new topic</h4>
+                <%= link_to "", new_topic_path, class:"div-link" %>
+              </div>
+              <% current_user.topics.each do  |topic| %>
+                <h2>topic.proposition</h2>
               <% end %>
             </div>
         </div>

@@ -13,8 +13,8 @@
 }
 
 .navbar-lewagon {
+  color: #212121;
   justify-content: space-between;
-  background: #FFF;
   background-color: transparent;
   transition: 0.5s background-color ease;
   top: 0;
@@ -24,8 +24,8 @@
 }
 
 .avatar {
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   overflow: hidden;
   border-radius: 50%;
   &:hover{

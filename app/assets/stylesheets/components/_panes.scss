@@ -5,12 +5,13 @@
   text-align: center;
   padding: 8px;
   position: relative;
-  top: -153px;
+  top: -113px;
   z-index: -1;
   border-left: 1px solid gray;
   border-bottom: 1px solid gray;
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
   h3 {
-    border-bottom: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(150, 150, 150);
     padding-bottom: 4px;
   }
 }
@@ -21,13 +22,14 @@
   width: 50%;
   text-align: center;
   position: relative;
-  top: -153px;
+  top: -113px;
   z-index: -1;
   padding: 8px;
   border-right: 1px solid gray;
   border-bottom: 1px solid gray;
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
   h3 {
-    border-bottom: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid rgb(150, 150, 150);
     padding-bottom: 4px;
   }
 }
@@ -37,54 +39,74 @@
 }
 
 .role {
-  padding-top: 60px;
+  padding-top: 70px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.topic-proposition-text {
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  margin-top: 8px;
 }
 
 .text-phase {
   position: relative;
   top: 90px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  color: #D95852;
 }
 
 .text-moderator {
   position: relative;
-  top: -360px;
+  top: -320px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .text-clock {
   position: relative;
   top: 85px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .user-icon-left {
-  justify-content: center;
+  text-align: center;
   align-items: center;
   padding-top: 90px;
+  border-bottom: 2px solid rgb(150, 150, 150);
+  width: 270px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .user-icon-right {
-  justify-content: center;
+  text-align: center;
   align-items: center;
   padding-top: 90px;
+  border-bottom: 2px solid rgb(150, 150, 150);
+  width: 270px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 #argument-uses-left {
-  margin-top: 90px;
+  margin-top: 70px;
 }
 
 #argument-uses-right {
-  margin-top: 90px;
+  margin-top: 70px;
 }
 
 .argument-use-affirmative {
   margin-bottom: 20px;
   background-color: #FFFFFF;
   padding: 8px 32px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
 }
 
 .argument-use-negative {
   margin-bottom: 20px;
   background-color: white;
   padding: 8px 32px;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
 }
 
 .moderator-image {

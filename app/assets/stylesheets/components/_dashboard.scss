@@ -87,7 +87,7 @@
 
 .dashboard-header {
   text-align: center;
-  color: black;
+  color: #212121;
   background-color: #D3D6D9;
   padding: 24px 0;
   font-weight: bold;
@@ -100,13 +100,17 @@
 }
 
 .actions-controller {
-  width: 70vw;
+  width: 70vw ;
   margin: 0px 50px;
 }
 
 .username {
-  padding-bottom: 24px;
+  padding-bottom: 12px;
   text-align: center;
 
+}
+
+.col-size {
+  max-width: 34%;
 }
 // end of new dashboard design -- add inside if have new changes

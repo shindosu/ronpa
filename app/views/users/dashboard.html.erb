@@ -8,10 +8,14 @@
       </div>
       <div class="actions">
         <ul>
+          <% if current_user.photo.filename %>
           <li><%= cl_image_tag current_user.photo.url(:user_photo_main), class: "dashboard-image"%> </li>
+          <% else %>
+          <%= image_tag "default", class: "dashboard-image" %>
+          <% end %>
           <li><%= current_user.email %></li>
-          <li> Wins: <i class="fas fa-trophy"></i> <%=  @user.wins %> </li>
-          <li> Losses: <i class="fas fa-skull"></i> <%=  @user.losses %> </li>
+          <!-- <li> Wins: <i class="fas fa-trophy"></i> <%=  @user.wins %> </li>
+          <li> Losses: <i class="fas fa-skull"></i> <%=  @user.losses %> </li> -->
         <hr>
         <h3>Battlepoints: 123</h3>
         <%= render "users/dashboard_rating" %>
@@ -21,18 +25,26 @@
       </div>
     </div>
    <div class="actions-controller d-flex">
-        <div class="col-sm-6 col-xs-12 ">
-          <div class="dashboard-header"><h5>Available Debates</h5></div>
+        <div class="col-sm-6 col-xs-12 col-size">
+          <div class="dashboard-header"><h5>Play</h5></div>
             <div class="open-debates border pt-5">
               <% @topics.each do  |topic| %>
                 <%= render 'topics/topic_card', topic: topic  %>
               <% end %>
             </div>
         </div>
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-6 col-xs-12 col-size">
           <div class="dashboard-header"><h5>Moderate</h5></div>
             <div class="open-debates border pt-5">
               <% @topics.reverse.each do  |topic| %>
+                <%= render 'topics/topic_card', topic: topic %>
+              <% end %>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12 col-size">
+          <div class="dashboard-header"><h5>Create</h5></div>
+            <div class="open-debates border pt-5">
+              <% @topics.shuffle.each do  |topic| %>
                 <%= render 'topics/topic_card', topic: topic %>
               <% end %>
             </div>

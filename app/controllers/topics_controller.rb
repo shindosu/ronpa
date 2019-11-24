@@ -23,10 +23,12 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topic_params)
+    @topic.user = current_user
     authorize @topic
     if @topic.save
       redirect_to @topic
     else
+      raise
       render :new
     end
   end
@@ -34,6 +36,6 @@ class TopicsController < ApplicationController
   private
 
   def topic_params
-    params.require(:topic).permit(:proposition, :level, :description, :category)
+    params.require(:topic).permit(:proposition, :level, :description, :category, :user_id)
   end
 end

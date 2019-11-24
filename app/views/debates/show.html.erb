@@ -1,9 +1,9 @@
 <div class="container pl-0 pr-0">
-  <h1 class="text-center"><%= @debate.topic.proposition%></h1>
-  <h3 class="text-center text-phase" style="color: red;">
+  <h1 class="text-center topic-proposition-text"><%= @debate.topic.proposition%></h1>
+  <h3 class="text-center text-phase">
     <% case @debate.phase %>
     <% when "waiting_start"%>
-      Waiting for match to start...
+      Finding an opponent...
     <% when "count_in"%>
       Affirmative opening arguments will start in:
     <% when "affirmative_speech"%>
@@ -32,34 +32,47 @@
       Moderator giving final score...
     <% end %>
   </h3>
-  <h4 class="text-center text-clock"><i class="fas fa-stopwatch fa-2x"></i><%= render 'shared/timer' %></h4>
+  <h4 class="text-center text-clock">
+  <i class="fas fa-stopwatch"></i> 
+    <% if @debate.phase == "waiting_start" %>
+      Please wait
+    <% else %>
+      <%= render 'shared/timer' %></h4>
+    <% end %>
+</h4>
   <div class="d-flex justify-content-between">
     <% @debate.participants.each do |participant| %>
-        <% if participant.role == "affirmative" %>
+        <% if participant.affirmative? %>
           <div class="user-pane-left pt-2">
             <%= render 'user_pane_left', participant: participant %>
           </div>
           <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase d-none",
           method: :patch %>
-        <% elsif participant.role == "negative" %>
+        <% elsif participant.negative? %>
           <div class="user-pane-right pt-2">
             <%= render 'user_pane_right', participant: participant %>
           </div>
+          <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase d-none",
+          method: :patch %>
         <% end %>
     <% end %>
   </div>
   <div>
-    <% @debate.participants.each do |participant| %>
-      <% if participant.role == "moderator" %>
-        <div class="text-center text-moderator">
-        <div>
-          <%= cl_image_tag participant.user.photo, class:"text-center moderator-image" %>
-        </div>
-        <h4><%= participant.user.username %> is <%= participant.role %></h4>
-        <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase",
-          method: :patch %>
-        </div>
+    <div class="text-center text-moderator">
+      <div>
+        <%= cl_image_tag current_user.photo, class:"text-center moderator-image" %>
+      </div>
+      <% if @debate.participants.moderator.any? %>
+        <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h4>
+        <% if current_user.participants.where(debate_id: @debate).first.moderator? %>
+          <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new next-phase",
+            method: :patch %>
+          <% if @debate.waiting_end? %>
+            <%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %>
+            <%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>
+          <% end %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
   </div>
 </div>

@@ -1,32 +1,22 @@
 .user-pane-left {
   background-color: #B9DDF7;
-  height: 100vh;
-  width: 50%;
   text-align: center;
   padding: 8px;
-  position: relative;
-  top: -113px;
-  z-index: -1;
-  border-left: 1px solid gray;
-  border-bottom: 1px solid gray;
+  border: 2px solid #D95852;
+  border-radius: 8px;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
   h3 {
-    border-bottom: 1px solid rgb(150, 150, 150);
+    border-bottom: 1px solid #D95852;
     padding-bottom: 4px;
   }
 }
 
 .user-pane-right {
   background-color: #D8ABA9;
-  height: 100vh;
-  width: 50%;
   text-align: center;
-  position: relative;
-  top: -113px;
-  z-index: -1;
   padding: 8px;
-  border-right: 1px solid gray;
-  border-bottom: 1px solid gray;
+  border-radius: 8px;
+  border: 2px solid #D95852;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
   h3 {
     border-bottom: 1px solid rgb(150, 150, 150);
@@ -34,13 +24,23 @@
   }
 }
 
-.debate-panes {
-  position: relative;
+#debate-box {
+  margin-top: 18px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  border: 2px solid #D95852;
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
+  background-color: #FCFAED;
 }
 
 .role {
-  padding-top: 70px;
+  padding-top: 30px;
+  padding-bottom: 8px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+  text-align: center;
+  align-items: center;
+  border-bottom: 1px solid #D95852;
+  width: 30%;
 }
 
 .topic-proposition-text {
@@ -49,15 +49,12 @@
 }
 
 .text-phase {
-  position: relative;
-  top: 90px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   color: #D95852;
+  margin-top: 20px;
 }
 
 .text-moderator {
-  position: relative;
-  top: -320px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
@@ -68,33 +65,25 @@
 }
 
 .user-icon-left {
-  text-align: center;
   align-items: center;
-  padding-top: 90px;
-  border-bottom: 2px solid rgb(150, 150, 150);
-  width: 270px;
+  justify-content: center;
+  padding-top: 30px;
+  border-bottom: 1px solid #D95852;
+  width: 30%;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
 .user-icon-right {
-  text-align: center;
   align-items: center;
-  padding-top: 90px;
-  border-bottom: 2px solid rgb(150, 150, 150);
-  width: 270px;
+  justify-content: center;
+  padding-top: 30px;
+  border-bottom: 1px solid #D95852;
+  width: 30%;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 
-#argument-uses-left {
-  margin-top: 70px;
-}
-
-#argument-uses-right {
-  margin-top: 70px;
-}
-
 .argument-use-affirmative {
-  margin-bottom: 20px;
+  margin: 16px;
   background-color: #FFFFFF;
   padding: 8px 32px;
   border-radius: 4px;
@@ -102,7 +91,7 @@
 }
 
 .argument-use-negative {
-  margin-bottom: 20px;
+  margin: 16px;
   background-color: white;
   padding: 8px 32px;
   border-radius: 4px;

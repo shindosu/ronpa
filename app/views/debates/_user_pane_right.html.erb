@@ -1,12 +1,3 @@
-<h3 class="role">Negative position</h3>
-<div class="user-icon-right d-flex">
-  <div>
-    <h4><%= participant.user.username %></h4>
-  </div>
-  <div class="ml-2">
-    <%= cl_image_tag participant.user.photo, class:"negative-image" %>
-  </div>
-</div>
 <div id="argument-uses-right">
   <% @debate.participants.negative.first.user.arguments.negative.where(topic: @debate.topic).each do |argument| %>
     <div class="argument-use-negative d-flex justify-content-end"><h5><%= argument.content %></h5> </div>

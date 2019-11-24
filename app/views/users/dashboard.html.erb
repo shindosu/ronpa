@@ -1,6 +1,5 @@
 <%= render 'shared/navbar' %>
 <div class="container-dash justify-content-between" >
-
   <div class="user-sidebar justify-content-around">
     <div class="sidebar">
       <div class="username text-capitalize">
@@ -24,8 +23,8 @@
         </ul>
       </div>
     </div>
-   <div class="actions-controller d-flex">
-        <div class="col-sm-6 col-xs-12 col-size">
+   <div class="actions-controller ">
+        <div class="col-size">
           <div class="dashboard-header"><h5>Play</h5></div>
             <div class="open-debates border pt-5">
               <% @topics.each do  |topic| %>
@@ -33,7 +32,7 @@
               <% end %>
             </div>
         </div>
-        <div class="col-sm-6 col-xs-12 col-size">
+        <div class="col-size">
           <div class="dashboard-header"><h5>Moderate</h5></div>
             <div class="open-debates border pt-5">
               <% @topics.reverse.each do  |topic| %>
@@ -41,7 +40,7 @@
               <% end %>
             </div>
         </div>
-        <div class="col-sm-6 col-xs-12 col-size">
+        <div class="col-size">
           <div class="dashboard-header"><h5>Create</h5></div>
             <div class="open-debates border pt-5">
               <% @topics.shuffle.each do  |topic| %>

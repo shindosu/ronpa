@@ -38,3 +38,37 @@
     color: rgb(150, 150, 150);
   }
 }
+
+.dashboard-card {
+  position: relative;
+  border: 1px solid #F3F3F3;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  padding: 8px;
+  padding-top: 24px;
+  margin: 5px 20px ;
+  background-color: #fcfaed;
+  border-radius: 8px;
+  transition: transform .4s;
+  &:hover {
+    transform: scale(1.06);
+  }
+  h4 {
+    height: 70px;
+    color: rgb(80, 80, 80);
+    font-size: 16px;
+    text-align: center;
+    border-bottom: 1px solid rgb(200, 200, 200);
+    padding-bottom: 12px;
+  }
+  .details-text {
+    font-size: 16px;
+    font-weight: lighter;
+    padding-top: 8px;
+    padding-bottom: 0px;
+    color: rgb(150, 150, 150);
+  }
+  .p {
+    padding: 0px;
+    margin: 0px;
+  }
+}

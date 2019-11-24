@@ -25,18 +25,26 @@
       </div>
     </div>
    <div class="actions-controller d-flex">
-        <div class="col-sm-6 col-xs-12 ">
-          <div class="dashboard-header"><h5>Available Debates</h5></div>
+        <div class="col-sm-6 col-xs-12 col-size">
+          <div class="dashboard-header"><h5>Play</h5></div>
             <div class="open-debates border pt-5">
               <% @topics.each do  |topic| %>
                 <%= render 'topics/topic_card', topic: topic  %>
               <% end %>
             </div>
         </div>
-        <div class="col-sm-6 col-xs-12">
+        <div class="col-sm-6 col-xs-12 col-size">
           <div class="dashboard-header"><h5>Moderate</h5></div>
             <div class="open-debates border pt-5">
               <% @topics.reverse.each do  |topic| %>
+                <%= render 'topics/topic_card', topic: topic %>
+              <% end %>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xs-12 col-size">
+          <div class="dashboard-header"><h5>Create</h5></div>
+            <div class="open-debates border pt-5">
+              <% @topics.shuffle.each do  |topic| %>
                 <%= render 'topics/topic_card', topic: topic %>
               <% end %>
             </div>

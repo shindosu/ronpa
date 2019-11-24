@@ -6,7 +6,7 @@ class TopicsController < ApplicationController
       sql_query = "proposition ILIKE :query OR category ILIKE :query"
       @topics = @topics.where(sql_query, query: "%#{params[:query]}%")
     else
-      @topics = Topic.all
+      @topics = Topic.all.order("LOWER(proposition)")
     end
   end
 

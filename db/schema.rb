@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_22_055224) do
+ActiveRecord::Schema.define(version: 2019_11_24_081851) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_055224) do
 
   create_table "debates", force: :cascade do |t|
     t.bigint "topic_id"
-    t.string "phase"
+    t.integer "phase", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["topic_id"], name: "index_debates_on_topic_id"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 2019_11_22_055224) do
     t.datetime "updated_at", null: false
     t.text "description"
     t.string "category"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_topics_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -91,6 +93,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_055224) do
   add_foreign_key "debates", "topics"
   add_foreign_key "participants", "debates"
   add_foreign_key "participants", "users"
+  add_foreign_key "topics", "users"
   add_foreign_key "uses", "debates"
   add_foreign_key "uses", "users"
 end

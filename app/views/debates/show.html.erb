@@ -8,7 +8,7 @@
     <%= render 'debate_phase', debate: @debate%>
     <h4 class="text-center text-clock">
       <% if @debate.phase == "waiting_start" %>
-        Please wait
+        Please wait..
       <% else %>
         <%= render 'shared/timer' %>
       <% end %>

@@ -1,0 +1,60 @@
+<div class="topic-card-links">
+  <%= link_to topic_path(topic) do  %>
+    <div class="dashboard-card mb-5">
+      <div class="category-icon text-center">
+        <% case topic.category %>
+          <% when "General" %>
+            <i class="fas fa-globe-americas fa-lg"></i>
+          <% when "Entertainment" %>
+            <i class="fas fa-tv fa-lg"></i>
+          <% when "Apparel" %>
+            <i class="fas fa-tshirt fa-lg"></i>
+          <% when "Politics" %>
+            <i class="fas fa-landmark fa-lg"></i>
+          <% else %>
+             <i class="fas fa-utensils fa-lg"></i>
+        <% end %>
+      </div>
+
+      <h4><%= topic.proposition %></h4>
+        <div class="details-text">
+          <p><strong><%= topic.category %> </strong></p>
+          <p><strong> Complexity&nbsp</strong>
+            <% case topic.level.to_i %>
+            <% when 1 %>
+              <i class="fas fa-chess-knight knight-blue"></i>
+              <% 4.times do %>
+                <i class="fas fa-chess-knight knight-grey"></i>
+              <% end %>
+            <% when 2 %>
+                <% 2.times do %>
+                  <i class="fas fa-chess-knight knight-blue"></i>
+                <% end %>
+                <% 3.times do %>
+                  <i class="fas fa-chess-knight knight-grey"></i>
+                <% end %>
+            <% when 3 %>
+                <% 3.times do %>
+                  <i class="fas fa-chess-knight knight-blue"></i>
+                <% end %>
+                <% 2.times do %>
+                  <i class="fas fa-chess-knight knight-grey"></i>
+                <% end %>
+            <% when 4 %>
+                <% 4.times do %>
+                  <i class="fas fa-chess-knight knight-blue"></i>
+                <% end %>
+                <% 1.times do %>
+                  <i class="fas fa-chess-knight knight-grey"></i>
+                <% end %>
+            <% else %>
+                <% 5.times do %>
+                  <i class="fas fa-chess-knight knight-blue"></i>
+                <% end %>
+            <% end %>
+          </p>
+        </div>
+    </div>
+  <% end %>
+</div>
+

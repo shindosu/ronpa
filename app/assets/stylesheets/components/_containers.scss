@@ -10,8 +10,20 @@
   }
 }
 
+@media(max-width: 992px) {
+  .actions-controller {
+    grid-template-columns: 3fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .actions-controller {
+    grid-template-columns: 3fr ;
+  }
+}
+
 .topic-card-container {
-  position:  relative;
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 16px;

@@ -1,12 +1,3 @@
-<h3 class="role">Affirmative position</h3>
-<div class="user-icon-left d-flex">
-  <div class="mr-2">
-    <%= cl_image_tag participant.user.photo, class:"affirmative-image" %>
-  </div>
-  <div>
-    <h4><%= participant.user.username %></h4>
-  </div>
-</div>
 <div id="argument-uses-left">
   <% @debate.participants.affirmative.first.user.arguments.affirmative.where(topic: @debate.topic).each do |argument| %>
     <div class="argument-use-affirmative d-flex"><h5><%= argument.content %></h5> </div>

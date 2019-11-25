@@ -70,8 +70,7 @@
       { received: (data) => {
         console.log(data, data.current_phase)
             const phaseText = document.querySelector('.phase-text');
-            const button = document.querySelector('.btn-new');
-            const progressButton = document.getElementById('progress-button')
+            // const progressButton = document.getElementById('progress-button')
             switch (data.current_phase) {
               case "waiting_start":
                   phaseText.innerHTML = "<h3>Waiting for match to start...</h3>";
@@ -117,7 +116,8 @@
               break;
               case "finished":
                   phaseText.innerHTML = "<h3>The winner is the prosecuter</h3>";
-                  progressButton.innerHTML = '<%= link_to "Back to Dashboard", dashboard_path, class: "btn-new next-phase"%>'
+                  document.body.innerHTML = '<%= j render partial: 'results'%>'
+                  // progressButton.innerHTML = '<%= link_to "Back to Dashboard", dashboard_path, class: "btn-new next-phase"%>'
         }
       }
       }

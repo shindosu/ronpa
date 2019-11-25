@@ -1,7 +1,7 @@
 <div class="container">
   <div id="results-box-winner">
     <div>
-      <% @participant.participants.each do |participant| %>
+      <% @debate.participants.each do |participant| %>
         <% if participant.winner? %>
           <%= render 'winner_results', participant: participant %>
         <% elsif participant.loser? %>

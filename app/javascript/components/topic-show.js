@@ -2,7 +2,7 @@ const initIconHover = () => {
   const icon = document.querySelector('.topic-show-icon');
   const link = document.querySelector('.div-link');
 
-  if (icon || link ) {
+  if (icon) {
 
     const current_class = icon.className;
     link.addEventListener("mouseenter", (event) => {

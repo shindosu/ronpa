@@ -62,13 +62,12 @@
 
 <% content_for :after_js do %>
   <script>
-  console.log('script run')
     App['debate_<%= @debate.id %>'] = App.cable.subscriptions.create(
       { channel: 'DebatesChannel', debate_id: <%= @debate.id %> },
       { received: (data) => {
         console.log(data, data.current_phase)
             const phaseText = document.querySelector('.phase-text');
-            const progressButton = document.getElementById('progress-button')
+            const progressButton = document.getElementById('progress-button');
             switch (data.current_phase) {
               case "waiting_start":
                   phaseText.innerHTML = "<h3>Waiting for match to start...</h3>";
@@ -115,8 +114,9 @@
                 method: :patch, remote: true %><%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>'
               break;
               case "finished":
-                  phaseText.innerHTML = "<h3>The winner is the prosecuter</h3>";
-                  document.body.innerHTML = '<%= j render partial: 'results'%>'
+                  phaseText.innerHTML = "<h3>The winner is Someone</h3>";
+                  // document.body.innerHTML = '<%= j render partial: 'results'%>'
+                  location.reload();
         }
       }
       }

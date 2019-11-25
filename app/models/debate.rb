@@ -29,7 +29,7 @@ class Debate < ApplicationRecord
                   :affirmative_cross_examination,
                   :affirmative_closing_statement])
   end
-  
+
   scope :negative_turn, -> do
     where(phase: [:negative_speech,
                   :negative_cross_examination_preparation,
@@ -75,4 +75,12 @@ class Debate < ApplicationRecord
   def negative_user
     participants.affirmative.first&.user
   end
+
+  def broadcast_advance(user)
+    ActionCable.server.broadcast("debate_#{id}", {
+      current_phase: phase,
+      current_user_id: user.id
+    })
+  end
+
 end

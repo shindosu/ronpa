@@ -1,4 +1,4 @@
-<div class="landing-nav navbar-expand-sm navbar-light navbar d-flex justify-content-between p-4">
+<div class="landing-nav navbar-expand-sm navbar-light navbar d-flex justify-content-between p-4 ">
   <div>
     <h2>RONPA</h2>
   </div>
@@ -6,28 +6,31 @@
     <%= link_to "Log in", new_user_session_path, class: "btn-landing"  %>
   </div>
 </div>
-<div class="home-header">
-  <div class="container">
-    <div class="row ">
-      <div class="col-12-12">
-        <h1>Enhance your language communication</h1>
-        <br>
-        <h1>through debates</h1>
 
-        <div class="col-12 mt-5">
-          <%= link_to "Sign up", new_user_registration_path , class: "btn-landing" %>
-        </div>
-        <div class="row right">
-          <div class="col-bottom">
-            <h2>Challenge yourself
-              <br>
-              <hr>
-              Join the worlds second biggest debating community!
-            </h2>
-          </div>
-        </div>
+<div class="home-header pt-4">
+  <div class="container">
+    <div class="row mb-5 ">
+      <div class="col-12">
+        <h1>Enhance your language communication</h1>
+        <h1>through debates</h1>
+      </div>
+      <div class="col-6 mt-3">
+        <%= link_to "Sign up", new_user_registration_path , class: "btn-landing" %>
       </div>
     </div>
   </div>
 </div>
+</div>
+<div class="home-content">
+  <div class="container">
+    <div class="row justify-content-end ml-3">
+      <div class="col-8">
+        <h2>Challenge yourself
+          <br>
+          <hr>
+          Join the worlds second biggest debating community!
+        </h2>
+      </div>
+    </div>
+  </div>
 </div>

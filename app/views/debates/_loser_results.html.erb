@@ -1,0 +1,19 @@
+<div class="container" id="results-box-loser">
+  <div class="mb-5">
+    <h1>Defeat</h1>
+    <h3 class="mb-3">Good effort, keep on Ronping!</h3>
+    <p>Add some feedback for your opponent below and help keep Ronpa a great place to debate.</p>
+  </div>
+  <%= render 'feedback_icons_loser' %>
+  <div id="results-buttons">
+    <div class="d-flex justify-content-start">
+      <%= link_to dashboard_path, class: "btn-light-red" do %>
+        <i class="fas fa-exclamation-triangle"></i> Report a Participant
+      <% end %>
+    </div>
+    <div class="d-flex justify-content-end">
+      <%= link_to "Dashboard", dashboard_path, class: "btn-light-red mx-3" %>
+      <%= link_to "Debate Topic Again", dashboard_path, class: "btn-light-red" %>
+    </div>
+  </div>
+</div>

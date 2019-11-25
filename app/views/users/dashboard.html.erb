@@ -21,6 +21,12 @@
         <hr>
           <li><%= link_to "Browse Topics", topics_path, class: "btn-new" %></li>
         </ul>
+
+         <div class="card">
+          <div class="card__face card__face--front">front</div>
+          <div class="card__face card__face--back">back</div>
+        </div>
+
       </div>
     </div>
    <div class="actions-controller ">
@@ -48,9 +54,9 @@
                 <h4>Create a new topic</h4>
                 <%= link_to "", new_topic_path, class:"div-link" %>
               </div>
-              <% current_user.topics.each do  |topic| %>
-                <h2>topic.proposition</h2>
-              <% end %>
+                <% current_user.topics.each do |topic| %>
+                  <%= render 'topics/topic_card_dashboard', topic: topic %>
+                <% end %>
             </div>
         </div>
   </div>

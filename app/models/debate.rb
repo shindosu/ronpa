@@ -66,4 +66,12 @@ class Debate < ApplicationRecord
   def moderator
     participants.moderator.first&.user
   end
+
+  def affirmative_user
+    participants.affirmative.first&.user
+  end
+
+  def negative_user
+    participants.affirmative.first&.user
+  end
 end

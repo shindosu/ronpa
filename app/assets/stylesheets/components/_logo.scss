@@ -6,7 +6,7 @@ span{
   }
 
 .el {
-  color: #fff;
+  color: #F9F4D4;
   text-transform: uppercase;
   font-size: 42px;
   margin: 0;
@@ -15,12 +15,12 @@ span{
 }
 
 .letters {
-  transform: translateX(-60%) rotate(-15deg);
+  transform: translateX(-60%) rotate(-16deg);
   display: block;
   float: left;
   left: 50%;
   position: relative;
-  color: #fff;
+  color: $ronpa-tan;
 
   &span {
     transform: skew(-10deg);
@@ -33,11 +33,11 @@ span{
   }
 }
 
-.title{
-    &:nth-child{
-      color: white;
-    }
-}
+// .title{
+//     &:nth-child{
+//       color: white;
+//     }
+// }
 
 
 
@@ -50,7 +50,7 @@ span{
 .ml11 .text-wrapper {
   position: relative;
   display: inline-block;
-  padding-top: 0.1em;
+  padding-top: 0.9em;
   padding-right: 0.05em;
   padding-bottom: 0.15em;
 }
@@ -75,4 +75,8 @@ span{
   // transform: translateX(-50%) rotate(-10deg);
   display: inline-block;
   line-height: 1em;
+}
+
+.big {
+  font-size: 250px;
 }

@@ -1,12 +1,13 @@
 <div id="argument-uses-left">
-  <% @debate.affirmative_user.arguments.affirmative.where(topic: @debate.topic).each_with_index do |argument, index| %>
+  <% if @debate.affirmative_user %>
+      <% @debate.affirmative_user.arguments.affirmative.where(topic: @debate.topic).each_with_index do |argument, index| %>
       <div class="flip-card">
         <div class="card__face card__face--front">Argument <%= index + 1 %></div>
         <div class="card__face card__face--back argument-use-affirmative"><%= argument.content %> </div>
       </div>
+      <% end %>
   <% end %>
 </div>
 
 
-  <!--   <div class="argument-use-affirmative d-flex"></div> -->
 

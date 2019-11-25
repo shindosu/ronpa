@@ -2,8 +2,8 @@
   <div id="debate-box">
     <h1 class="text-center topic-proposition-text"><%= @debate.topic.proposition%></h1>
     <div class="d-flex justify-content-around">
-      <h3 class="role text-center">Affirmative position</h3>
-      <h3 class="role text-center">Negative position</h3>
+      <h3 class="role text-center">Affirmative Position</h3>
+      <h3 class="role text-center">Negative Position</h3>
     </div>
     <div class="row justify-content-center">
       <div class="phase-text">
@@ -24,9 +24,19 @@
             <div class="user-pane-left">
               <%= render 'user_pane_left', participant: participant %>
             </div>
+            <div class="text-center mt-4">
+              <% if participant.user == current_user && @debate.affirmative_turn? %>
+                <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
+              <% end %>
+            </div>
           <% elsif participant.negative? %>
             <div class="user-pane-right">
-              <%#= render 'user_pane_right', participant: participant %>
+              <%= render 'user_pane_right', participant: participant %>
+            </div>
+            <div class="text-center mt-4">
+              <% if participant.user == current_user && @debate.negative_turn? %>
+                <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
+              <% end %>
             </div>
           <% end %>
       <% end %>
@@ -39,7 +49,7 @@
           <% end %>
         </div>
         <div id="progress-button">
-        <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new next-phase",
+          <%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
                 method: :patch, remote: true %>
         </div>
         <% if @debate.participants.moderator.any? %>
@@ -52,10 +62,6 @@
 
 <% content_for :after_js do %>
   <script>
-  // button = document.querySelector(".next-phase");
-  // button.addEventListener("click", (event) => {
-  //   event.preventDefault();
-  // })
   console.log('script run')
     App['debate_<%= @debate.id %>'] = App.cable.subscriptions.create(
       { channel: 'DebatesChannel', debate_id: <%= @debate.id %> },
@@ -105,7 +111,7 @@
               break;
               case "waiting_end":
                   phaseText.innerHTML = "<h3>Moderator giving final score...</h3>";
-                  progressButton.innerHTML = '<%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %><%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new next-phase",
+                  progressButton.innerHTML = '<%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %><%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
                 method: :patch, remote: true %><%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>'
               break;
               case "finished":

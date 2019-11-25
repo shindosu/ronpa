@@ -1,57 +1,73 @@
 import { Timer } from 'easytimer.js';
 
-    const timer = new Timer();
-    let values = document.querySelector(".values");
-    let button = document.querySelector(".next-phase");
-    let phase_status = document.querySelector(".phase-text h3").innerText
+const values = document.querySelector(".values");
+const button = document.querySelector(".next-phase");
+const timer = new Timer();
 
-        switch (phase_status) {
-            case "Affirmative opening arguments will start in:":
-                console.log(phase_status == "Affirmative opening arguments will start in:")
-                timer.start({countdown: true, startValues: {seconds: 21}});
+if (timer) {
+    timer.addEventListener('secondsUpdated', (event) => {
+        values.innerHTML = timer.getTimeValues().toString().split("").slice(3,8).join("")
+    });
+
+    timer.addEventListener('targetAchieved', (event) => {
+        button.click();
+    });
+}
+
+const setTimer = (timer, seconds) => {
+    timer.start({countdown: true, startValues: {seconds: seconds}});
+}
+
+const initTimer = (phase) => {
+    
+
+    if (values){
+        switch (phase) {
+            case "waiting_start":
+                setTimer(timer, 21);
             break;
-            case "Affirmative opening arguments":
-                timer.start({countdown: true, startValues: {seconds: 121}});
+            case "count_in":
+                setTimer(timer, 121);
             break;
-            case "Negative cross examination preparation":
-                timer.start({countdown: true, startValues: {seconds: 31}});
+            case "affirmative_speech":
+                    setTimer(timer, 21);
             break;
-            case "Negative cross examination":
-                timer.start({countdown: true, startValues: {seconds: 121}});
+            case "negative_cross_examination_preparation":
+                    setTimer(timer, 121);
             break;
-            case "Negative opening argument preparation":
-                timer.start({countdown: true, startValues: {seconds: 21}});
+            case "negative_cross_examination":
+                    setTimer(timer, 21);
             break;
-            case "Negative opening arguments":
-                timer.start({countdown: true, startValues: {seconds: 121}});
+            case "negative_speech_preparation":
+                    setTimer(timer, 121);
             break;
-            case "Affirmative cross examination preparation":
-                timer.start({countdown: true, startValues: {seconds: 31}});
+            case "negative_speech":
+                    setTimer(timer, 31);
             break;
-            case "Affirmative cross examination":
-                timer.start({countdown: true, startValues: {seconds: 121}});
+            case "affirmative_cross_examination_preparation":
+                    setTimer(timer, 121);
             break;
-            case "Affirmative closing statement prepatation":
-                timer.start({countdown: true, startValues: {seconds: 11}});
+            case "affirmative_cross_examination":
+                    setTimer(timer, 11);
             break;
-            case "Affirmative closing statements":
-                timer.start({countdown: true, startValues: {seconds: 61}});
+            case "affirmative_closing_statement_preparation":
+                    setTimer(timer, 11);
             break;
-            case "Negative closing statement preparation":
-                timer.start({countdown: true, startValues: {seconds: 11}});
+            case "affirmative_closing_statement":
+                    setTimer(timer, 61);
             break;
-            case "Negative closing statements":
-                timer.start({countdown: true, startValues: {seconds: 61}});
+            case "negative_closing_statement_preparation":
+                    setTimer(timer, 21);
             break;
-            case "Moderator giving final score...":
-                timer.start({countdown: true, startValues: {seconds: 31}});
-            }
-        
-            timer.addEventListener('secondsUpdated', (event) => {
-              values.innerHTML = timer.getTimeValues().toString().split("").slice(3,8).join("")
-            });
-        
-            timer.addEventListener('targetAchieved', (event) => {
-              button.click();
-            });
+            case "negative_closing_statement":
+                    setTimer(timer, 61);
+            break;
+            case "waiting_end":
+                    setTimer(timer, 31);
+        }
+    }
+}
+
+
+export {initTimer}
 

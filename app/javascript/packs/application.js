@@ -1,10 +1,15 @@
 import "bootstrap";
 import 'components/topic-show';
-import 'components/timer';
+import {initTimer} from 'components/timer';
 import { initFlip } from 'components/flip';
 import { initIconHover } from 'components/topic-show';
 import { submitForm } from 'components/argument-form';
 
+window.addEventListener('newPhaseStarted', (event) => {
+  initTimer(event.currentPhase);
+})
+
+initTimer('waiting_start');
 initFlip();
 initIconHover();
 submitForm();

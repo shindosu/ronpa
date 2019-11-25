@@ -2,7 +2,6 @@
   background-color: #B9DDF7;
   text-align: center;
   padding: 8px;
-  border: 2px solid #D95852;
   border-radius: 8px;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
   h3 {
@@ -16,7 +15,6 @@
   text-align: center;
   padding: 8px;
   border-radius: 8px;
-  border: 2px solid #D95852;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
   h3 {
     border-bottom: 1px solid rgb(150, 150, 150);
@@ -48,14 +46,20 @@
   margin-top: 8px;
 }
 
-.text-phase {
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  color: #D95852;
-  margin-top: 20px;
-}
-
 .text-moderator {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+.phase-text {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: white;
+  color: #D95852;
+  width: 40%;
+  text-align: center;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  justify-content: center;
+  margin-top: 8px;
 }
 
 .text-clock {
@@ -88,6 +92,7 @@
   padding: 8px 32px;
   border-radius: 4px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  width: 400px;
 }
 
 .argument-use-negative {
@@ -96,11 +101,12 @@
   padding: 8px 32px;
   border-radius: 4px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  width: 400px;
 }
 
 .moderator-image {
- height: 100px;
- width: 100px;
+ height: 80px;
+ width: 80px;
  position: relative;
  border: 2px solid white;
  border-radius: 50%;
@@ -110,8 +116,8 @@
 }
 
 .affirmative-image {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   border: 2px solid white;
   border-radius: 50%;
   margin-bottom: 8px;
@@ -120,8 +126,8 @@
 }
 
 .negative-image {
-  height: 100px;
-  width: 100px;
+  height: 80px;
+  width: 80px;
   border: 2px solid white;
   border-radius: 50%;
   margin-bottom: 8px;

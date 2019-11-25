@@ -2,15 +2,13 @@ class ParticipantsController < ApplicationController
   def create
     @topic = Topic.find(params[:topic_id])
     authorize @topic
-    # if current_user.debates.active.none?
+    if current_user.debates.active.none?
       @open_debates = @topic.debates.waiting_start
       @participant = Participant.new(user: current_user)
       authorize @participant
       if @open_debates.any?
         if params[:moderator] && debate_with_slot(:moderator)
           @participant.assign_attributes(role: "moderator", debate: @debate)
-        # elsif debate_with_slot(:affirmative) && debate_with_slot(:negative)
-        #   @participant.assign_attributes(user: current_user, role: ["affirmative", "negative"].sample, debate: @debate)
         elsif debate_with_slot(:affirmative)
           @participant.assign_attributes(role: "affirmative", debate: @debate)
         elsif debate_with_slot(:negative)
@@ -23,12 +21,10 @@ class ParticipantsController < ApplicationController
       end
       if @participant.save
         redirect_to debate_path(@debate)
-      else #remove this and line below
-        redirect_to topic_path(@topic)
       end
-    # else
-    #   redirect_to topic_path(@topic)
-    # end
+    else
+      redirect_to topic_path(@topic)
+    end
   end
 
   def set_result

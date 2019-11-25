@@ -46,13 +46,15 @@
         <div>
           <% if @debate.participants.moderator.any? %>
             <%= cl_image_tag @debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
-            <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h4>
-            <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "btn-new"  %>
-            <% if @debate.phase == "waiting_end" %>
-              <%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %>
-              <%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>
-            <% end %>
           <% end %>
+        </div>
+        <div id="progress-button">
+          <%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+                method: :patch, remote: true %>
+        </div>
+        <% if @debate.participants.moderator.any? %>
+          <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h>
+        <% end %>
       </div>
     </div>
   </div>
@@ -66,7 +68,7 @@
       { received: (data) => {
         console.log(data, data.current_phase)
             const phaseText = document.querySelector('.phase-text');
-            // const progressButton = document.getElementById('progress-button')
+            const progressButton = document.getElementById('progress-button')
             switch (data.current_phase) {
               case "waiting_start":
                   phaseText.innerHTML = "<h3>Waiting for match to start...</h3>";
@@ -109,11 +111,12 @@
               break;
               case "waiting_end":
                   phaseText.innerHTML = "<h3>Moderator giving final score...</h3>";
+                  progressButton.innerHTML = '<%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %><%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+                method: :patch, remote: true %><%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>'
               break;
               case "finished":
                   phaseText.innerHTML = "<h3>The winner is the prosecuter</h3>";
                   document.body.innerHTML = '<%= j render partial: 'results'%>'
-                  // progressButton.innerHTML = '<%= link_to "Back to Dashboard", dashboard_path, class: "btn-new next-phase"%>'
         }
       }
       }

@@ -1,9 +1,13 @@
 .flip-card {
   width: 300px;
+  height: 50px;
   transition: transform 1s;
   transform-style: preserve-3d;
   cursor: pointer;
   position: relative;
+  margin: 18px;
+  margin-bottom: 0px;
+  line-height: 30px;
 }
 
 .flip-card.is-flipped {
@@ -14,15 +18,24 @@
   color: white;
   text-align: center;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
   backface-visibility: hidden;
 }
 
 .card__face--front {
-  background: red;
+  background: #D95852;
+  color: #F9F4D4;
+  border-radius: 8px;
+  transition: transform .4s;
+  &:hover {
+    color: #F9F4D4;
+    background-color: #c34f49;
+    transform: scale(1.06);
+  }
 }
 
 .card__face--back {
   color: black;
   transform: rotateX(180deg);
+  border-radius: 8px;
 }

@@ -54,9 +54,9 @@
                 <h4>Create a new topic</h4>
                 <%= link_to "", new_topic_path, class:"div-link" %>
               </div>
-              <% current_user.topics.each do  |topic| %>
-                <h2>topic.proposition</h2>
-              <% end %>
+                <% current_user.topics.each do |topic| %>
+                  <%= render 'topics/topic_card_dashboard', topic: topic %>
+                <% end %>
             </div>
         </div>
   </div>

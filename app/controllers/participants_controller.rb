@@ -2,7 +2,7 @@ class ParticipantsController < ApplicationController
   def create
     @topic = Topic.find(params[:topic_id])
     authorize @topic
-    if current_user.debates.active.none?
+    # if current_user.debates.active.none?
       @open_debates = @topic.debates.waiting_start
       @participant = Participant.new(user: current_user)
       authorize @participant
@@ -23,10 +23,12 @@ class ParticipantsController < ApplicationController
       end
       if @participant.save
         redirect_to debate_path(@debate)
+      else #remove this and line below
+        redirect_to topic_path(@topic)
       end
-    else
-      redirect_to topic_path(@topic)
-    end
+    # else
+    #   redirect_to topic_path(@topic)
+    # end
   end
 
   def set_result

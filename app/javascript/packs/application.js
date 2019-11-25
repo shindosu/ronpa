@@ -6,8 +6,8 @@ import { initIconHover } from 'components/topic-show';
 import { initLetter } from 'components/logo';
 import { initPop } from 'components/logo';
 
-initPop();
-// initLetter();
+// initPop();
+initLetter();
 initTimer();
 initFlip();
 initIconHover();

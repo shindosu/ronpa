@@ -15,11 +15,12 @@ span{
 }
 
 .letters {
-  transform: translateX(-50%) rotate(-4deg);
+  transform: translateX(-60%) rotate(-15deg);
   display: block;
   float: left;
   left: 50%;
   position: relative;
+  color: #fff;
 
   &span {
     transform: skew(-10deg);
@@ -42,7 +43,6 @@ span{
 
 
 .ml11 {
-  transform: translateX(-50%) rotate(-4deg);
   font-weight: 700;
   font-size: 3.5em;
 }
@@ -56,14 +56,14 @@ span{
 }
 
 .ml11 .line {
-  transform: translateX(-50%) rotate(-10deg);
+  transform: skew (-40deg);
   opacity: 0;
   position: absolute;
   left: 0;
   height: 100%;
   width: 5px;
   background-color: #fff;
-  // transform-origin: 0 50%;
+  transform-origin: 0 50%;
 }
 
 .ml11 .line1 {
@@ -72,6 +72,7 @@ span{
 }
 
 .ml11 .letter {
+  // transform: translateX(-50%) rotate(-10deg);
   display: inline-block;
   line-height: 1em;
 }

@@ -1,6 +1,7 @@
 <%= render 'shared/navbar' %>
 <div class="container-dash justify-content-between" >
   <div class="user-sidebar justify-content-around">
+   <div class="actions-controller ">
     <div class="sidebar">
       <div class="username text-capitalize">
         <h3><%= current_user.username %>'s Dashboard</h3>
@@ -23,7 +24,6 @@
         </ul>
       </div>
     </div>
-   <div class="actions-controller ">
         <div class="col-size">
           <div class="dashboard-header"><h5>Play</h5></div>
             <div class="open-debates border pt-4">

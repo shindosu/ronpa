@@ -5,8 +5,13 @@
       <h3 class="role text-center">Affirmative position</h3>
       <h3 class="role text-center">Negative position</h3>
     </div>
-    <%= render 'debate_phase', debate: @debate%>
-    <h4 class="text-center text-clock"><%= render 'shared/timer' %></h4>
+    <div class="row justify-content-center">
+      <div class="phase-text">
+        <h4><%= render 'debate_phase', debate: @debate%></h4>
+        <h4 class="text-center text-clock"><%= render 'shared/timer' %></h4>
+      </div>
+    </div>
+
     <div class="d-flex justify-content-around pb-4">
       <%= render 'user_info', participant: @debate.participants.affirmative.first%>
       <%= render 'user_info', participant: @debate.participants.negative.first%>
@@ -17,19 +22,13 @@
             <div class="user-pane-left">
               <%= render 'user_pane_left', participant: participant %>
             </div>
-            <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase d-none",
-            method: :patch %>
           <% elsif participant.negative? %>
             <div class="user-pane-right">
               <%= render 'user_pane_right', participant: participant %>
             </div>
-            <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase d-none",
-            method: :patch %>
           <% end %>
       <% end %>
     </div>
-
-
     <div>
       <div class="text-center text-moderator">
         <div>
@@ -37,15 +36,11 @@
         </div>
         <% if @debate.participants.moderator.any? %>
           <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h4>
-          <% if current_user.participants.where(debate_id: @debate).first.moderator? %>
-            <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new next-phase",
-              method: :patch %>
             <% if @debate.waiting_end? %>
               <%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %>
               <%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>
             <% end %>
           <% end %>
-        <% end %>
       </div>
     </div>
   </div>

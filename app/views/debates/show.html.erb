@@ -12,8 +12,11 @@
       </div>
     </div>
     <div class="d-flex justify-content-around pb-4">
-      <%= render 'user_info', participant: @debate.participants.affirmative.first%>
-      <%= render 'user_info', participant: @debate.participants.negative.first%>
+      <% if @debate.participants.affirmative.any? %>
+        <%= render 'user_info', participant: @debate.participants.affirmative.first%>
+      <% elsif @debate.participants.negative.any?  %>
+        <%= render 'user_info', participant: @debate.participants.negative.first%>
+      <% end %>
     </div>
     <div class="d-flex justify-content-around">
       <% @debate.participants.each do |participant| %>

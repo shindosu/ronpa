@@ -1,26 +1,31 @@
 class ParticipantsController < ApplicationController
   def create
     @topic = Topic.find(params[:topic_id])
-    @open_debates = @topic.debates.waiting_start
-    @participant = Participant.new(user: current_user)
-    authorize @participant
-    if @open_debates.any?
-      if params[:moderator] && debate_with_slot(:moderator)
-        @participant.assign_attributes(role: "moderator", debate: @debate)
-      # elsif debate_with_slot(:affirmative) && debate_with_slot(:negative)
-      #   @participant.assign_attributes(user: current_user, role: ["affirmative", "negative"].sample, debate: @debate)
-      elsif debate_with_slot(:affirmative)
-        @participant.assign_attributes(role: "affirmative", debate: @debate)
-      elsif debate_with_slot(:negative)
-        @participant.assign_attributes(role: "negative", debate: @debate)
+    authorize @topic
+    if current_user.debates.active.none?
+      @open_debates = @topic.debates.waiting_start
+      @participant = Participant.new(user: current_user)
+      authorize @participant
+      if @open_debates.any?
+        if params[:moderator] && debate_with_slot(:moderator)
+          @participant.assign_attributes(role: "moderator", debate: @debate)
+        # elsif debate_with_slot(:affirmative) && debate_with_slot(:negative)
+        #   @participant.assign_attributes(user: current_user, role: ["affirmative", "negative"].sample, debate: @debate)
+        elsif debate_with_slot(:affirmative)
+          @participant.assign_attributes(role: "affirmative", debate: @debate)
+        elsif debate_with_slot(:negative)
+          @participant.assign_attributes(role: "negative", debate: @debate)
+        end
+      else
+        @debate = Debate.create(topic: @topic)
+        role = params[:moderator] ? "moderator" : ["affirmative", "negative"].sample
+        @participant.assign_attributes(role: role, debate: @debate)
+      end
+      if @participant.save
+        redirect_to debate_path(@debate)
       end
     else
-      @debate = Debate.create(topic: @topic)
-      role = params[:moderator] ? "moderator" : ["affirmative", "negative"].sample
-      @participant.assign_attributes(role: role, debate: @debate)
-    end
-    if @participant.save
-      redirect_to debate_path(@debate)
+      redirect_to topic_path(@topic)
     end
   end
 

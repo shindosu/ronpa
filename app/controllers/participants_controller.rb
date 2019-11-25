@@ -9,8 +9,6 @@ class ParticipantsController < ApplicationController
       if @open_debates.any?
         if params[:moderator] && debate_with_slot(:moderator)
           @participant.assign_attributes(role: "moderator", debate: @debate)
-        # elsif debate_with_slot(:affirmative) && debate_with_slot(:negative)
-        #   @participant.assign_attributes(user: current_user, role: ["affirmative", "negative"].sample, debate: @debate)
         elsif debate_with_slot(:affirmative)
           @participant.assign_attributes(role: "affirmative", debate: @debate)
         elsif debate_with_slot(:negative)

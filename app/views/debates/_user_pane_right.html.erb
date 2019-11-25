@@ -1,9 +1,11 @@
 <div id="argument-uses-right">
-  <% @debate.negative_user.arguments.negative.where(topic: @debate.topic).each_with_index do |argument, index| %>
-      <div class="flip-card">
-        <div class="card__face card__face--front">Argument <%= index + 1 %></div>
-        <div class="card__face card__face--back argument-use-negative"><%= argument.content %> </div>
-      </div>
+  <% if @debate.negative_user %>
+    <% @debate.negative_user.arguments.negative.where(topic: @debate.topic).each_with_index do |argument, index| %>
+        <div class="flip-card">
+          <div class="card__face card__face--front">Argument <%= index + 1 %></div>
+          <div class="card__face card__face--back argument-use-negative"><%= argument.content %> </div>
+        </div>
+    <% end %>
   <% end %>
 </div>
 

@@ -1,18 +1,16 @@
 
 .home-header {
-  background: linear-gradient(158deg, #D95852 45%, #F9F4D4 45%);
+
+  background: linear-gradient(160deg, #D95852 50%, #F9F4D4 50%);
+  // clip-path: polygon(0 0, 100% 0, 100% 8%, 0% 100%);
 
 }
 
-.home-header .row {
-    height: 900px;
+.home-header {
+    height: 615px;
+    overflow: hidden;
+    position: relative;
 }
-
-.container .row {
-  color: #F9F4D4;
-  max-width: 1190px;
-  position: relative;
-  }
 
 
 .landing-nav {
@@ -28,11 +26,8 @@
   background-color: transparent;
 }
 
-.col-bottom {
-  position: absolute;
-  left: 600px;
-  top: 330px;
-  color: #D95852;
-  width: 540px;
+.home-content {
+  background: #F9F4D4;
+  margin-top: -200px;
+  height: 360px;
 }
-

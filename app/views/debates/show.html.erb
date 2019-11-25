@@ -12,35 +12,41 @@
       </div>
     </div>
     <div class="d-flex justify-content-around pb-4">
-      <% if @debate.participants.affirmative.any? %>
-        <%= render 'user_info', participant: @debate.participants.affirmative.first%>
-      <% elsif @debate.participants.negative.any?  %>
-        <%= render 'user_info', participant: @debate.participants.negative.first%>
+      <% if @debate.affirmative_user %>
+        <%= render 'user_info', participant: @debate.affirmative_user %>
+      <% elsif @debate.negative_user  %>
+        <%= render 'user_info', participant: @debate.negative_user %>
       <% end %>
     </div>
+
     <div class="d-flex justify-content-around">
       <% @debate.participants.each do |participant| %>
           <% if participant.affirmative? %>
-            <div class="user-pane-left">
-              <%= render 'user_pane_left', participant: participant %>
-            </div>
-            <div class="text-center mt-4">
-              <% if participant.user == current_user && @debate.affirmative_turn? %>
-                <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
-              <% end %>
+            <div>
+              <div class="user-pane-left">
+                <%= render 'user_pane_left', participant: participant %>
+              </div>
+              <div class="text-center mt-4">
+                <% if participant.user == current_user && @debate.affirmative_turn? %>
+                  <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
+                <% end %>
+              </div>
             </div>
           <% elsif participant.negative? %>
-            <div class="user-pane-right">
-              <%= render 'user_pane_right', participant: participant %>
-            </div>
-            <div class="text-center mt-4">
-              <% if participant.user == current_user && @debate.negative_turn? %>
-                <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
-              <% end %>
+            <div>
+              <div class="user-pane-right">
+                <%= render 'user_pane_right', participant: participant %>
+              </div>
+              <div class="text-center mt-4">
+                <% if participant.user == current_user && @debate.negative_turn? %>
+                  <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
+                <% end %>
+              </div>
             </div>
           <% end %>
       <% end %>
     </div>
+
     <div>
       <div class="text-center text-moderator">
         <div>

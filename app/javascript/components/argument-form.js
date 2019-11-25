@@ -1,12 +1,12 @@
 
-const formElement = document.querySelector('.argument-form');
+const formElement = document.querySelectorAll('#argument_content');
 
 const submitForm = () => {
-  formElement.addEventListener('blur', event => {
-    formElement.submit();
-  });
-};
-
-
+  formElement.forEach((element) =>
+    element.addEventListener('blur', function(event) {
+      element.parentNode.parentNode.submit();
+       element.parentNode.parentNode.preventDefault();
+    }
+  ))};
 
 export { submitForm };

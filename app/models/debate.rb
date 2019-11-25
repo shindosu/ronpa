@@ -29,6 +29,7 @@ class Debate < ApplicationRecord
                   :affirmative_cross_examination,
                   :affirmative_closing_statement])
   end
+  
   scope :negative_turn, -> do
     where(phase: [:negative_speech,
                   :negative_cross_examination_preparation,

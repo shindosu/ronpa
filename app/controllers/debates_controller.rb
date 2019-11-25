@@ -28,11 +28,11 @@ class DebatesController < ApplicationController
     authorize @debate
     @debate.update(phase: Debate.phases[@debate.phase] + 1)
     advance_debate
-    if @debate.phase == "finished"
-      redirect_to dashboard_path
-    else
-      render "debates/show"
-    end
+    # if @debate.phase == "finished"
+    #   redirect_to dashboard_path
+    # else
+    #   render "debates/show"
+    # end
   end
 
   private 
@@ -42,7 +42,5 @@ class DebatesController < ApplicationController
       current_phase: @debate.phase,
       current_user_id: current_user.id
     })
-    binding.pry
-
   end
 end

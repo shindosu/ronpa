@@ -1,7 +1,5 @@
 <div class="container pl-0 pr-0">
   <div id="debate-box">
-   <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new next-phase",
-              method: :patch %>
     <h1 class="text-center topic-proposition-text"><%= @debate.topic.proposition%></h1>
     <div class="d-flex justify-content-around">
       <h3 class="role text-center">Affirmative position</h3>
@@ -9,7 +7,7 @@
     </div>
     <div class="row justify-content-center">
       <div class="phase-text">
-        <h4><%= render 'debate_phase', debate: @debate%></h4>
+        <%= render 'debate_phase', debate: @debate%>
         <h4 class="text-center text-clock"><%= render 'shared/timer' %></h4>
       </div>
     </div>
@@ -26,9 +24,6 @@
             <div class="user-pane-left">
               <%= render 'user_pane_left', participant: participant %>
             </div>
-            <%#= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn btn-primary next-phase d-none",
-            method: :patch %>
-
           <% elsif participant.negative? %>
             <div class="user-pane-right">
               <%#= render 'user_pane_right', participant: participant %>
@@ -43,39 +38,89 @@
             <%= cl_image_tag @debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
           <% end %>
         </div>
-         <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new next-phase",
-              method: :patch, remote: true %>
+        <div id="progress-button">    
+        <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new next-phase",
+                method: :patch, remote: true %>
+        </div>
         <% if @debate.participants.moderator.any? %>
           <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h4>
-          <% if current_user.participants.where(debate_id: @debate).first.moderator? %>
-            <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new next-phase",
+          <%# if current_user.participants.where(debate_id: @debate).first.moderator? %>
+            <%#= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new next-phase",
               method: :patch, remote: true %>
-
             <% if @debate.waiting_end? %>
               <%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %>
               <%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>
             <% end %>
-          <% end %>
+          <%# end %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
-<<<<<<< HEAD
-<%= javascript_pack_tag "cardflip" %>
 
 <% content_for :after_js do %>
   <script>
-  button = document.querySelector(".next-phase");
-  button.addEventListener("click", (event) => {
-    event.preventDefault();
-  })
-
+  // button = document.querySelector(".next-phase");
+  // button.addEventListener("click", (event) => {
+  //   event.preventDefault();
+  // })
+  console.log('script run')
     App['debate_<%= @debate.id %>'] = App.cable.subscriptions.create(
       { channel: 'DebatesChannel', debate_id: <%= @debate.id %> },
-      { received: (data) => console.log(data) }
-    })
+      { received: (data) => {
+        console.log(data, data.current_phase)
+            const phaseText = document.querySelector('.phase-text');
+            const button = document.querySelector('.btn-new');
+            const progressButton = document.getElementById('progress-button')
+            switch (data.current_phase) {
+              case "waiting_start":
+                  phaseText.innerHTML = "<h3>Waiting for match to start...</h3>";
+              break;
+              case "count_in":
+                  phaseText.innerHTML = "<h3>Affirmative opening arguments will start in:</h3>";
+              break;
+              case "affirmative_speech":
+                  phaseText.innerHTML = "<h3>Affirmative opening arguments</h3>";
+              break;
+              case "negative_cross_examination_preparation":
+                  phaseText.innerHTML = "<h3>Negative cross examination preparation</h3>";
+              break;
+              case "negative_cross_examination":
+                  phaseText.innerHTML = "<h3>Negative cross examination</h3>";
+              break;
+              case "negative_speech_preparation":
+                  phaseText.innerHTML = "<h3>Negative opening argument preparation</h3>";
+              break;
+              case "negative_speech":
+                  phaseText.innerHTML = "<h3>Negative opening arguments</h3>";
+              break;
+              case "affirmative_cross_examination_preparation":
+                  phaseText.innerHTML = "<h3>Affirmative cross examination preparation</h3>";
+              break;
+              case "affirmative_cross_examination":
+                  phaseText.innerHTML = "<h3>Affirmative cross examination</h3>";
+              break;
+              case "affirmative_closing_statement_preparation":
+                  phaseText.innerHTML = "<h3>Affirmative closing statement prepatation</h3>";
+              break;
+              case "affirmative_closing_statement":
+                  phaseText.innerHTML = "<h3>Affirmative closing statement</h3>";
+              break;
+              case "negative_closing_statement_preparation":
+                  phaseText.innerHTML = "<h3>Negative closing statement preparation</h3>";
+              break;
+              case "negative_closing_statement":
+                  phaseText.innerHTML = "<h3>Negative closing statement</h3>";
+              break;
+              case "waiting_end":
+                  phaseText.innerHTML = "<h3>Moderator giving final score...</h3>";
+              break;
+              case "finished":
+                  phaseText.innerHTML = "<h3>The winner is the prosecuter</h3>";
+                  progressButton.innerHTML = '<%= link_to "Back to Dashboard", dashboard_path, class: "btn-new next-phase"%>'
+        }
+      }
+      }
+    );
   </script>
 <% end %>
-=======
->>>>>>> 0e96285566597e59fbe8d183c6b193101c17c5f3
-

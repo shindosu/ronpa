@@ -30,3 +30,31 @@
    }
 }
 
+.btn-light-tan {
+  background-color: transparent;
+  color: $ronpa-tan;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 2px solid $ronpa-tan;
+  margin: 4px;
+  transition: 0.3s;
+  &:hover {
+    color: $ronpa-red;
+    background-color: $ronpa-tan;
+  }
+}
+
+.btn-light-red {
+  background-color: transparent;
+  color: $ronpa-red;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 2px solid $ronpa-red;
+  margin: 4px;
+  transition: 0.3s;
+  &:hover {
+    color: $ronpa-tan;
+    background-color: $ronpa-red;
+  }
+}
+

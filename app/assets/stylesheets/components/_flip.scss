@@ -1,0 +1,28 @@
+.flip-card {
+  width: 300px;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  cursor: pointer;
+  position: relative;
+}
+
+.flip-card.is-flipped {
+  transform: rotateX(180deg);
+}
+
+.card__face {
+  color: white;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  backface-visibility: hidden;
+}
+
+.card__face--front {
+  background: red;
+}
+
+.card__face--back {
+  color: black;
+  transform: rotateX(180deg);
+}

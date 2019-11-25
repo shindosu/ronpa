@@ -14,30 +14,45 @@
     <div class="d-flex justify-content-around pb-4">
       <% if @debate.participants.affirmative.any? %>
         <%= render 'user_info', participant: @debate.participants.affirmative.first%>
-      <% elsif @debate.participants.negative.any?  %>
+      <% elsif @debate.participants.negative.any? %>
         <%= render 'user_info', participant: @debate.participants.negative.first%>
       <% end %>
     </div>
+
     <div class="d-flex justify-content-around">
       <% @debate.participants.each do |participant| %>
           <% if participant.affirmative? %>
-            <div class="user-pane-left">
-              <%= render 'user_pane_left', participant: participant %>
+            <div>
+              <div class="user-pane-left">
+                <%= render 'user_pane_left', participant: participant %>
+              </div>
+              <div class="text-center mt-4">
+                <% if participant.user == current_user && @debate.affirmative_turn? %>
+                  <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
+                <% end %>
+              </div>
             </div>
           <% elsif participant.negative? %>
-            <div class="user-pane-right">
-              <%= render 'user_pane_right', participant: participant %>
+            <div>
+              <div class="user-pane-right">
+                <%= render 'user_pane_right', participant: participant %>
+              </div>
+              <div class="text-center mt-4">
+                <% if participant.user == current_user && @debate.negative_turn? %>
+                  <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
+                <% end %>
+              </div>
             </div>
           <% end %>
       <% end %>
     </div>
+
     <div>
       <div class="text-center text-moderator">
-        <div>
-          <%= cl_image_tag @debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
-        </div>
-        <% if @debate.participants.moderator.any? %>
-          <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h4>
+        <% if @debate.moderator %>
+          <%= cl_image_tag @debate.moderator.photo, class:"text-center moderator-image" %>
+          <h4><%= @debate.moderator.username %> is moderating</h4>
+          <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "btn-new"  %>
             <% if @debate.waiting_end? %>
               <%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %>
               <%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>

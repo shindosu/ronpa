@@ -2,7 +2,7 @@ puts `Deleting Topics`
 Topic.destroy_all
 puts "Deleted all Topics, now creating topics..."
 
-Topic.create(
+Topic.create!(
   proposition: "Mos Burger is more delicious than Cocoichi",
   level: 1,
   description: "Impact hub people love cocoichi, but mos burger is also the pinnacle of healthy burgers in Japan

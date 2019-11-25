@@ -1,6 +1,6 @@
 
 .container-dash {
-  flex-grow: 1;
+  margin: 0 auto;
 }
 
 .card-dash {
@@ -79,7 +79,7 @@
 // new dashboard design
 
 .open-debates {
-  padding: 16px;
+  margin-bottom: 24px;
   height: 60vh;
   overflow: scroll;
   border-radius: 0 0 16px 16px;
@@ -87,7 +87,7 @@
 
 .dashboard-header {
   text-align: center;
-  color: black;
+  color: #212121;
   background-color: #D3D6D9;
   padding: 24px 0;
   font-weight: bold;
@@ -100,7 +100,10 @@
 }
 
 .actions-controller {
-  width: 70vw;
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+  grid-gap: 60px;
+  width: 70vw ;
   margin: 0px 50px;
 }
 
@@ -109,4 +112,9 @@
   text-align: center;
 
 }
+
+// .col-size {
+//   max-width: 34%;
+// }
+
 // end of new dashboard design -- add inside if have new changes

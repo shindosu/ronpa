@@ -1,0 +1,32 @@
+<h3 class="text-center text-phase">
+    <% case debate.phase %>
+    <% when "waiting_start"%>
+      Waiting for match to start...
+    <% when "count_in"%>
+      Affirmative opening arguments will start in:
+    <% when "affirmative_speech"%>
+      Affirmative opening arguments
+    <% when "negative_cross_examination_preparation"%>
+      Negative cross examination preparation
+    <% when "negative_cross_examination"%>
+      Negative cross examination
+    <% when "negative_speech_preparation"%>
+      Negative opening argument preparation
+    <% when "negative_speech"%>
+      Negative opening arguments
+    <% when "affirmative_cross_examination_preparation"%>
+      Affirmative cross examination preparation
+    <% when "affirmative_cross_examination"%>
+      Affirmative cross examination
+    <% when "affirmative_closing_statement_preparation"%>
+      Affirmative closing statement prepatation
+    <% when "affirmative_closing_statement"%>
+      Affirmative closing statements
+    <% when "negative_closing_statement_preparation"%>
+      Negative closing statement preparation
+    <% when "negative_closing_statement"%>
+      Negative closing statements
+    <% when "waiting_end"%>
+      Moderator giving final score...
+    <% end %>
+  </h3>

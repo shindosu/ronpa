@@ -23,20 +23,47 @@ class Debate < ApplicationRecord
   end
 
   scope :active, -> { where.not(phase: :finished) }
-  scope :affirmative_turn, -> do
-    where(phase: [:affirmative_speech,
-                  :affirmative_cross_examination_preparation,
-                  :affirmative_cross_examination,
-                  :affirmative_closing_statement])
-  end
-  scope :negative_turn, -> do
-    where(phase: [:negative_speech,
-                  :negative_cross_examination_preparation,
-                  :negative_cross_examination,
-                  :negative_closing_statement])
-  end
+  # scope :affirmative_turn, -> do
+  #   where(phase: [:affirmative_speech,
+  #                 :affirmative_cross_examination_preparation,
+  #                 :affirmative_cross_examination,
+  #                 :affirmative_closing_statement])
+  # end
+
+  # scope :negative_turn, -> do
+  #   where(phase: [:negative_speech,
+  #                 :negative_cross_examination_preparation,
+  #                 :negative_cross_examination,
+  #                 :negative_closing_statement])
+  # end
 
   def with_slot?(role)
     participants.send(role).none?
+  end
+
+  def affirmative_turn?
+    [
+      :affirmative_speech_peparation,
+      :affirmative_speech,
+      :affirmative_cross_examination_preparation,
+      :affirmative_cross_examination,
+      :affirmative_closing_statement_preparation,
+      :affirmative_closing_statement
+    ].include?(phase.to_sym)
+  end
+
+  def negative_turn?
+    [
+      :negative_speech_preparation,
+      :negative_speech,
+      :negative_cross_examination_preparation,
+      :negative_cross_examination,
+      :negative_closing_statement_preparation,
+      :negative_closing_statement
+    ].include?(phase.to_sym)
+  end
+
+  def moderator
+    participants.moderator.first&.user
   end
 end

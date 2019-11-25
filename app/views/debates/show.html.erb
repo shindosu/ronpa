@@ -34,7 +34,9 @@
     <div>
       <div class="text-center text-moderator">
         <div>
-          <%= cl_image_tag @debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
+          <% if @debate.participants.moderator.any? %>
+            <%= cl_image_tag @debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
+          <% end %>
         </div>
         <% if @debate.participants.moderator.any? %>
           <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h4>

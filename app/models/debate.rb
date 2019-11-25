@@ -39,4 +39,5 @@ class Debate < ApplicationRecord
   def with_slot?(role)
     participants.send(role).none?
   end
+
 end

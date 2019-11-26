@@ -10,11 +10,6 @@
     <%#= stylesheet_pack_tag 'application', media: 'all' %> <!-- Uncomment if you import CSS in app/javascript/packs/application.js -->
   </head>
   <body>
-    <% if signed_in? %>
-      <% unless action_name == "home" || (params[:controller] == 'topics' && params[:action] == 'show') %>
-        <%= render 'shared/navbar' %>
-      <% end %>
-    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>

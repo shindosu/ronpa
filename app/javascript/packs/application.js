@@ -10,11 +10,11 @@ import { submitForm } from 'components/argument-form';
 
 initLetter();
 
-// window.addEventListener('newPhaseStarted', (event) => {
-//   initTimer(event.currentPhase);
-// })
+window.addEventListener('newPhaseStarted', (event) => {
+  initTimer(event.currentPhase);
+})
 
-// initTimer('waiting_start');
+initTimer('waiting_start');
 initTimer();
 initFlip();
 initIconHover();

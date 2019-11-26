@@ -1,6 +1,11 @@
 <div class="landing-nav navbar-expand-sm navbar-light navbar d-flex justify-content-between p-4 ">
   <div>
-    <h2>RONPA</h2>
+   <!--  <h1 class="ml11">
+  <span class="text-wrapper">
+    <span class=" line1 el"></span>
+    <span class="letters">RONPA</span>
+  </span>
+</h1> -->
   </div>
   <div>
     <%= link_to "Log in", new_user_session_path, class: "btn-landing"  %>
@@ -11,11 +16,14 @@
   <div class="container">
     <div class="row mb-5 ">
       <div class="col-12">
-        <h1>Enhance your language communication</h1>
-        <h1>through debates</h1>
-      </div>
-      <div class="col-6 mt-3">
-        <%= link_to "Sign up", new_user_registration_path , class: "btn-landing" %>
+        <h1 class="ml11">
+          <span class="text-wrapper">
+          <span class=" line1 el"></span>
+          <span class="letters big">RONPA!</span>
+          </span>
+        </h1>
+      <!--   <h1>Enhance your language communication</h1>
+        <h1>through debates</h1> -->
       </div>
     </div>
   </div>
@@ -30,7 +38,13 @@
           <hr>
           Join the worlds second biggest debating community!
         </h2>
+        <div class="col-6 mt-3">
+          <%= link_to "Sign up", new_user_registration_path , class: "btn-light-red" %>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+

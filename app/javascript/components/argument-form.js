@@ -1,4 +1,3 @@
-
 const formElement = document.querySelectorAll('#argument_content');
 
 const submitForm = () => {

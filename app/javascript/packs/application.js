@@ -6,7 +6,7 @@ import { initIconHover } from 'components/topic-show';
 import { initLetter } from 'components/logo';
 import { initPop } from 'components/logo';
 import { submitForm } from 'components/argument-form';
-import { giveFeedback } from 'components/review-button';
+// import { giveFeedback } from 'components/review-button';
 
 initLetter();
 
@@ -19,5 +19,5 @@ initTimer();
 initFlip();
 initIconHover();
 submitForm();
-giveFeedback();
+// giveFeedback();
 

@@ -114,6 +114,17 @@
 
 }
 
+#wins-text {
+  border-right: 1px solid gray;
+  padding-right: 60px;
+  length: 20px;
+  font-size: 20px;
+}
+
+#losses-text {
+  font-size: 20px;
+}
+
 @media(max-width: 992px) {
   .actions-controller {
     grid-template-columns: 3fr;

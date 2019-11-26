@@ -15,10 +15,10 @@ span{
 }
 
 .letters {
-  transform: translateX(-60%) rotate(-16deg);
+  transform: translateX(-60%) rotate(-21.5deg);
   display: block;
   float: left;
-  left: 50%;
+  left: 55%;
   position: relative;
   color: $ronpa-tan;
 
@@ -41,6 +41,10 @@ span{
 
 
 
+.row-logo {
+  margin-left: -80px;
+  margin-top: 40px;
+}
 
 .ml11 {
   font-weight: 700;

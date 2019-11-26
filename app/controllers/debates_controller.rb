@@ -4,6 +4,11 @@ class DebatesController < ApplicationController
   def show
     @debate = Debate.find(params[:id])
     authorize @debate
+    if @debate.finished?
+      render 'debates/results'
+    else
+      render 'debates/show'
+    end
   end
 
   def create

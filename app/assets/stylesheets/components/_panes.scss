@@ -1,4 +1,4 @@
-.user-pane-left {
+.user-pane-affirmative {
   background-color: #B9DDF7;
   text-align: center;
   padding: 8px;
@@ -10,7 +10,7 @@
   }
 }
 
-.user-pane-right {
+.user-pane-negative {
   background-color: #D8ABA9;
   text-align: center;
   padding: 8px;
@@ -51,7 +51,7 @@
   padding: 16px;
 }
 
-.phase-text {
+.phase {
   padding: 16px;
   border-radius: 8px;
   background-color: white;
@@ -74,7 +74,7 @@
   justify-content: center;
   padding-top: 30px;
   border-bottom: 1px solid #D95852;
-  width: 30%;
+  width: 100%;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
 

@@ -16,5 +16,5 @@ Rails.application.routes.draw do
   end
   resources :users, only: [:show]
   get 'dashboard', to: 'users#dashboard', as:'dashboard'
-  mount ActionCable.server, at: '/cable'
+  mount ActionCable.server => '/cable'
 end

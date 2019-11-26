@@ -15,40 +15,38 @@ if (timer) {
 }
 
 const setTimer = (timer, seconds) => {
+    timer.reset();
+    timer.stop();
     timer.start({countdown: true, startValues: {seconds: seconds}});
 }
 
 const initTimer = (phase) => {
-    
 
     if (values){
         switch (phase) {
-            case "waiting_start":
+            case "count_in":
                 setTimer(timer, 21);
             break;
-            case "count_in":
-                setTimer(timer, 121);
-            break;
             case "affirmative_speech":
-                    setTimer(timer, 21);
+                    setTimer(timer, 121);
             break;
             case "negative_cross_examination_preparation":
-                    setTimer(timer, 121);
-            break;
-            case "negative_cross_examination":
                     setTimer(timer, 21);
             break;
-            case "negative_speech_preparation":
+            case "negative_cross_examination":
                     setTimer(timer, 121);
+            break;
+            case "negative_speech_preparation":
+                    setTimer(timer, 21);
             break;
             case "negative_speech":
-                    setTimer(timer, 31);
-            break;
-            case "affirmative_cross_examination_preparation":
                     setTimer(timer, 121);
             break;
+            case "affirmative_cross_examination_preparation":
+                    setTimer(timer, 21);
+            break;
             case "affirmative_cross_examination":
-                    setTimer(timer, 11);
+                    setTimer(timer, 121);
             break;
             case "affirmative_closing_statement_preparation":
                     setTimer(timer, 11);
@@ -57,7 +55,7 @@ const initTimer = (phase) => {
                     setTimer(timer, 61);
             break;
             case "negative_closing_statement_preparation":
-                    setTimer(timer, 21);
+                    setTimer(timer, 11);
             break;
             case "negative_closing_statement":
                     setTimer(timer, 61);

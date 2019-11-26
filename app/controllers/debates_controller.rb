@@ -1,5 +1,3 @@
-require 'pry'
-
 class DebatesController < ApplicationController
   def show
     @debate = Debate.find(params[:id])

@@ -58,6 +58,14 @@ class Debate < ApplicationRecord
   end
 
   def negative_user
-    participants.affirmative.first&.user
+    participants.negative.first&.user
   end
+
+  def broadcast_advance(user)
+    ActionCable.server.broadcast("debate_#{id}", {
+      current_phase: phase,
+      current_user_id: user.id
+    })
+  end
+
 end

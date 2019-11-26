@@ -16,17 +16,31 @@
   }
 }
 
-.btn-landing {
-  color: #212121;
+.btn-landing-tan {
+  color: #F9F4D4;
   background-color: transparent;
   border: 2px solid #F9F4D4;
   border-radius: 8px;
   padding: 8px 12px;
-  font-size: 24px;
+  font-size: 16px;
   transition: 0.3s;
    &:hover {
     background-color: #F9F4D4;
-    color: #212121;
+    color: #c34f49;
+   }
+}
+
+.btn-landing-red {
+  color: #c34f49;
+  background-color: transparent;
+  border: 2px solid #c34f49;
+  border-radius: 8px;
+  padding: 8px 12px;
+  font-size: 16px;
+  transition: 0.3s;
+   &:hover {
+    background-color: #c34f49;
+    color: #F9F4D4;
    }
 }
 
@@ -58,3 +72,21 @@
   }
 }
 
+
+//new button landing page //
+
+.button-land {
+   background-color: transparent;
+  color: $ronpa-red;
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-size: 24px;
+  border: 2px solid $ronpa-red;
+  margin: 7px;
+  transition: 0.3s;
+  &:hover {
+    color: $ronpa-tan;
+    background-color: $ronpa-red;
+  }
+}
+// end of new button landing //

@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  authenticated { root to: 'users#dashboard' }
   root to: 'pages#home'
   resources :topics, only: [:index, :show, :new, :create] do
     resources :participants, only: [:create]

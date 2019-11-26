@@ -20,4 +20,37 @@ class User < ApplicationRecord
   def in_debate?
     debates.active.any?
   end
+
+  def wins
+    participants.where(result: "winner").count
+  end
+
+  def losses
+    participants.where(result: "loser").count
+  end
+
+  def user_rank
+    rank = ""
+    games = wins + losses
+    if games > 0
+      ratio = (wins / games).round * 100
+
+      if (0..19).include?(ratio)
+        rank = "Bronze"
+      elsif (20..39).include?(ratio)
+        rank = "Silver"
+      elsif (40..59).include?(ratio)
+        rank = "Gold"
+      elsif (60..79).include?(ratio)
+        rank = "Diamond"
+      elsif (80..89).include?(ratio)
+        rank = "Platinum"
+      elsif (90..96).include?(ratio)
+        rank = "Master"
+      elsif (97..100).include?(ratio)
+        rank = "Grand Master"
+      end
+    end
+    rank
+  end
 end

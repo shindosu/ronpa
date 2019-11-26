@@ -12,9 +12,14 @@
         <p><%= @topic.description %></p>
       </div>
       <div id="topic-show-desc" class="text-left w-50 mb-5">
-        <% if @topic.access_code == nil? %>
+        <% if @topic.user == nil? %>
           <h3>No available debate rooms</h3>
+        <% elsif @topic.user %>
+        <h3 class="pt-3">Moderator Information</h3>
+        <p>Host Room: <%= @topic.user.conference_number.to_s %></p>
+        <p>Access Code: <%= @topic.user.access_code.to_s %></p>
         <% else %>
+          <h3>No available debates :(</h3>
         <% end %>
       </div>
   </div>

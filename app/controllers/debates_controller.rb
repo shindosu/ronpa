@@ -32,6 +32,10 @@ class DebatesController < ApplicationController
     authorize @debate
     @debate.update(phase: Debate.phases[@debate.phase] + 1)
     DebatesChannel.broadcast_debate_data(@debate)
+    respond_to do |format|
+      format.html { render 'debates/show' }
+      format.js
+    end
   end
 
   private

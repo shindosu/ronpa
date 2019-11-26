@@ -4,6 +4,11 @@ class DebatesController < ApplicationController
   def show
     @debate = Debate.find(params[:id])
     authorize @debate
+    if @debate.finished?
+      render 'debates/results'
+    else
+      render 'debates/show'
+    end
   end
 
   def create
@@ -27,20 +32,11 @@ class DebatesController < ApplicationController
     @topic = @debate.topic
     authorize @debate
     @debate.update(phase: Debate.phases[@debate.phase] + 1)
-    advance_debate
+    @debate.broadcast_advance(current_user)
     # if @debate.phase == "finished"
     #   redirect_to dashboard_path
     # else
     #   render "debates/show"
     # end
-  end
-
-  private 
-
-  def advance_debate
-    ActionCable.server.broadcast("debate_#{@debate.id}", {
-      current_phase: @debate.phase,
-      current_user_id: current_user.id
-    })
   end
 end

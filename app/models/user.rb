@@ -1,3 +1,5 @@
+require 'pry'
+
 class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
@@ -30,26 +32,25 @@ class User < ApplicationRecord
   end
 
   def user_rank
-    rank = ""
     games = wins + losses
+    rank = ""
     if games > 0
-      ratio = (wins / games).round * 100
-
-      if (0..19).include?(ratio)
-        rank = "Bronze"
-      elsif (20..39).include?(ratio)
-        rank = "Silver"
-      elsif (40..59).include?(ratio)
-        rank = "Gold"
-      elsif (60..79).include?(ratio)
-        rank = "Diamond"
-      elsif (80..89).include?(ratio)
-        rank = "Platinum"
-      elsif (90..96).include?(ratio)
-        rank = "Master"
-      elsif (97..100).include?(ratio)
-        rank = "Grand Master"
-      end
+      ratio = ((wins / games.to_f) * 100).round
+    end
+    if (0..19).include?(ratio)
+      rank = "Bronze"
+    elsif (20..39).include?(ratio)
+      rank = "Silver"
+    elsif (40..59).include?(ratio)
+      rank = "Gold"
+    elsif (60..79).include?(ratio)
+      rank = "Diamond"
+    elsif (80..89).include?(ratio)
+      rank = "Platinum"
+    elsif (90..96).include?(ratio)
+      rank = "Master"
+    elsif (97..100).include?(ratio)
+      rank = "Grand Master"
     end
     rank
   end

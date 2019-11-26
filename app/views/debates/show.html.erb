@@ -14,12 +14,12 @@
     <div class="d-flex justify-content-around pb-4">
       <div>
         <% if @debate.affirmative_user %>
-          <%= render 'user_info', participant: @debate.affirmative_user %>
+          <%= render 'user_info', user: @debate.affirmative_user %>
         <% end %>
       </div>
       <div>
         <% if @debate.negative_user  %>
-          <%= render 'user_info', participant: @debate.negative_user %>
+          <%= render 'user_info', user: @debate.negative_user %>
         <% end %>
       </div>
     </div>
@@ -28,7 +28,7 @@
           <% if participant.affirmative? %>
             <div>
               <div class="user-pane-affirmative">
-                <%= render 'user_pane_Affirmative', participant: participant %>
+                <%= render 'user_pane_affirmative', user: participant.user %>
               </div>
               <div class="button-affirmative text-center mt-4">
               <!-- insert html here -->
@@ -37,7 +37,7 @@
           <% elsif participant.negative? %>
             <div>
               <div class="user-pane-negative">
-                <%= render 'user_pane_right', participant: participant %>
+                <%= render 'user_pane_negative', user: participant.user %>
               </div>
               <div class="button-negative text-center mt-4">
               <!-- insert html here -->

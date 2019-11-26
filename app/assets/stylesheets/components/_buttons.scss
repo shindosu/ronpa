@@ -94,7 +94,9 @@
 // button links for navbar//
 
 .btn-nav {
-  color: #212121;
+  color: $ronpa-red;
+  padding: 0.5rem 1rem;
+  display: block;
   &:hover {
     text-decoration: none;
     font-size: 18px;

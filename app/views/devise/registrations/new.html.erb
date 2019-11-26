@@ -21,9 +21,8 @@
       required: true  %>
       <%= f.input :username,
       required: true %>
-      <%= f.input :language_level,
-      required: true,
-      collection: User::LANGUAGE_LEVELS %>
+      <%= f.input :conference_number%>
+      <%= f.input :access_code%>
       <%= f.input :photo %>
       <%= f.input :photo_cache,
       as: :hidden %>
@@ -33,5 +32,4 @@
       <%= f.button :submit, "Sign up", class: "btn-new" %>
     </div>
     <% end %>
-    <%= render "devise/shared/links" %>
   </div>

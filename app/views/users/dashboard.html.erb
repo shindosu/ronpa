@@ -17,7 +17,10 @@
           <!-- <li> Wins: <i class="fas fa-trophy"></i> <%=  @user.wins %> </li>
           <li> Losses: <i class="fas fa-skull"></i> <%=  @user.losses %> </li> -->
         <hr>
-        <h3>Battlepoints: 123</h3>
+        <h3>Ronp Rating: 123</h3>
+        <p><%= current_user.wins %> wins</p>
+        <p><%= current_user.losses %> losses</p>
+        <p> <%= current_user.user_rank %></p>
         <%= render "users/dashboard_rating" %>
         <hr>
           <li><%= link_to "Browse Topics", topics_path, class: "btn-new" %></li>

@@ -21,10 +21,10 @@ anime.timeline({autoplay: true})
   }).add({
     targets: '.ml11 .letter',
     opacity: [0,1],
-    easing: "easeOutExpo",
-    duration: 2500,
+    easing: "easeInExpo",
+    duration: 500,
     offset: '-=775',
-    delay: (el, i) => 34 * (i+50)
+    delay: (el, i) => 34 * (i+20)
   }).add({
     targets: '.ml11',
     opacity: 1,

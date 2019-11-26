@@ -11,7 +11,7 @@
   </head>
   <body>
     <% if signed_in? %>
-      <% unless action_name == "home" %>
+      <% unless action_name == "home" || (params[:controller] == 'topics' && params[:action] == 'show') %>
         <%= render 'shared/navbar' %>
       <% end %>
     <% end %>

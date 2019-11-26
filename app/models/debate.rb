@@ -58,7 +58,7 @@ class Debate < ApplicationRecord
   end
 
   def negative_user
-    participants.affirmative.first&.user
+    participants.negative.first&.user
   end
 
   def broadcast_advance(user)

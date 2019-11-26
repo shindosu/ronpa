@@ -56,7 +56,7 @@
         <% if @debate.participants.moderator.any? %>
           <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h>
           <div id="end-turn-button">
-            <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
+            <%= link_to "Progress Phase", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
           </div>
         <% end %>
       </div>

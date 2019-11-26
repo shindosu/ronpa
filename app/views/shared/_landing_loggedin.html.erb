@@ -17,7 +17,7 @@
         <h1 class="ml11">
           <span class="text-wrapper">
           <span class=" line1 el"></span>
-          <span class="letters big">RONPA!</span>
+          <section class="letters big">RONPA!</section>
           </span>
         </h1>
       <!--   <h1>Enhance your language communication</h1>
@@ -30,11 +30,11 @@
 <div class="home-content">
   <div class="container">
     <div class="row justify-content-end ml-3">
-      <div class="col-6">
-        <h2>Welcome back <%= current_user.first_name %>
+      <div class="col-6 welcome-message">
+        <h2 >Welcome back <%= current_user.first_name %>
         </h2>
         <hr>
-        <div class="col-8 mt-4">
+        <div class=" mt-4">
           <%= link_to "Go to Dashboard", dashboard_path , class: "btn-landing-red" %>
           </div>
       </div>

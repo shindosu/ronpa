@@ -16,14 +16,18 @@ const initLetter = () => {
       easing: "easeOutExpo",
       duration: 700,
       delay: 100
-    }).add({
+    })
+    .add({
       targets: '.ml11 .letter',
       opacity: [0,1],
       easing: "easeInExpo",
       duration: 500,
       offset: '-=775',
-      delay: (el, i) => 10 * (i+10)
-    }).add({
+      delay: function(el, i, l) {
+    return i * 100
+  }
+    })
+    .add({
       targets: '.ml11',
       opacity: 1,
       duration: 1000,

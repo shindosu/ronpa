@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
-    <h2>RONPA</h2>
+    <h1> RONPA</h1>
   <% end %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,6 +15,11 @@
       <li class="nav-item">
         <%= link_to "Browse Topics", topics_path, class: "btn-nav" %>
       </li>
+      <% if (params[:controller] == 'topics' && params[:action] == 'index') %>
+      <li class="nav-item">
+        <%= link_to "Create Topic", new_topic_path, class: "btn-nav" %>
+      </li>
+      <% end %>
       <li class="nav-item dropdown">
         <% if current_user.photo.filename %>
           <%= cl_image_tag current_user.photo, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>

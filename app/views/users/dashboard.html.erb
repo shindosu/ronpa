@@ -16,14 +16,41 @@
           <!-- <li> Wins: <i class="fas fa-trophy"></i> <%=  @user.wins %> </li>
           <li> Losses: <i class="fas fa-skull"></i> <%=  @user.losses %> </li> -->
         <hr>
-        <h3>Ronp Rating: 123</h3>
-        <p><%= current_user.wins %> wins</p>
-        <p><%= current_user.losses %> losses</p>
-        <p> <%= current_user.user_rank %></p>
+        <% if  %>
+          <% current_user.user_rank  == "Bronze"%>
+          <h3><%= current_user.user_rank %> rank - <i class="fas fa-medal medal-bronze" style="color: #CD7F32"></i></h3>
+        <% elsif  %>
+          <% current_user.user_rank  == "Silver"%>
+          <h3><%= current_user.user_rank %> rank - <i class="fas fa-medal medal-silver" style="color: #D5D5D5"></i></h3>
+        <% elsif  %>
+          <% current_user.user_rank  == "Gold"%>
+          <h3><%= current_user.user_rank %> rank - <i class="fas fa-medal medal-gold" style="color: #FAD701"></i></h3>
+        <% elsif  %>
+          <% current_user.user_rank  == "Diamond"%>
+          <h3><%= current_user.user_rank %> rank - <i class="fas fa-medal medal-diamond" style="color: #8EBEE5"></i></h3>
+        <% elsif  %>
+          <% current_user.user_rank  == "Platinum"%>
+          <h3><%= current_user.user_rank %> rank - <i class="fas fa-medal medal-platinum" style="color: #E5E4E2"></i></h3>
+        <% elsif  %>
+          <% current_user.user_rank  == "Master"%>
+          <h3><%= current_user.user_rank %> rank - <i class="fas fa-medal medal-master" style="color: #F7132A"></i></h3>
+        <% elsif  %>
+          <% current_user.user_rank  == "Grand Master"%>
+          <h3><%= current_user.user_rank %> rank - <i class="fas fa-medal medal-grand-master" style="color: #7824CC"></i></h3>
+        <% end %>
+        <div class="d-flex justify-content-around pt-4">
+          <p id="wins-text"><%= current_user.wins %> wins</p>
+          <p id="losses-text"><%= current_user.losses %> losses</p>
+        </div>
+        <div class="pt-4">
         <%= render "users/dashboard_rating" %>
+<<<<<<< HEAD
         <h3 class="pt-3">Moderator Information</h3>
         <p>Host Room: <%= current_user.conference_number.to_s %></p>
         <p>Access Code: <%= current_user.access_code.to_s %></p>
+=======
+        </div>
+>>>>>>> master
         </ul>
       </div>
     </div>

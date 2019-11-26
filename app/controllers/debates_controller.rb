@@ -21,26 +21,11 @@ class DebatesController < ApplicationController
     end
   end
 
-
   def next_phase
     @debate = Debate.find(params[:debate_id])
     @topic = @debate.topic
     authorize @debate
     @debate.update(phase: Debate.phases[@debate.phase] + 1)
-    advance_debate
-    # if @debate.phase == "finished"
-    #   redirect_to dashboard_path
-    # else
-    #   render "debates/show"
-    # end
-  end
-
-  private 
-
-  def advance_debate
-    ActionCable.server.broadcast("debate_#{@debate.id}", {
-      current_phase: @debate.phase,
-      current_user_id: current_user.id
-    })
+    DebatesChannel.broadcast_debate_data(@debate)
   end
 end

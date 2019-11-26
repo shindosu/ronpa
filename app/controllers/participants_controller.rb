@@ -21,6 +21,7 @@ class ParticipantsController < ApplicationController
       end
       if @participant.save
         redirect_to debate_path(@debate)
+        DebatesChannel.broadcast_debate_data(@debate)
       end
     else
       redirect_to topic_path(@topic)

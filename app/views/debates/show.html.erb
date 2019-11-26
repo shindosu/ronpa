@@ -11,42 +11,39 @@
         <h4 class="text-center text-clock"><%= render 'shared/timer' %></h4>
       </div>
     </div>
-    <div class="d-flex justify-content-around pb-4">
-      <% if @debate.affirmative_user %>
-        <%= render 'user_info', participant: @debate.affirmative_user %>
-      <% elsif @debate.negative_user  %>
-        <%= render 'user_info', participant: @debate.negative_user %>
+    <div class="d-flex justify-content-around pb-4" id="affirmative-user-info">
+      <% if @debate.participants.affirmative.any? %>
+        <%= render 'user_info', user: @debate.affirmative_user%>
       <% end %>
     </div>
-
+    <div class="d-flex justify-content-around pb-4" id="negative-user-info">
+      <% if @debate.participants.negative.any?  %>
+        <%= render 'user_info', user: @debate.negative_user%>
+      <% end %>
+    </div>
     <div class="d-flex justify-content-around">
       <% @debate.participants.each do |participant| %>
           <% if participant.affirmative? %>
-            <div>
-              <div class="user-pane-left">
-                <%= render 'user_pane_left', participant: participant %>
-              </div>
-              <div class="text-center mt-4">
-                <% if participant.user == current_user && @debate.affirmative_turn? %>
-                  <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
-                <% end %>
-              </div>
+            <div class="user-pane-left">
+              <%= render 'user_pane_left', participant: participant %>
+            </div>
+            <div class="text-center mt-4">
+              <% if participant.user == current_user && @debate.affirmative_turn? %>
+                <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
+              <% end %>
             </div>
           <% elsif participant.negative? %>
-            <div>
-              <div class="user-pane-right">
-                <%= render 'user_pane_right', participant: participant %>
-              </div>
-              <div class="text-center mt-4">
-                <% if participant.user == current_user && @debate.negative_turn? %>
-                  <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
-                <% end %>
-              </div>
+            <div class="user-pane-right">
+              <%= render 'user_pane_right', participant: participant %>
+            </div>
+            <div class="text-center mt-4">
+              <% if participant.user == current_user && @debate.negative_turn? %>
+                <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
+              <% end %>
             </div>
           <% end %>
       <% end %>
     </div>
-
     <div>
       <div class="text-center text-moderator">
         <div>
@@ -68,13 +65,12 @@
 
 <% content_for :after_js do %>
   <script>
-  console.log('script run')
     App['debate_<%= @debate.id %>'] = App.cable.subscriptions.create(
       { channel: 'DebatesChannel', debate_id: <%= @debate.id %> },
       { received: (data) => {
         console.log(data, data.current_phase)
             const phaseText = document.querySelector('.phase-text');
-            const progressButton = document.getElementById('progress-button')
+            const progressButton = document.getElementById('progress-button');
             switch (data.current_phase) {
               case "waiting_start":
                   phaseText.innerHTML = "<h3>Waiting for match to start...</h3>";
@@ -118,11 +114,12 @@
               case "waiting_end":
                   phaseText.innerHTML = "<h3>Moderator giving final score...</h3>";
                   progressButton.innerHTML = '<%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %><%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
-                method: :patch, remote: true %><%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>'
+                method: :patch, remote: true %><%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>';
               break;
               case "finished":
-                  phaseText.innerHTML = "<h3>The winner is the prosecuter</h3>";
+                  phaseText.innerHTML = "<h3>The winner is Someone</h3>";
                   document.body.innerHTML = '<%= j render partial: 'results'%>'
+                  location.reload();
         }
       }
       }

@@ -12,9 +12,14 @@ class DebatesChannel < ApplicationCable::Channel
   def self.broadcast_debate_data(debate)
     ActionCable.server.broadcast("debate_#{debate.id}", {
       current_phase: debate.phase,
+      affirmative_turn: debate.affirmative_turn?,
       affirmative_user: debate.affirmative_user,
       negative_user: debate.negative_user,
-      moderator: debate.moderator
+      moderator: debate.moderator,
+      page_html: ApplicationController.render(
+        template: 'debates/_updated_show',
+        locals: { debate: debate }
+        )
     })
   end
 end

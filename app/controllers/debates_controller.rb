@@ -33,4 +33,10 @@ class DebatesController < ApplicationController
     @debate.update(phase: Debate.phases[@debate.phase] + 1)
     DebatesChannel.broadcast_debate_data(@debate)
   end
+
+  private
+
+  def debate_params
+    params.require(:debate).permit(:debate_id)
+  end
 end

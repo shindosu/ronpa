@@ -11,6 +11,12 @@
       <div id="topic-show-desc" class="text-left w-50 mb-5">
         <p><%= @topic.description %></p>
       </div>
+      <div id="topic-show-desc" class="text-left w-50 mb-5">
+        <% if @topic.access_code == nil? %>
+          <h3>No available debate rooms</h3>
+        <% else %>
+        <% end %>
+      </div>
   </div>
 
   <div class="form">

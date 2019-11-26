@@ -21,9 +21,9 @@
         <p><%= current_user.losses %> losses</p>
         <p> <%= current_user.user_rank %></p>
         <%= render "users/dashboard_rating" %>
-        <h3>Moderator Information</h3>
-        <p><%= current_user.conference_number.to_s %></p>
-        <p><%= current_user.access_code.to_s %></p>
+        <h3 class="pt-3">Moderator Information</h3>
+        <p>Host Room: <%= current_user.conference_number.to_s %></p>
+        <p>Access Code: <%= current_user.access_code.to_s %></p>
         </ul>
       </div>
     </div>

@@ -12,35 +12,36 @@
       </div>
     </div>
     <div class="d-flex justify-content-around pb-4">
-      <% if @debate.affirmative_user %>
-        <%= render 'user_info', participant: @debate.affirmative_user %>
-      <% elsif @debate.negative_user  %>
-        <%= render 'user_info', participant: @debate.negative_user %>
-      <% end %>
+      <div>
+        <% if @debate.affirmative_user %>
+          <%= render 'user_info', participant: @debate.affirmative_user %>
+        <% end %>
+      </div>
+      <div>
+        <% if @debate.negative_user  %>
+          <%= render 'user_info', participant: @debate.negative_user %>
+        <% end %>
+      </div>
     </div>
 
     <div class="d-flex justify-content-around">
       <% @debate.participants.each do |participant| %>
           <% if participant.affirmative? %>
             <div>
-              <div class="user-pane-left">
+              <div class="user-pane-affirmative">
                 <%= render 'user_pane_left', participant: participant %>
               </div>
-              <div class="text-center mt-4">
-                <% if participant.user == current_user && @debate.affirmative_turn? %>
-                  <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
-                <% end %>
+              <div class="button-affirmative text-center mt-4">
+              <!-- insert html here -->
               </div>
             </div>
           <% elsif participant.negative? %>
             <div>
-              <div class="user-pane-right">
+              <div class="user-pane-negative">
                 <%= render 'user_pane_right', participant: participant %>
               </div>
-              <div class="text-center mt-4">
-                <% if participant.user == current_user && @debate.negative_turn? %>
-                  <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
-                <% end %>
+              <div class="button-negative text-center mt-4">
+              <!-- insert html here -->
               </div>
             </div>
           <% end %>
@@ -54,12 +55,11 @@
             <%= cl_image_tag @debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
           <% end %>
         </div>
-        <div id="progress-button">
-          <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new next-phase",
-                method: :patch, remote: true %>
-        </div>
         <% if @debate.participants.moderator.any? %>
           <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h>
+          <div id="end-turn-button">
+            <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
+          </div>
         <% end %>
       </div>
     </div>
@@ -73,7 +73,9 @@
       { received: (data) => {
         console.log(data, data.current_phase)
             const phaseText = document.querySelector('.phase-text');
-            const progressButton = document.getElementById('progress-button');
+            const endTurnButton = document.getElementById('end-turn-button')
+            const userAffirmative = document.querySelector('.button-affirmative');
+            const userNegative = document.querySelector('.button-negative');
             let event = new Event("newPhaseStarted");
             event.currentPhase = data.current_phase;
             window.dispatchEvent(event);
@@ -87,41 +89,52 @@
               break;
               case "affirmative_speech":
                   phaseText.innerText = "Affirmative opening arguments";
+                  userPaneLeft.innerHTML = '<% if @debate.affirmative_user == current_user && @debate.affirmative_turn? %><div class="end-turn-button"><%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><% end %>';
               break;
               case "negative_cross_examination_preparation":
                   phaseText.innerText = "Negative cross examination preparation";
+                  userPaneRight.innerHTML = '<% if @debate.negative_user == current_user && @debate.negative_turn? %><div class="end-turn-button"><%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><% end %>';
               break;
               case "negative_cross_examination":
                   phaseText.innerText = "Negative cross examination";
+                  userPaneRight.innerHTML = '<% if @debate.negative_user == current_user && @debate.negative_turn? %><div class="end-turn-button"><%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><% end %>';
               break;
               case "negative_speech_preparation":
                   phaseText.innerText = "Negative opening argument preparation";
+                  userPaneRight.innerHTML = '<% if @debate.negative_user == current_user && @debate.negative_turn? %><div class="end-turn-button"><%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><% end %>';
               break;
               case "negative_speech":
                   phaseText.innerText = "Negative opening arguments";
+                  userPaneRight.innerHTML = '<% if @debate.negative_user == current_user && @debate.negative_turn? %><div class="end-turn-button"><%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><% end %>';
               break;
               case "affirmative_cross_examination_preparation":
                   phaseText.innerText = "Affirmative cross examination preparation";
+                  userPaneLeft.innerHTML = '<% if @debate.affirmative_user == current_user && @debate.affirmative_turn? %><div class="end-turn-button"><%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><% end %>';
               break;
               case "affirmative_cross_examination":
                   phaseText.innerText = "Affirmative cross examination";
+                  userPaneLeft.innerHTML = '<% if @debate.affirmative_user== current_user && @debate.affirmative_turn? %><div class="end-turn-button"><%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><% end %>';
               break;
               case "affirmative_closing_statement_preparation":
                   phaseText.innerText = "Affirmative closing statement prepatation";
+                  userPaneLeft.innerHTML = '<% if @debate.affirmative_user== current_user && @debate.affirmative_turn? %><div class="end-turn-button"><%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><% end %>';
               break;
               case "affirmative_closing_statement":
                   phaseText.innerText = "Affirmative closing statement";
+                  userPaneLeft.innerHTML = '<% if @debate.affirmative_user == current_user && @debate.affirmative_turn? %><div class="end-turn-button"><%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><% end %>';
               break;
               case "negative_closing_statement_preparation":
                   phaseText.innerText = "Negative closing statement preparation";
+                  userPaneRight.innerHTML = '<% if @debate.negative_user == current_user && @debate.negative_turn? %><div class="end-turn-button"><%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><% end %>';
               break;
               case "negative_closing_statement":
                   phaseText.innerText = "Negative closing statement";
+                  userPaneRight.innerHTML = '<% if @debate.negative_user == current_user && @debate.negative_turn? %><div class="end-turn-button"><%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><% end %>';
               break;
               case "waiting_end":
                   phaseText.innerText = "Moderator giving final score...";
-                  progressButton.innerHTML = '<%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %><%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
-                method: :patch, remote: true %><%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>'
+                  endTurnButton.innerHTML = '<%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %><%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+                method: :patch, remote: true %><%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>';
               break;
               case "finished":
                   phaseText.innerHTML = "<h3>The winner is Someone</h3>";

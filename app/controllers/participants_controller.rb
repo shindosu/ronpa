@@ -41,6 +41,42 @@ class ParticipantsController < ApplicationController
     end
   end
 
+  # def set_communication
+  #   @debate = Debate.find(params[:debate_id])
+  #   @participant = Participant.where.not(role: "moderator" && user_id == current_user)
+
+  #   @winner.result = :winner
+  #   @loser = @winner.affirmative? ? @debate.participants.negative.first : @debate.participants.affirmative.first
+  #   @loser.result = :loser
+  #   if @winner.save && @loser.save
+  #     @debate.update(phase: Debate.phases[@debate.phase] + 1)
+  #     @debate.broadcast_advance(current_user)
+  #   end
+  # end
+
+  # def set_persuasiveness
+  #   @debate = Debate.find(params[:debate_id])
+  #   @participant = Participant.where.not(role: moderator && user_id == current_user)
+  #   @loser = @winner.affirmative? ? @debate.participants.negative.first : @debate.participants.affirmative.first
+  #   @loser.result = :loser
+  #   if @winner.save && @loser.save
+  #     @debate.update(phase: Debate.phases[@debate.phase] + 1)
+  #     @debate.broadcast_advance(current_user)
+  #   end
+  # end
+
+  # def set_civility
+  #   @debate = Debate.find(params[:debate_id])
+  #   @participant = Participant.where.not(role: moderator && user_id == current_user)
+  #   @winner.result = :winner
+  #   @loser = @winner.affirmative? ? @debate.participants.negative.first : @debate.participants.affirmative.first
+  #   @loser.result = :loser
+  #   if @winner.save && @loser.save
+  #     @debate.update(phase: Debate.phases[@debate.phase] + 1)
+  #     @debate.broadcast_advance(current_user)
+  #   end
+  # end
+
   private
 
   def debate_with_slot(role)

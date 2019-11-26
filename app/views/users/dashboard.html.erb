@@ -50,7 +50,7 @@
     </div>
         <div class="col-size">
           <div class="dashboard-header"><h5>Play</h5></div>
-            <div class="open-debates border pt-4">
+            <div class="open-debates  pt-4">
               <% @topics.each do  |topic| %>
                 <%= render 'topics/topic_card_dashboard', topic: topic  %>
               <% end %>
@@ -58,7 +58,7 @@
         </div>
         <div class="col-size">
           <div class="dashboard-header"><h5>Moderate</h5></div>
-            <div class="open-debates border pt-4">
+            <div class="open-debates  pt-4">
               <% @topics.reverse.each do  |topic| %>
                 <%= render 'topics/topic_card_dashboard', topic: topic %>
               <% end %>
@@ -66,7 +66,7 @@
         </div>
         <div class="col-size">
           <div class="dashboard-header"><h5>Create</h5></div>
-            <div class="open-debates border pt-4">
+            <div class="open-debates  pt-4">
               <div class="dashboard-card mb-5 text-center">
                 <i class="fas fa-plus"></i>
                 <h4>Create a new topic</h4>

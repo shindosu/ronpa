@@ -1,0 +1,45 @@
+<div class="landing-nav navbar-expand-sm navbar-light navbar d-flex justify-content-between p-4 ">
+  <div>
+    <%= link_to "Sign out" , destroy_user_session_path, class: "btn-landing-tan"  %>
+   <!--  <h1 class="ml11">
+  <span class="text-wrapper">
+    <span class=" line1 el"></span>
+    <span class="letters">RONPA</span>
+  </span>
+</h1> -->
+  </div>
+</div>
+
+<div class="home-header pt-4">
+  <div class="container">
+    <div class="row row-logo">
+      <div class="col-12">
+        <h1 class="ml11">
+          <span class="text-wrapper">
+          <span class=" line1 el"></span>
+          <span class="letters big">RONPA!</span>
+          </span>
+        </h1>
+      <!--   <h1>Enhance your language communication</h1>
+        <h1>through debates</h1> -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<div class="home-content">
+  <div class="container">
+    <div class="row justify-content-end ml-3">
+      <div class="col-6">
+        <h2>Welcome back <%= current_user.first_name %> <%= current_user.last_name  %>
+        </h2>
+        <hr>
+        <div class="col-8 mt-4">
+          <%= link_to "Go to Dashboard", dashboard_path , class: "btn-landing-red" %>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>

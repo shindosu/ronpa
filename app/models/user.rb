@@ -31,7 +31,9 @@ class User < ApplicationRecord
 
   def user_rank
     rank = ""
-    ratio = (wins / wins + losses).round * 100
+    if wins + losses > 0
+      ratio = (wins / wins + losses).round * 100
+    end
     if (0..19).include?(ratio)
       rank = "Bronze"
     elsif (20..39).include?(ratio)

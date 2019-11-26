@@ -25,7 +25,7 @@ const initTimer = (phase) => {
     if (values){
         switch (phase) {
             case "count_in":
-                setTimer(timer, 21);
+                setTimer(timer, 31);
             break;
             case "affirmative_speech":
                     setTimer(timer, 121);

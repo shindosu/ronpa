@@ -22,6 +22,8 @@ gem 'devise'
 gem 'nokogiri'
 gem 'pundit'
 gem 'stateful_enum'
+gem 'sprockets', '>= 3.0.0'
+gem 'sprockets-es6'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

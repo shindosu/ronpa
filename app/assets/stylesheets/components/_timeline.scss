@@ -1,0 +1,74 @@
+.phase-bubble-neutral {
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  border: none;
+  color: black;
+  padding: 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 7px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  border: 1px solid #FCFAED;
+  background-color: #FCFAED;
+  border: 1px solid gray;
+  transition: transform .4s;
+  align-items: center;
+  margin-right: 4px;
+  width: 180px;
+  font-size: 16px;
+}
+
+.phase-bubble-affirmative {
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 7px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  border: 1px solid gray;
+  background-color: #B9DDF7;
+  transition: transform .4s;
+  align-items: center;
+  margin-right: 4px;
+  width: 180px;
+  font-size: 16px;
+}
+
+.phase-bubble-negative {
+  p {
+    margin: 0;
+    padding: 0;
+  }
+  background-color: #D8ABA9;
+  border: none;
+  color: black;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 7px 2px;
+  cursor: pointer;
+  border-radius: 16px;
+  border: 1px solid gray;
+  transition: transform .4s;
+  align-items: center;
+  width: 180px;
+  font-size: 16px;
+}
+
+.phase-bubble-active {
+  border: 4px solid black;
+  transform: scale(1.06);
+  color: white;
+}

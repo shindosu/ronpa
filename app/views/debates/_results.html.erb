@@ -1,15 +1,10 @@
 <div class="container">
-  <div id="results-box-winner">
-    <div>
-      <% @debate.participants.each do |participant| %>
-        <% if participant.winner? %>
-          <%= render 'winner_results', participant: participant %>
-        <% elsif participant.loser? %>
-          <%= render 'loser_results', participant: participant %>
-        <% elsif participant.moderator? %>
-          <%= render 'mod_results', participant: participant %>
-        <% end %>
-      <% end %>
-    </div>
-  </div>
+  <% current_participant = @debate.participants.find_by(user: current_user) %>
+  <% if current_participant.winner? %>
+    <%= render 'winner_results', participant: current_participant %>
+  <% elsif current_participant.loser? %>
+    <%= render 'loser_results', participant: current_participant %>
+  <% elsif current_participant.moderator? %>
+    <%= render 'mod_results', participant: current_participant %>
+  <% end %>
 </div>

@@ -1,9 +1,12 @@
-require 'pry'
-
 class DebatesController < ApplicationController
   def show
     @debate = Debate.find(params[:id])
     authorize @debate
+    if @debate.finished?
+      render 'debates/results'
+    else
+      render 'debates/show'
+    end
   end
 
   def create
@@ -21,26 +24,21 @@ class DebatesController < ApplicationController
     end
   end
 
-
   def next_phase
     @debate = Debate.find(params[:debate_id])
     @topic = @debate.topic
     authorize @debate
     @debate.update(phase: Debate.phases[@debate.phase] + 1)
-    advance_debate
-    # if @debate.phase == "finished"
-    #   redirect_to dashboard_path
-    # else
-    #   render "debates/show"
-    # end
+    DebatesChannel.broadcast_debate_data(@debate)
+    respond_to do |format|
+      format.html { render 'debates/show' }
+      format.js
+    end
   end
 
-  private 
+  private
 
-  def advance_debate
-    ActionCable.server.broadcast("debate_#{@debate.id}", {
-      current_phase: @debate.phase,
-      current_user_id: current_user.id
-    })
+  def debate_params
+    params.require(:debate).permit(:debate_id)
   end
 end

@@ -7,7 +7,9 @@
     </div>
     <div class="row justify-content-center">
       <div class="phase">
-        <h3 class='phase-text'>Waiting for match to start...</h3>
+        <h3 class='phase-text'>
+          <%= render "debate_phase" %>
+        </h3>
         <%= render 'shared/timer' %>
       </div>
     </div>
@@ -64,7 +66,11 @@
         <% if @debate.participants.moderator.any? %>
           <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h>
           <div id="moderator-buttons">
-            <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
+            <%= simple_form_for :debate, url: debate_next_phase_path(@debate), method: :patch, remote: true do |f| %>
+                <%= f.submit "End Turn", class: "hvr-outline-in"   %>
+            <% end %>
+
+            <%#= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
           </div>
         <% end %>
       </div>

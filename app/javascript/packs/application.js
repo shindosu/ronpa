@@ -1,20 +1,22 @@
 import "bootstrap";
-import 'components/timer';
-import { initTimer } from 'components/timer';
+import 'components/topic-show';
+import {initTimer} from 'components/timer';
 import { initFlip } from 'components/flip';
 import { initIconHover } from 'components/topic-show';
 import { submitForm } from 'components/argument-form';
 import { initLetter } from 'components/logo';
 import { initPop } from 'components/logo';
+import { submitForm } from 'components/argument-form';
 
-
-// initPop();
 initLetter();
+
+// window.addEventListener('newPhaseStarted', (event) => {
+//   initTimer(event.currentPhase);
+// })
+
+// initTimer('waiting_start');
 initTimer();
 initFlip();
 initIconHover();
-
-
-
 submitForm();
 

@@ -6,9 +6,9 @@
       <h3 class="role text-center">Negative Position</h3>
     </div>
     <div class="row justify-content-center">
-      <div class="phase-text">
-        <%= render 'debate_phase', debate: @debate%>
-        <h4 class="text-center text-clock"><%= render 'shared/timer' %></h4>
+      <div class="phase">
+        <h3 class='phase-text'>Waiting for match to start...</h3>
+        <%= render 'shared/timer' %>
       </div>
     </div>
     <div class="d-flex justify-content-around pb-4">
@@ -55,7 +55,7 @@
           <% end %>
         </div>
         <div id="progress-button">
-          <%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+          <%= link_to "Progress Phase", debate_next_phase_path(@debate), class: "btn-new next-phase",
                 method: :patch, remote: true %>
         </div>
         <% if @debate.participants.moderator.any? %>
@@ -75,53 +75,56 @@
         console.log(data, data.current_phase)
             const phaseText = document.querySelector('.phase-text');
             const progressButton = document.getElementById('progress-button')
+            let event = new Event("newPhaseStarted");
+            event.currentPhase = data.current_phase;
+            window.dispatchEvent(event);
             switch (data.current_phase) {
               case "waiting_start":
-                  phaseText.innerHTML = "<h3>Waiting for match to start...</h3>";
+                  phaseText.innerText = "Waiting for match to start...";
               break;
               case "count_in":
-                  phaseText.innerHTML = "<h3>Affirmative opening arguments will start in:</h3>";
+                  phaseText.innerText = "Affirmative opening arguments will start in:";
               break;
               case "affirmative_speech":
-                  phaseText.innerHTML = "<h3>Affirmative opening arguments</h3>";
+                  phaseText.innerText = "Affirmative opening arguments";
               break;
               case "negative_cross_examination_preparation":
-                  phaseText.innerHTML = "<h3>Negative cross examination preparation</h3>";
+                  phaseText.innerText = "Negative cross examination preparation";
               break;
               case "negative_cross_examination":
-                  phaseText.innerHTML = "<h3>Negative cross examination</h3>";
+                  phaseText.innerText = "Negative cross examination";
               break;
               case "negative_speech_preparation":
-                  phaseText.innerHTML = "<h3>Negative opening argument preparation</h3>";
+                  phaseText.innerText = "Negative opening argument preparation";
               break;
               case "negative_speech":
-                  phaseText.innerHTML = "<h3>Negative opening arguments</h3>";
+                  phaseText.innerText = "Negative opening arguments";
               break;
               case "affirmative_cross_examination_preparation":
-                  phaseText.innerHTML = "<h3>Affirmative cross examination preparation</h3>";
+                  phaseText.innerText = "Affirmative cross examination preparation";
               break;
               case "affirmative_cross_examination":
-                  phaseText.innerHTML = "<h3>Affirmative cross examination</h3>";
+                  phaseText.innerText = "Affirmative cross examination";
               break;
               case "affirmative_closing_statement_preparation":
-                  phaseText.innerHTML = "<h3>Affirmative closing statement prepatation</h3>";
+                  phaseText.innerText = "Affirmative closing statement prepatation";
               break;
               case "affirmative_closing_statement":
-                  phaseText.innerHTML = "<h3>Affirmative closing statement</h3>";
+                  phaseText.innerText = "Affirmative closing statement";
               break;
               case "negative_closing_statement_preparation":
-                  phaseText.innerHTML = "<h3>Negative closing statement preparation</h3>";
+                  phaseText.innerText = "Negative closing statement preparation";
               break;
               case "negative_closing_statement":
-                  phaseText.innerHTML = "<h3>Negative closing statement</h3>";
+                  phaseText.innerText = "Negative closing statement";
               break;
               case "waiting_end":
-                  phaseText.innerHTML = "<h3>Moderator giving final score...</h3>";
+                  phaseText.innerText = "Moderator giving final score...";
                   progressButton.innerHTML = '<%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first), method: :patch, class: "btn-new"  %><%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
                 method: :patch, remote: true %><%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>'
               break;
               case "finished":
-                  phaseText.innerHTML = "<h3>The winner is the prosecuter</h3>";
+                  phaseText.innerText = "The winner is the prosecuter";
                   document.body.innerHTML = '<%= j render partial: 'results'%>'
         }
       }

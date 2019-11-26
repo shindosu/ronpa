@@ -29,10 +29,14 @@
 .home-content {
   background: #F9F4D4;
   margin-top: -200px;
-  height: 360px;
+  min-height: 430px;
 }
 
 .welcome-message h2{
   font-size: 40px;
 
+}
+
+.info-landing {
+  margin-left: 13rem;
 }

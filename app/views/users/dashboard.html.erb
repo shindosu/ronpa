@@ -45,6 +45,11 @@
         <div class="pt-4">
         <%= render "users/dashboard_rating" %>
         </div>
+        <div class="pt-4">
+        <h3 class="pt-3">Moderator Information</h3>
+        <p>Host Room: <%= current_user.conference_number.to_s %></p>
+        <p>Access Code: <%= current_user.access_code.to_s %></p>
+        </div>
         </ul>
       </div>
     </div>

@@ -22,6 +22,7 @@ gem 'devise'
 gem 'nokogiri'
 gem 'pundit'
 gem 'stateful_enum'
+gem 'twilio-ruby'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

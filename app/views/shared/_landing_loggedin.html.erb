@@ -1,6 +1,6 @@
 <div class="landing-nav navbar-expand-sm navbar-light navbar d-flex justify-content-between p-4 ">
   <div>
-    <%= link_to "Sign out" , destroy_user_session_path, class: "btn-landing-tan"  %>
+    <%= link_to "Sign out" , destroy_user_session_path, method: :delete, class: "btn-landing-tan"  %>
    <!--  <h1 class="ml11">
   <span class="text-wrapper">
     <span class=" line1 el"></span>
@@ -31,7 +31,7 @@
   <div class="container">
     <div class="row justify-content-end ml-3">
       <div class="col-6">
-        <h2>Welcome back <%= current_user.first_name %> <%= current_user.last_name  %>
+        <h2>Welcome back <%= current_user.first_name %>
         </h2>
         <hr>
         <div class="col-8 mt-4">

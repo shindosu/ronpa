@@ -69,19 +69,24 @@
       <!-- MOD STUFF -->
       <div>
         <div class="text-center text-moderator">
-          <div>
             <% if debate.participants.moderator.any? %>
-              <%= cl_image_tag debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
+            <div class="moderator-icon d-flex">
+              <div class="mr-2">
+                <%= cl_image_tag debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
+              </div>
             <% end %>
-          </div>
-          <% if debate.participants.moderator.any? %>
-            <h4><%= debate.participants.moderator.first.user.username %> is Moderator</h>
+            <% if debate.participants.moderator.any? %>
+              <div>
+                <h4><%= debate.participants.moderator.first.user.username %> is Moderator</h>
+              </div>
+            </div>
+
             <div id="moderator-buttons">
               <%#= simple_form_for :debate, url: debate_next_phase_path(debate), method: :patch, remote: true do |f| %>
                   <%#= f.submit "End Turn", class: "hvr-outline-in"   %>
               <%# end %>
 
-              <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+              <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
             </div>
           <% end %>
         </div>

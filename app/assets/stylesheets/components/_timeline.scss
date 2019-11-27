@@ -29,6 +29,7 @@
   border-bottom-width: thick;
   border-color: #26b642ab;
   width: 100%;
+  background: #26b64214;
 }
 
 .phase-bubble-negative {
@@ -45,10 +46,13 @@
   border-bottom-width: thick;
   border-color: #c34f49;
   width: 100%;
+  background: #c34f4914;
 }
 
 .phase-bubble-active {
-  border: 4px solid black;
-  transform: scale(1.06);
-
+  transform: scale(1.02);
+  border-right-width: thick;
+  border-bottom-width: thick;
+  font-weight: bolder;
+  background: #fff;
 }

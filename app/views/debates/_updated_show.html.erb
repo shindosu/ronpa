@@ -1,11 +1,11 @@
 <div class="d-flex debate-show">
   <div class="timeline-sidebar">
- <%  %> timeline_phases.each do |phase|
+  <%# timeline_phases.each do |phase|
   <div class="<%= "affirmative-class" if phase.affirmative_phase? %>
-    <%= "acitve" if phase == current_phase %>">
-    <p>count down</p>
-  </div>
-  end
+    <%#= "acitve" if phase == current_phase %>">
+    <%# <p>count down</p>
+  </div> %>
+
 
   <div class="phase-bubble-neutral">
     <p>count down</p>

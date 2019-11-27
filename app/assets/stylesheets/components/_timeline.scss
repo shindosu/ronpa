@@ -12,7 +12,7 @@
   transition: transform .6;
   border-bottom-width: thick;
   background: #4950573d;
-
+  width: 100%;
 }
 
 .phase-bubble-affirmative {
@@ -28,7 +28,7 @@
   transition: transform .6;
   border-bottom-width: thick;
   border-color: #26b642ab;
-
+  width: 100%;
 }
 
 .phase-bubble-negative {
@@ -38,13 +38,13 @@
   }
   padding: 8px;
   text-align: center;
-  margin: 7px 2px;
+  margin: 7px 5px;
   border-radius: 16px;
   border: 1px solid gray;
   transition: transform .6;
   border-bottom-width: thick;
   border-color: #c34f49;
-
+  width: 100%;
 }
 
 .phase-bubble-active {

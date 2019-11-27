@@ -13,7 +13,7 @@ class User < ApplicationRecord
   has_many :debates, through: :participants
   has_many :topics
 
-  validates :first_name, :last_name, :username, :email, :language_level, presence: true
+  validates :first_name, :last_name, :username, :email, presence: true
   validates :username, :email, uniqueness: true
   validates :email, format: { with: /\A[a-z0-9.]+@[a-z]+\.[a-z]{2,3}\z/i }
 

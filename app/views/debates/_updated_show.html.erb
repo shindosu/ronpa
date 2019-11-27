@@ -1,12 +1,7 @@
+
 <div class="d-flex debate-show">
-<!--   <div class="timeline-sidebar">
- <%#  %> timeline_phases.each do |phase|
-  <div class="<%#= "affirmative-class" if phase.affirmative_phase? %>
-    <%#= "acitve" if phase == current_phase %>">
-    <p>count down</p>
-  </div>
-  end -->
-<div class="timeline-sidebar">
+  <div class="timeline-sidebar">
+
   <div class="phase-bubble-neutral">
     <p>count down</p>
   </div>
@@ -43,82 +38,90 @@
   <div class="phase-bubble-neutral">
     <p>final score</p>
   </div>
-</div>
 
-<div class="container pl-0 pr-0">
-  <div id="debate-box">
-    <h1 class="text-center topic-proposition-text"><%= debate.topic.proposition%></h1>
-    <div class="d-flex justify-content-around">
-      <h3 class="role text-center">Affirmative Position</h3>
-      <h3 class="role text-center">Negative Position</h3>
-    </div>
-    <div class="row justify-content-center">
-      <div class="phase">
-        <h3 class='phase-text'>Waiting for match to start...</h3>
-        <%= render 'shared/timer' %>
-      </div>
-    </div>
+  </div>
 
-    <!-- USER INFO -->
-    <div class="d-flex justify-content-around pb-4">
-      <div id="affirmative-user-info">
-        <% if debate.affirmative_user %>
-          <%= render 'debates/user_info', user: debate.affirmative_user %>
-        <% end %>
-        <!-- insert user_info here -->
+  <div class="container pl-0 pr-0">
+    <div id="debate-box">
+      <h1 class="text-center topic-proposition-text"><%= debate.topic.proposition%></h1>
+      <div class="d-flex justify-content-around">
+        <h3 class="role text-center">Affirmative Position</h3>
+        <h3 class="role text-center">Negative Position</h3>
       </div>
-      <div id="negative-user-info">
-        <% if debate.negative_user %>
-          <%= render 'debates/user_info', user: debate.negative_user %>
-        <% end %>
-        <!-- insert user_info here -->
+      <div class="row justify-content-center">
+        <div class="phase">
+          <h3 class='phase-text'>
+            <%= render "debates/debate_phase", debate: debate %>
+          </h3>
+          <%= render 'shared/timer' %>
+        </div>
       </div>
-    </div>
 
-    <!-- USER PANES -->
-    <div class="d-flex justify-content-around">
-      <div class="user-pane-affirmative">
-        <% if debate.affirmative_user %>
-          <%= render 'debates/user_pane_affirmative', user: debate.affirmative_user, debate: debate %>
-        <% end %>
-        <!-- insert user_pane_affirmative -->
-      </div>
-      <!-- <div class="button-affirmative text-center mt-4"> -->
-        <!-- insert end_turn_button here -->
-      <!-- </div> -->
-      <div class="user-pane-negative">
-        <% if debate.negative_user %>
-          <%= render 'debates/user_pane_negative', user: debate.negative_user, debate: debate %>
-        <% end %>
-        <!-- insert user_pane_negative -->
-      </div>
-      <!-- <div class="button-negative text-center mt-4"> -->
-        <!-- insert end_turn_button here -->
-      <!-- </div> -->
-    </div>
-    <div>
-
-    </div>
-
-    <!-- MOD STUFF -->
-    <div>
-      <div class="text-center text-moderator">
-        <div>
-          <% if debate.participants.moderator.any? %>
-            <%= cl_image_tag debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
+      <!-- USER INFO -->
+      <div class="d-flex justify-content-around pb-4">
+        <div id="affirmative-user-info">
+          <% if debate.affirmative_user %>
+            <%= render 'debates/user_info', user: debate.affirmative_user %>
           <% end %>
         </div>
-        <% if debate.participants.moderator.any? %>
-          <h4><%= debate.participants.moderator.first.user.username %> is Moderator</h>
-          <div id="moderator-buttons">
-               <%#= simple_form_for :debate, url: debate_next_phase_path(@debate), method: :patch, remote: true do |f| %>
-                  <%#= f.submit "End Turn", class: "hvr-outline-in"   %>
-              <%# end %>
-            <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, class: "hvr-outline-in"  %>
+        <div id="negative-user-info">
+          <% if debate.negative_user %>
+            <%= render 'debates/user_info', user: debate.negative_user %>
+          <% end %>
+        </div>
+      </div>
+
+      <!-- USER PANES -->
+      <div class="d-flex justify-content-around">
+        <div class="user-pane-affirmative">
+          <% if debate.affirmative_user %>
+            <%= render 'debates/user_pane_affirmative', user: debate.affirmative_user, debate: debate %>
+          <% end %>
+        </div>
+        <% if debate.affirmative_turn? %>
+          <div class="button-affirmative text-center mt-4">
+            <div class="end-turn-button">
+              <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+            </div>
+          </div>
+        <% end %>
+        <div class="user-pane-negative">
+          <% if debate.negative_user %>
+            <%= render 'debates/user_pane_negative', user: debate.negative_user, debate: debate %>
+          <% end %>
+        </div>
+        <% if debate.negative_turn? %>
+          <div class="button-negative text-center mt-4">
+            <div class="end-turn-button">
+              <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+            </div>
           </div>
         <% end %>
       </div>
+      <div>
+
+      </div>
+
+      <!-- MOD STUFF -->
+      <div>
+        <div class="text-center text-moderator">
+          <div>
+            <% if debate.participants.moderator.any? %>
+              <%= cl_image_tag debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
+            <% end %>
+          </div>
+          <% if debate.participants.moderator.any? %>
+            <h4><%= debate.participants.moderator.first.user.username %> is Moderator</h>
+            <div id="moderator-buttons">
+              <%#= simple_form_for :debate, url: debate_next_phase_path(debate), method: :patch, remote: true do |f| %>
+                  <%#= f.submit "End Turn", class: "hvr-outline-in"   %>
+              <%# end %>
+
+              <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+            </div>
+          <% end %>
+        </div>
+      </div>
     </div>
   </div>
-</div>
 </div>

@@ -3,90 +3,13 @@
   <div class="timeline-sidebar">
   <%= render "timeline", debate: @debate %>
   </div>
-<!-- debate content -->
-  <div class="container pl-0 pr-0">
-    <div id="debate-box">
-      <h1 class="text-center topic-proposition-text"><%= @debate.topic.proposition%></h1>
-      <div class="d-flex justify-content-around">
-        <h3 class="role text-center">Affirmative Position</h3>
-        <h3 class="role text-center">Negative Position</h3>
-      </div>
-      <div class="row justify-content-center">
-        <div class="phase">
-          <h3 class='phase-text'>
-            <%= render "debate_phase" %>
-          </h3>
-          <%= render 'shared/timer' %>
-        </div>
-      </div>
-
-      <!-- USER INFO -->
-      <div class="d-flex justify-content-around pb-4">
-        <div id="affirmative-user-info">
-          <% if @debate.affirmative_user %>
-            <%= render 'user_info', user: @debate.affirmative_user %>
-          <% end %>
-          <!-- insert user_info here -->
-        </div>
-        <div id="negative-user-info">
-          <% if @debate.negative_user %>
-            <%= render 'user_info', user: @debate.negative_user %>
-          <% end %>
-          <!-- insert user_info here -->
-        </div>
-      </div>
-
-      <!-- USER PANES -->
-      <div class="d-flex justify-content-around">
-        <div class="user-pane-affirmative">
-          <% if @debate.affirmative_user %>
-            <%= render 'user_pane_affirmative', user: @debate.affirmative_user, debate: @debate %>
-          <% end %>
-          <!-- insert user_pane_affirmative -->
-        </div>
-        <!-- <div class="button-affirmative text-center mt-4"> -->
-          <!-- insert end_turn_button here -->
-        <!-- </div> -->
-        <div class="user-pane-negative">
-          <% if @debate.negative_user %>
-            <%= render 'user_pane_negative', user: @debate.negative_user, debate: @debate %>
-          <% end %>
-          <!-- insert user_pane_negative -->
-        </div>
-        <!-- <div class="button-negative text-center mt-4"> -->
-          <!-- insert end_turn_button here -->
-        <!-- </div> -->
-      </div>
-      <div>
-
-      </div>
-
-      <!-- MOD STUFF -->
-      <div>
-        <div class="text-center text-moderator">
-          <div>
-            <% if @debate.participants.moderator.any? %>
-              <%= cl_image_tag @debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
-            <% end %>
-          </div>
-          <% if @debate.participants.moderator.any? %>
-            <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h>
-            <div id="moderator-buttons">
-              <%#= simple_form_for :debate, url: debate_next_phase_path(@debate), method: :patch, remote: true do |f| %>
-                  <%#= f.submit "End Turn", class: "hvr-outline-in"   %>
-              <%# end %>
-
-              <%#= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
-            </div>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
+<%= render 'updated_show', debate: @debate %>
 
 <% content_for :after_js do %>
   <script>
+  const currentUserId = <%= current_user.id %>;
+  console.log( currentUserId );
   let event = new Event("newPhaseStarted");
   event.currentPhase = '<%= @debate.phase %>';
   window.dispatchEvent(event);
@@ -94,70 +17,74 @@
     App['debate_<%= @debate.id %>'] = App.cable.subscriptions.create(
       { channel: 'DebatesChannel', debate_id: <%= @debate.id %> },
       { received: (data) => {
+
+
+        document.body.innerHTML = data.page_html;
+
+
+        // selectors
+        const phaseText = document.querySelector('.phase-text');
+        const endTurnButton = document.getElementById('moderator-buttons');
+        const buttonAffirmative = document.querySelector('.button-affirmative');
+        const buttonNegative = document.querySelector('.button-negative');
+
+        let event = new Event("newPhaseStarted");
+        event.currentPhase = data.current_phase;
+        window.dispatchEvent(event);
+
+
+        // Update show based on phase
+        const phases = {
+          "waiting_start": "Waiting for match to start...",
+          "count_in": "Affirmative opening arguments will start in:",
+          "affirmative_speech": "Affirmative opening arguments",
+          "negative_cross_examination_preparation": "Negative cross examination preparation",
+          "negative_cross_examination": "Negative cross examination",
+          "negative_speech_preparation": "Negative opening argument preparation",
+          "negative_speech": "Negative opening arguments",
+          "affirmative_cross_examination_preparation": "Affirmative cross examination preparation",
+          "affirmative_cross_examination": "Affirmative cross examination",
+          "affirmative_closing_statement_preparation": "Affirmative closing statement prepatation",
+          "affirmative_closing_statement": "Affirmative closing statement",
+          "negative_closing_statement_preparation": "Negative closing statement preparation",
+          "negative_closing_statement": "Negative closing statement",
+          "waiting_end": "Moderator giving final score...",
+          "finished": "<h3>The winner is Someone</h3>"
+        }
+
+        const button = {
+          "waiting_start": '<%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+                method: :patch, remote: true %>',
+          "count_in": '<%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+                method: :patch, remote: true %>',
+          "waiting_end": '<%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first),method: :patch, class: "btn-new"  %><%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+                method: :patch, remote: true %><%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>'
+
+        }
+
+
+
+        if (currentUserId !== data.affirmative_user.id) {
+          buttonAffirmative.classList.add("hidden");
+        }
+
+        if (currentUserId !== data.negative_user.id) {
+          buttonNegative.classList.add("hidden");
+        }
+
+        // phaseText.innerText = phases[data.current_phase]
+        // endTurnButton.innerHTML = button[data.current_phase]
+
+        // switch (data.current_phase) {
+        //   case "finished":
+        //       phaseText.innerHTML = "<h3>The winner is Someone</h3>";
+        //       // document.body.innerHTML = '<%#= j render partial: 'results'%>'
+        //       location.reload();
+        // }
         console.log(data);
+        console.log( data.affirmative_user.id);
+        console.log(currentUserId);
 
-            document.body.innerHTML = data.page_html;
-
-            // selectors
-            const phaseText = document.querySelector('.phase-text');
-            const endTurnButton = document.getElementById('moderator-buttons');
-            const affirmativeUserInfo = document.getElementById('affirmative-user-info');
-            const negativeUserInfo = document.getElementById('negative-user-info');
-            const userPaneAffirmative = document.querySelector('.user-pane-affirmative');
-            const userPaneNegative = document.querySelector('.user-pane-negative');
-            // const buttonAffirmative = document.querySelector('.button-affirmative');
-            // const buttonNegative = document.querySelector('.button-negative');
-
-            let event = new Event("newPhaseStarted");
-            event.currentPhase = data.current_phase;
-            window.dispatchEvent(event);
-
-            // if (data.affirmative_turn) {
-            //   buttonAffirmative.innerHTML = '<%# if @debate.affirmative_user == current_user && @debate.affirmative_turn? %><div class="end-turn-button"><%#= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><%# end %>';
-            // } else {
-            //   buttonNegative.innerHTML = '<%# if @debate.negative_user == current_user && @debate.negative_turn? %><div class="end-turn-button"><%#= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %></div><%# end %>';
-            // }
-
-            // Update show based on phase
-
-
-            const phases = {
-              "waiting_start" = "Waiting for match to start...",
-              "count_in" = "Affirmative opening arguments will start in:",
-              "affirmative_speech" = "Affirmative opening arguments",
-              "negative_cross_examination_preparation" = "Negative cross examination preparation"
-              "negative_cross_examination" = "Negative cross examination",
-              "negative_speech_preparation" = "Negative opening argument preparation",
-              "negative_speech" = "Negative opening arguments"
-              "affirmative_cross_examination_preparation" = "Affirmative cross examination preparation",
-              "affirmative_cross_examination" = "Affirmative cross examination",
-              "affirmative_closing_statement_preparation" = "Affirmative closing statement prepatation",
-              "affirmative_closing_statement" = "Affirmative closing statement",
-              "negative_closing_statement_preparation" = "Negative closing statement preparation",
-              "negative_closing_statement" = "Negative closing statement",
-              "waiting_end" = "Moderator giving final score..."
-              "finished" = "<h3>The winner is Someone</h3>"
-            }
-
-            const button = {
-              "waiting_start" = '<%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
-                    method: :patch, remote: true %>',
-              "count_in" = '<%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
-                    method: :patch, remote: true %>',
-              "waiting_end" = '<%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first),method: :patch, class: "btn-new"  %><%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
-                    method: :patch, remote: true %><%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>';
-
-            }
-
-            phaseText.innerText = phases[data.current_phase]
-            endTurnButton.innerHTML = button[data.current_phase]
-
-            switch (data.current_phase) {
-              case "finished":
-                  phaseText.innerHTML = "<h3>The winner is Someone</h3>";
-                  // document.body.innerHTML = '<%= j render partial: 'results'%>'
-                  location.reload();
-            }
         }
       }
     );

@@ -1,7 +1,7 @@
 <div class="custom">
   <% unless argument.nil? %>
     <%= simple_form_for [@topic, argument], html: { class: "argument-form m-3"}, remote: true do |f| %>
-      <%= f.input :content, label: false %>
+      <%= f.input :content,:as => :text, placeholder: "Please enter an argument", label: false %>
       <%= f.input :side, as: :hidden, input_html: { value: side }%>
       <%= f.submit "", as: :hidden, :style => "display: none;" %>
     <% end %>

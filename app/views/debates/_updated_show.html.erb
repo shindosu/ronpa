@@ -1,44 +1,6 @@
-
 <div class="d-flex debate-show">
-  <div class="timeline-sidebar">
-
-  <div class="phase-bubble-neutral">
-    <p>count down</p>
-  </div>
-  <div class="phase-bubble-affirmative">
-    <p>affirmative speech</p>
-  </div>
-  <div class="phase-bubble-negative">
-    <p>negative X prep</p>
-  </div>
-  <div class="phase-bubble-negative phase-bubble-active">
-    <p>negative X</p>
-  </div>
-  <div class="phase-bubble-negative">
-    <p>negative speech</p>
-  </div>
-  <div class="phase-bubble-affirmative">
-    <p>affirmative X prep</p>
-  </div>
-  <div class="phase-bubble-affirmative">
-    <p>affirmative X</p>
-  </div>
-  <div class="phase-bubble-affirmative">
-    <p>affirmative close prep</p>
-  </div>
-  <div class="phase-bubble-affirmative">
-    <p>affirmative close</p>
-  </div>
-  <div class="phase-bubble-negative">
-    <p>negative close prep</p>
-  </div>
-    <div class="phase-bubble-negative">
-    <p>negative close</p>
-  </div>
-  <div class="phase-bubble-neutral">
-    <p>final score</p>
-  </div>
-
+    <div class="timeline-sidebar">
+    <%= render "timeline", debate: @debate %>
   </div>
 
   <div class="container pl-0 pr-0">
@@ -73,33 +35,34 @@
 
       <!-- USER PANES -->
       <div class="d-flex justify-content-around">
-        <div class="user-pane-affirmative">
-          <% if debate.affirmative_user %>
-            <%= render 'debates/user_pane_affirmative', user: debate.affirmative_user, debate: debate %>
-          <% end %>
-        </div>
-        <% if debate.affirmative_turn? %>
-          <div class="button-affirmative text-center mt-4">
-            <div class="end-turn-button">
-              <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+        <div>
+          <div class="user-pane-affirmative">
+            <% if debate.affirmative_user %>
+              <%= render 'debates/user_pane_affirmative', user: debate.affirmative_user, debate: debate %>
+            <% end %>
+          </div>
+          <% if debate.affirmative_turn? %>
+            <div class="button-affirmative text-center mt-4">
+              <div class="end-turn-button">
+                <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+              </div>
             </div>
           </div>
         <% end %>
-        <div class="user-pane-negative">
-          <% if debate.negative_user %>
-            <%= render 'debates/user_pane_negative', user: debate.negative_user, debate: debate %>
+        <div>
+          <div class="user-pane-negative">
+            <% if debate.negative_user %>
+              <%= render 'debates/user_pane_negative', user: debate.negative_user, debate: debate %>
+            <% end %>
+          </div>
+          <% if debate.negative_turn? %>
+            <div class="button-negative text-center mt-4">
+              s<div class="end-turn-button">
+                <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+              </div>
+            </div>
           <% end %>
         </div>
-        <% if debate.negative_turn? %>
-          <div class="button-negative text-center mt-4">
-            <div class="end-turn-button">
-              <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <div>
-
       </div>
 
       <!-- MOD STUFF -->

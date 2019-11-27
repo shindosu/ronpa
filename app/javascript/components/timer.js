@@ -1,8 +1,6 @@
 import { Timer } from 'easytimer.js';
 
-const button = document.querySelector(".hvr-outline-in");
 const timer = new Timer();
-// console.log("i am outside of the if statement")
 if (timer) {
     timer.addEventListener('secondsUpdated', (event) => {
         const values = document.querySelector("#value");
@@ -10,13 +8,12 @@ if (timer) {
     });
 
     timer.addEventListener('targetAchieved', (event) => {
-        // button.click();
+        const button = document.querySelector(".hvr-outline-in");
+        button.click();
     });
-//     console.log("i am inside if timer")
 }
 
 const setTimer = (timer, seconds) => {
-        // console.log("i am inside of setTimer and when the phase is right I am recognized")
     timer.reset();
     timer.stop();
     timer.start({countdown: true, startValues: {seconds: seconds}});
@@ -24,10 +21,8 @@ const setTimer = (timer, seconds) => {
 
 const initTimer = (phase) => {
         const values = document.querySelector("#value");
+        const button = document.querySelector(".hvr-outline-in");
     if (values){
-        //     console.log(`I am inside if (values) and am logging ${value}`)
-            console.log("Initializing timer...", phase)
-
         //     const timerDurations = {
         //             "count_in": 31,
         //             "affirmative_speech": 121,

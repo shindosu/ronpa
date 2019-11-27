@@ -47,22 +47,18 @@
           "finished": "<h3>The winner is Someone</h3>"
         }
 
-        const button = {
-          "waiting_start": '<%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+        // const button = {
+          // "waiting_start": '<%#= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+                 method: :patch, remote: true %>',
+          // "count_in": '<%#= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
                 method: :patch, remote: true %>',
-          "count_in": '<%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
-                method: :patch, remote: true %>',
-          "waiting_end": '<%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first),method: :patch, class: "btn-new"  %><%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
-                method: :patch, remote: true %><%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>'
+          // "waiting_end": '<%#= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first),method: :patch, class: "btn-new"  %><%#= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+                method: :patch, remote: true %><%#= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>'
 
-        }
-
-
-
+        // }
         if (currentUserId !== data.affirmative_user.id) {
           buttonAffirmative.classList.add("hidden");
         }
-
         if (currentUserId !== data.negative_user.id) {
           buttonNegative.classList.add("hidden");
         }

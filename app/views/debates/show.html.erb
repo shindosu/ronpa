@@ -56,17 +56,11 @@
                 method: :patch, remote: true %><%#= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>'
 
         // }
-        console.log("buttonAffirmative");
-        if (typeof buttonAffirmative !== 'undefined') {
-          if (currentUserId !== data.affirmative_user.id) {
-            buttonAffirmative.classList.add("hidden");
-          }
+        if (currentUserId !== data.affirmative_user.id) {
+          buttonAffirmative.classList.add("hidden");
         }
-        console.log("buttonNegative");
-        if (typeof buttonNegative !== 'undefined') {
-          if (currentUserId !== data.negative_user.id) {
-            buttonNegative.classList.add("hidden");
-          }
+        if (currentUserId !== data.negative_user.id) {
+          buttonNegative.classList.add("hidden");
         }
 
         // phaseText.innerText = phases[data.current_phase]

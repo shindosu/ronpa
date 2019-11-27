@@ -1,4 +1,4 @@
-<div class="d-flex">
+<div class="d-flex debate-show">
   <div class="timeline-sidebar">
 
   <div class="phase-bubble-neutral">
@@ -108,9 +108,9 @@
           <% if @debate.participants.moderator.any? %>
             <h4><%= @debate.participants.moderator.first.user.username %> is Moderator</h>
             <div id="moderator-buttons">
-              <%= simple_form_for :debate, url: debate_next_phase_path(@debate), method: :patch, remote: true do |f| %>
-                  <%= f.submit "End Turn", class: "hvr-outline-in"   %>
-              <% end %>
+              <%#= simple_form_for :debate, url: debate_next_phase_path(@debate), method: :patch, remote: true do |f| %>
+                  <%#= f.submit "End Turn", class: "hvr-outline-in"   %>
+              <%# end %>
 
               <%#= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, class: "hvr-outline-in"  %>
             </div>
@@ -155,57 +155,46 @@
             // }
 
             // Update show based on phase
-            switch (data.current_phase) {
-              case "waiting_start":
-                  phaseText.innerText = "Waiting for match to start...";
-              break;
-              case "count_in":
-                  phaseText.innerText = "Affirmative opening arguments will start in:";
-              break;
-              case "affirmative_speech":
-                  phaseText.innerText = "Affirmative opening arguments";
-              break;
-              case "negative_cross_examination_preparation":
-                  phaseText.innerText = "Negative cross examination preparation";
-              break;
-              case "negative_cross_examination":
-                  phaseText.innerText = "Negative cross examination";
-              break;
-              case "negative_speech_preparation":
-                  phaseText.innerText = "Negative opening argument preparation";
-              break;
-              case "negative_speech":
-                  phaseText.innerText = "Negative opening arguments";
-              break;
-              case "affirmative_cross_examination_preparation":
-                  phaseText.innerText = "Affirmative cross examination preparation";
-              break;
-              case "affirmative_cross_examination":
-                  phaseText.innerText = "Affirmative cross examination";
-              break;
-              case "affirmative_closing_statement_preparation":
-                  phaseText.innerText = "Affirmative closing statement prepatation";
-              break;
-              case "affirmative_closing_statement":
-                  phaseText.innerText = "Affirmative closing statement";
-              break;
-              case "negative_closing_statement_preparation":
-                  phaseText.innerText = "Negative closing statement preparation";
-              break;
-              case "negative_closing_statement":
-                  phaseText.innerText = "Negative closing statement";
-              break;
-              case "waiting_end":
-                  phaseText.innerText = "Moderator giving final score...";
-                  endTurnButton.innerHTML = '<%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first),method: :patch, class: "btn-new"  %><%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+
+
+            const phases = {
+              "waiting_start" = "Waiting for match to start...",
+              "count_in" = "Affirmative opening arguments will start in:",
+              "affirmative_speech" = "Affirmative opening arguments",
+              "negative_cross_examination_preparation" = "Negative cross examination preparation"
+              "negative_cross_examination" = "Negative cross examination",
+              "negative_speech_preparation" = "Negative opening argument preparation",
+              "negative_speech" = "Negative opening arguments"
+              "affirmative_cross_examination_preparation" = "Affirmative cross examination preparation",
+              "affirmative_cross_examination" = "Affirmative cross examination",
+              "affirmative_closing_statement_preparation" = "Affirmative closing statement prepatation",
+              "affirmative_closing_statement" = "Affirmative closing statement",
+              "negative_closing_statement_preparation" = "Negative closing statement preparation",
+              "negative_closing_statement" = "Negative closing statement",
+              "waiting_end" = "Moderator giving final score..."
+              "finished" = "<h3>The winner is Someone</h3>"
+            }
+
+            const button = {
+              "waiting_start" = '<%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+                    method: :patch, remote: true %>',
+              "count_in" = '<%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
+                    method: :patch, remote: true %>',
+              "waiting_end" = '<%= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first),method: :patch, class: "btn-new"  %><%= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
                     method: :patch, remote: true %><%= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>';
-              break;
+
+            }
+
+            phaseText.innerText = phases[data.current_phase]
+            endTurnButton.innerHTML = button[data.current_phase]
+
+            switch (data.current_phase) {
               case "finished":
                   phaseText.innerHTML = "<h3>The winner is Someone</h3>";
                   // document.body.innerHTML = '<%= j render partial: 'results'%>'
                   location.reload();
+            }
         }
-      }
       }
     );
   </script>

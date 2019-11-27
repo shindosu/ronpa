@@ -1,36 +1,44 @@
 import { Timer } from 'easytimer.js';
 
-const values = document.querySelector("#value");
-const button = document.querySelector(".next-phase");
 const timer = new Timer();
-console.log("i am outside of the if statement")
 if (timer) {
     timer.addEventListener('secondsUpdated', (event) => {
+        const values = document.querySelector("#value");
         values.innerHTML = timer.getTimeValues().toString().split("").slice(3,8).join("")
     });
 
     timer.addEventListener('targetAchieved', (event) => {
+        const button = document.querySelector(".hvr-outline-in");
         button.click();
+        console.log("button clicked!")
     });
-    console.log("i am inside if timer")
 }
 
 const setTimer = (timer, seconds) => {
-        console.log("i am inside of setTimer and when the phase is right I am recognized")
     timer.reset();
     timer.stop();
     timer.start({countdown: true, startValues: {seconds: seconds}});
 }
 
 const initTimer = (phase) => {
-
+        const values = document.querySelector("#value");
+        const button = document.querySelector(".hvr-outline-in");
     if (values){
-            console.log(`I am inside if (values) and am logging ${value}`)
-            console.log(phase)
-
         //     const timerDurations = {
         //             "count_in": 31,
-        //             "affirmative_speech": 121
+        //             "affirmative_speech": 121,
+        //             "negative_cross_examination_preparation": 21,
+        //             "negative_cross_examination": 121,
+        //             "negative_speech_preparation": 21,
+        //             "negative_speech": 121,
+        //             "affirmative_cross_examination_preparation": 21
+        //
+        //
+        //
+        //
+        //
+        //
+        //
         //     }
 
         //     setTimer(timer, timerDurations[phase])

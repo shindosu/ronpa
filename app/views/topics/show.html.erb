@@ -11,13 +11,16 @@
       <div id="topic-show-desc" class="text-left w-50 mb-5">
         <p><%= @topic.description %></p>
       </div>
-      <div id="topic-show-desc" class="text-left w-50 mb-5">
+      <div id="topic-show-desc" class="w-50 mb-5">
         <% if @topic.user == nil? %>
           <h3>No available debate rooms</h3>
         <% elsif @topic.user %>
-        <h3 class="pt-3">Moderator Information</h3>
-        <p>Host Room: <%= @topic.user.conference_number.to_s %></p>
-        <p>Access Code: <%= @topic.user.access_code.to_s %></p>
+        <div class="moderator-info">
+          <h3 class="py-2 ">Moderator Information</h3>
+          <%= cl_image_tag @topic.user.photo, size: "70x70", class: "rounded-circle" %> 
+          <p class="py-2"> <%= @topic.user.username %> </p>
+        </div>
+        
         <% else %>
           <h3>No available debates :(</h3>
         <% end %>

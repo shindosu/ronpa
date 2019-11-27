@@ -13,6 +13,7 @@ class DebatesChannel < ApplicationCable::Channel
     ActionCable.server.broadcast("debate_#{debate.id}", {
       current_phase: debate.phase,
       affirmative_turn: debate.affirmative_turn?,
+      negative_turn: debate.negative_turn?,
       affirmative_user: debate.affirmative_user,
       negative_user: debate.negative_user,
       moderator: debate.moderator,

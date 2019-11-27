@@ -9,12 +9,11 @@ import { submitForm } from 'components/argument-form';
 // import { giveFeedback } from 'components/review-button';
 
 window.addEventListener('newPhaseStarted', (event) => {
+  console.log(event)
   initTimer(event.currentPhase);
 })
 
 initLetter();
-initTimer('waiting_start');
-initTimer();
 initFlip();
 initIconHover();
 submitForm();

@@ -123,6 +123,10 @@
 
 <% content_for :after_js do %>
   <script>
+  let event = new Event("newPhaseStarted");
+  event.currentPhase = '<%= @debate.phase %>';
+  window.dispatchEvent(event);
+
     App['debate_<%= @debate.id %>'] = App.cable.subscriptions.create(
       { channel: 'DebatesChannel', debate_id: <%= @debate.id %> },
       { received: (data) => {

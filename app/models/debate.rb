@@ -24,19 +24,19 @@ class Debate < ApplicationRecord
 
   PHASE_TITLES = {
     waiting_start: "Finding participants...",
-    count_in: "count-in",
+    count_in: "count-down",
     affirmative_speech: "Affirmative opening arguments",
-    negative_cross_examination_preparation: "Negative X exam prep",
-    negative_cross_examination: "Negative X exam",
+    negative_cross_examination_preparation: "Negative questioning prep",
+    negative_cross_examination: "Negative questioning",
     negative_speech_preparation: "Negative opening argument prep",
     negative_speech: "Negative opening arguments",
-    affirmative_cross_examination_preparation: "Affirmative X exam prep",
-    affirmative_cross_examination: "Affirmative X exam",
+    affirmative_cross_examination_preparation: "Affirmative questioning prep",
+    affirmative_cross_examination: "Affirmative questioning",
     affirmative_closing_statement_preparation: "Affirmative closing prep",
     affirmative_closing_statement: "Affirmative closing",
     negative_closing_statement_preparation: "Negative closing prep",
     negative_closing_statement: "Negative closing",
-    waiting_end: "final scoreing",
+    waiting_end: "final scoring",
     finished: "<h3>The winner is Someone</h3>"
   }
 

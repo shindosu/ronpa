@@ -25,11 +25,15 @@
         <div id="affirmative-user-info">
           <% if debate.affirmative_user %>
             <%= render 'debates/user_info', user: debate.affirmative_user %>
+          <% else %>
+            <%= render 'waiting_for_participant' %>
           <% end %>
         </div>
         <div id="negative-user-info">
           <% if debate.negative_user %>
             <%= render 'debates/user_info', user: debate.negative_user %>
+          <% else %>
+            <%= render 'waiting_for_participant' %>
           <% end %>
         </div>
       </div>
@@ -42,14 +46,16 @@
               <%= render 'debates/user_pane_affirmative', user: debate.affirmative_user, debate: debate %>
             <% end %>
           </div>
-          <div class="button-affirmative">
-            <% if debate.affirmative_turn? %>
-              <div class="button-affirmative text-center mt-4">
-                <div class="end-turn-button">
-                  <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
+          <div class="button-container">
+            <div class="button-affirmative">
+              <% if debate.affirmative_turn? %>
+                <div class="text-center mt-4">
+                  <div class="end-turn-button">
+                    <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
         <div>
@@ -58,14 +64,16 @@
               <%= render 'debates/user_pane_negative', user: debate.negative_user, debate: debate %>
             <% end %>
           </div>
-          <div class="button-negative">
-            <% if debate.negative_turn? %>
-              <div class="button-negative text-center mt-4">
-                <div class="end-turn-button">
-                  <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
+          <div class="button-container">
+            <div class="button-negative">
+              <% if debate.negative_turn? %>
+                <div class="text-center mt-4">
+                  <div class="end-turn-button">
+                    <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
+                  </div>
                 </div>
-              </div>
-            <% end %>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>
@@ -82,7 +90,7 @@
             <% end %>
           </div>
           <% if debate.moderator_user %>
-            <div id="moderator-buttons">
+            <div class="button-container" id="moderator-buttons">
               <%#= simple_form_for :debate, url: debate_next_phase_path(debate), method: :patch, remote: true do |f| %>
                   <%#= f.submit "End Turn", class: "hvr-outline-in"   %>
               <%# end %>

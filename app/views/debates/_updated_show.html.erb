@@ -7,8 +7,9 @@
     <div id="debate-box">
       <h1 class="text-center topic-proposition-text"><%= debate.topic.proposition%></h1>
       <div class="d-flex justify-content-around">
-        <h3 class="role text-center">Affirmative Position</h3>
-        <h3 class="role text-center">Negative Position</h3>
+        <h3 class="role text-center ml-5">Affirmative Position</h3>
+        <h4><%= link_to "Join Call", "https://whereby.com/ronpa", target: :_blank, class: "blue-hvr-outline-in"  %></h4>
+        <h3 class="role text-center mr-5">Negative Position</h3>
       </div>
       <div class="row justify-content-center">
         <div class="phase">
@@ -72,24 +73,28 @@
       <!-- MOD STUFF -->
       <div>
         <div class="text-center text-moderator">
-          <div>
             <% if debate.participants.moderator.any? %>
-              <%= cl_image_tag debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
+            <div class="moderator-icon d-flex">
+              <div class="mr-2">
+                <%= cl_image_tag debate.participants.moderator.first.user.photo, class:"text-center moderator-image" %>
+              </div>
             <% end %>
-          </div>
-          <% if debate.participants.moderator.any? %>
-            <h4><%= debate.participants.moderator.first.user.username %> is Moderator</h>
+            <% if debate.participants.moderator.any? %>
+              <div>
+                <h4><%= debate.participants.moderator.first.user.username %> is Moderator</h>
+              </div>
+            </div>
+
             <div id="moderator-buttons">
               <%#= simple_form_for :debate, url: debate_next_phase_path(debate), method: :patch, remote: true do |f| %>
                   <%#= f.submit "End Turn", class: "hvr-outline-in"   %>
               <%# end %>
 
-              <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+              <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in m-0"  %></h4>
             </div>
           <% end %>
         </div>
       </div>
     </div>
-    <%= link_to "Join Debate", "https://whereby.com/ronpa", target: :_blank, class: "hvr-outline-in"  %>
   </div>
 </div>

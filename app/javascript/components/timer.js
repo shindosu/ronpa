@@ -10,6 +10,7 @@ if (timer) {
     timer.addEventListener('targetAchieved', (event) => {
         const button = document.querySelector(".hvr-outline-in");
         button.click();
+        console.log("button clicked!")
     });
 }
 

@@ -24,7 +24,7 @@ class Debate < ApplicationRecord
 
   PHASE_TITLES = {
     waiting_start: "Finding participants...",
-    count_in: "count-down",
+    count_in: "Count-down",
     affirmative_speech: "Affirmative opening arguments",
     negative_cross_examination_preparation: "Negative questioning prep",
     negative_cross_examination: "Negative questioning",
@@ -36,7 +36,7 @@ class Debate < ApplicationRecord
     affirmative_closing_statement: "Affirmative closing",
     negative_closing_statement_preparation: "Negative closing prep",
     negative_closing_statement: "Negative closing",
-    waiting_end: "final scoring",
+    waiting_end: "Final scoring",
     finished: "<h3>The winner is Someone</h3>"
   }
 

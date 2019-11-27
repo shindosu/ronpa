@@ -24,7 +24,6 @@ gem 'pundit'
 gem 'stateful_enum'
 gem 'sprockets', '>= 3.0.0'
 gem 'sprockets-es6'
-gem 'twilio-ruby', '~> 5.29', '>= 5.29.1'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

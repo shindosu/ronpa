@@ -1,0 +1,15 @@
+<body>
+  <video id="video" autoplay></video>
+</body>
+
+<script src="https://unpkg.com/peerjs@1.0.0/dist/peerjs.min.js">
+ navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
+
+  var myStream;
+  $(function(){
+    navigator.getUserMedia({audio: true, video: true}, function(stream){
+      myStream = stream;
+      $('#video').prop('src', URL.createObjectURL(stream));
+    }, function(){});
+  });
+</script>

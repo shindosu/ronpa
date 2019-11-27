@@ -1,6 +1,6 @@
 <div class="d-flex debate-show">
-    <div class="timeline-sidebar">
-    <%= render "debates/timeline", debate: debate %>
+  <div class="timeline-sidebar">
+  <%= render "debates/timeline", debate: @debate %>
   </div>
 
   <div class="container pl-0 pr-0">
@@ -44,7 +44,7 @@
           <% if debate.affirmative_turn? %>
             <div class="button-affirmative text-center mt-4">
               <div class="end-turn-button">
-                <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+                <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
               </div>
             </div>
         <% end %>
@@ -58,7 +58,7 @@
           <% if debate.negative_turn? %>
             <div class="button-negative text-center mt-4">
               <div class="end-turn-button">
-                <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+                <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
               </div>
             </div>
           <% end %>

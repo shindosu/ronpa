@@ -20,6 +20,7 @@ class ParticipantsController < ApplicationController
         @participant.assign_attributes(role: role, debate: @debate)
       end
       if @participant.save
+        DebatesChannel.broadcast_debate_data(@debate)
         redirect_to debate_path(@debate)
       end
     else

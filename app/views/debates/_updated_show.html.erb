@@ -63,6 +63,14 @@
             </div>
           <% end %>
         </div>
+        
+        <% if debate.negative_turn? %>
+          <div class="button-negative text-center mt-4">
+            <div class="end-turn-button">
+              <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+            </div>
+          </div>
+        <% end %>
       </div>
 
       <!-- MOD STUFF -->

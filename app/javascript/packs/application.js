@@ -8,13 +8,12 @@ import { initPop } from 'components/logo';
 import { submitForm } from 'components/argument-form';
 // import { giveFeedback } from 'components/review-button';
 
+window.addEventListener('newPhaseStarted', (event) => {
+  initTimer(event.currentPhase);
+})
+
 initLetter();
-
-// window.addEventListener('newPhaseStarted', (event) => {
-//   initTimer(event.currentPhase);
-// })
-
-// initTimer('waiting_start');
+initTimer('waiting_start');
 initTimer();
 initFlip();
 initIconHover();

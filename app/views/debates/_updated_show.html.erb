@@ -1,6 +1,6 @@
 <div class="d-flex debate-show">
   <div class="timeline-sidebar">
-  <%= render "debates/timeline", debate: @debate %>
+  <%= render "debates/timeline", debate: debate %>
   </div>
 
   <div class="container pl-0 pr-0">
@@ -41,13 +41,15 @@
               <%= render 'debates/user_pane_affirmative', user: debate.affirmative_user, debate: debate %>
             <% end %>
           </div>
-          <% if debate.affirmative_turn? %>
-            <div class="button-affirmative text-center mt-4">
-              <div class="end-turn-button">
-                <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
+          <div class="button-affirmative">
+            <% if debate.affirmative_turn? %>
+              <div class="button-affirmative text-center mt-4">
+                <div class="end-turn-button">
+                  <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
+                </div>
               </div>
-            </div>
-        <% end %>
+            <% end %>
+          </div>
         </div>
         <div>
           <div class="user-pane-negative">
@@ -55,13 +57,15 @@
               <%= render 'debates/user_pane_negative', user: debate.negative_user, debate: debate %>
             <% end %>
           </div>
-          <% if debate.negative_turn? %>
-            <div class="button-negative text-center mt-4">
-              <div class="end-turn-button">
-                <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
+          <div class="button-negative">
+            <% if debate.negative_turn? %>
+              <div class="button-negative text-center mt-4">
+                <div class="end-turn-button">
+                  <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
+                </div>
               </div>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
         </div>
       </div>
 

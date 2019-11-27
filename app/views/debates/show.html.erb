@@ -1,8 +1,9 @@
 <div class="d-flex debate-show">
+ <!-- sidebar -->
   <div class="timeline-sidebar">
-  <%= render "timeline" %>
+  <%= render "timeline", debate: @debate %>
   </div>
-
+<!-- debate content -->
   <div class="container pl-0 pr-0">
     <div id="debate-box">
       <h1 class="text-center topic-proposition-text"><%= @debate.topic.proposition%></h1>

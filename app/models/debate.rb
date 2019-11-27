@@ -49,19 +49,21 @@ class Debate < ApplicationRecord
   ]
 
   NEGATIVE_PHASES = [
-      :negative_speech_preparation,
-      :negative_speech,
-      :negative_cross_examination_preparation,
-      :negative_cross_examination,
-      :negative_closing_statement_preparation,
-      :negative_closing_statement
+    :negative_speech_preparation,
+    :negative_speech,
+    :negative_cross_examination_preparation,
+    :negative_cross_examination,
+    :negative_closing_statement_preparation,
+    :negative_closing_statement
+  ]
+
+  MODERATOR_PHASES = [
+    :waiting_start,
+    :count_in,
+    :waiting_end
   ]
 
   scope :active, -> { where.not(phase: :finished) }
-
-  def with_slot?(role)
-    participants.send(role).none?
-  end
 
   def affirmative_turn?
     AFFIRMATIVE_PHASES.include?(phase.to_sym)
@@ -69,6 +71,10 @@ class Debate < ApplicationRecord
 
   def negative_turn?
     NEGATIVE_PHASES.include?(phase.to_sym)
+  end
+
+  def moderator_turn?
+    MODERATOR_PHASES.include?(phase.to_sym)
   end
 
   def phase_type
@@ -91,7 +97,7 @@ class Debate < ApplicationRecord
     end
   end
 
-  def moderator
+  def moderator_user
     participants.moderator.first&.user
   end
 
@@ -108,6 +114,10 @@ class Debate < ApplicationRecord
       current_phase: phase,
       current_user_id: user.id
     })
+  end
+
+  def with_slot?(role)
+    participants.send(role).none?
   end
 
 end

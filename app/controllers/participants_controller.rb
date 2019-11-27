@@ -37,7 +37,11 @@ class ParticipantsController < ApplicationController
     @loser.result = :loser
     if @winner.save && @loser.save
       @debate.update(phase: Debate.phases[@debate.phase] + 1)
-      @debate.broadcast_advance(current_user)
+      DebatesChannel.broadcast_debate_data(@debate)
+    end
+    respond_to do |format|
+      format.html { redirect_to debate_path(@debate) }
+      format.js
     end
   end
 

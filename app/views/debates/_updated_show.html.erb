@@ -1,6 +1,6 @@
 <div class="d-flex debate-show">
-    <div class="timeline-sidebar">
-    <%= render "timeline", debate: @debate %>
+  <div class="timeline-sidebar">
+  <%= render "debates/timeline", debate: @debate %>
   </div>
 
   <div class="container pl-0 pr-0">
@@ -44,11 +44,11 @@
           <% if debate.affirmative_turn? %>
             <div class="button-affirmative text-center mt-4">
               <div class="end-turn-button">
-                <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+                <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
               </div>
             </div>
-          </div>
         <% end %>
+        </div>
         <div>
           <div class="user-pane-negative">
             <% if debate.negative_user %>
@@ -57,20 +57,12 @@
           </div>
           <% if debate.negative_turn? %>
             <div class="button-negative text-center mt-4">
-              s<div class="end-turn-button">
-                <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
+              <div class="end-turn-button">
+                <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
               </div>
             </div>
           <% end %>
         </div>
-        
-        <% if debate.negative_turn? %>
-          <div class="button-negative text-center mt-4">
-            <div class="end-turn-button">
-              <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
-            </div>
-          </div>
-        <% end %>
       </div>
 
       <!-- MOD STUFF -->
@@ -94,5 +86,6 @@
         </div>
       </div>
     </div>
+    <%= link_to "Join Debate", "https://whereby.com/ronpa", target: :_blank, class: "hvr-outline-in"  %>
   </div>
 </div>

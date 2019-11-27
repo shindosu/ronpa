@@ -5,9 +5,13 @@
   <script>
   const currentUserId = <%= current_user.id %>;
   console.log( currentUserId );
-  let event = new Event("newPhaseStarted");
-  event.currentPhase = '<%= @debate.phase %>';
-  window.dispatchEvent(event);
+  launchTimer('<%= @debate.phase %>');
+
+  function launchTimer(phase) {
+    let event = new Event("newPhaseStarted");
+    event.currentPhase = phase;
+    window.dispatchEvent(event);
+  }
 
     App['debate_<%= @debate.id %>'] = App.cable.subscriptions.create(
       { channel: 'DebatesChannel', debate_id: <%= @debate.id %> },
@@ -15,7 +19,7 @@
 
 
         document.body.innerHTML = data.page_html;
-
+        console.log("Replaced body with data received from AC")
 
         // selectors
         const phaseText = document.querySelector('.phase-text');
@@ -23,10 +27,10 @@
         const buttonAffirmative = document.querySelector('.button-affirmative');
         const buttonNegative = document.querySelector('.button-negative');
 
-        let event = new Event("newPhaseStarted");
-        event.currentPhase = data.current_phase;
-        window.dispatchEvent(event);
-
+        // let event = new Event("newPhaseStarted");
+        // event.currentPhase = data.current_phase;
+        // window.dispatchEvent(event);
+        launchTimer(data.current_phase)
 
         // Update show based on phase
         const phases = {
@@ -59,13 +63,13 @@
 
 
 
-        if (currentUserId !== data.affirmative_user.id) {
-          buttonAffirmative.classList.add("hidden");
-        }
+        // if (currentUserId !== data.affirmative_user.id) {
+        //   buttonAffirmative.classList.add("hidden");
+        // }
 
-        if (currentUserId !== data.negative_user.id) {
-          buttonNegative.classList.add("hidden");
-        }
+        // if (currentUserId !== data.negative_user.id) {
+        //   buttonNegative.classList.add("hidden");
+        // }
 
         // phaseText.innerText = phases[data.current_phase]
         // endTurnButton.innerHTML = button[data.current_phase]
@@ -77,7 +81,7 @@
         //       location.reload();
         // }
         console.log(data);
-        console.log( data.affirmative_user.id);
+        // console.log( data.affirmative_user.id);
         console.log(currentUserId);
 
         }

@@ -12,7 +12,6 @@
           <% else %>
           <%= image_tag "default", class: "dashboard-image" %>
           <% end %>
-          <li><%= current_user.email %></li>
           <!-- <li> Wins: <i class="fas fa-trophy"></i> <%=  @user.wins %> </li>
           <li> Losses: <i class="fas fa-skull"></i> <%=  @user.losses %> </li> -->
         <hr>
@@ -45,11 +44,6 @@
         <div class="pt-4">
         <%= render "users/dashboard_rating" %>
         </div>
-        <div class="pt-4">
-        <h3 class="pt-3">Moderator Information</h3>
-        <p>Host Room: <%= current_user.conference_number.to_s %></p>
-        <p>Access Code: <%= current_user.access_code.to_s %></p>
-        </div>
         </ul>
       </div>
     </div>
@@ -72,7 +66,7 @@
         <div class="col-size">
           <div class="dashboard-header"><h5>Create</h5></div>
             <div class="open-debates  pt-4">
-              <div class="dashboard-card mb-5 text-center">
+              <div class="create-topic-card mb-5 text-center">
                 <i class="fas fa-plus"></i>
                 <h4>Create a new topic</h4>
                 <%= link_to "", new_topic_path, class:"div-link" %>

@@ -28,7 +28,6 @@ class TopicsController < ApplicationController
     if @topic.save
       redirect_to @topic
     else
-      raise
       render :new
     end
   end

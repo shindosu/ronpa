@@ -14,9 +14,10 @@ class DebatesChannel < ApplicationCable::Channel
       current_phase: debate.phase,
       affirmative_turn: debate.affirmative_turn?,
       negative_turn: debate.negative_turn?,
+      moderator_turn: debate.moderator_turn?,
       affirmative_user: debate.affirmative_user,
       negative_user: debate.negative_user,
-      moderator: debate.moderator,
+      moderator_user: debate.moderator_user,
       page_html: ApplicationController.render(
         template: 'debates/_updated_show',
         locals: { debate: debate }

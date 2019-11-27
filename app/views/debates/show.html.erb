@@ -14,6 +14,10 @@
       { received: (data) => {
 
 
+        if (data.current_phase === "finished") {
+          window.location.reload();
+        }
+
         document.body.innerHTML = data.page_html;
 
 
@@ -22,6 +26,9 @@
         const endTurnButton = document.getElementById('moderator-buttons');
         const buttonAffirmative = document.querySelector('.button-affirmative');
         const buttonNegative = document.querySelector('.button-negative');
+        const buttonsModerator = document.getElementById('moderator-buttons');
+        const buttonAffirmativeWin = document.getElementById('affirmative-win-button');
+        const buttonNegativeWin = document.getElementById('negative-win-button');
 
         let event = new Event("newPhaseStarted");
         event.currentPhase = data.current_phase;
@@ -61,6 +68,9 @@
         }
         if (currentUserId !== data.negative_user.id) {
           buttonNegative.classList.add("hidden");
+        }
+        if (currentUserId !== data.moderator_user.id) {
+          buttonsModerator.classList.add("hidden");
         }
 
         // phaseText.innerText = phases[data.current_phase]

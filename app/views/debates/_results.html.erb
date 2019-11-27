@@ -1,5 +1,5 @@
 <div class="container">
-  <% current_participant = @debate.participants.find_by(user: current_user) %>
+  <% current_participant = debate.participants.find_by(user: current_user) %>
   <% if current_participant.winner? %>
     <%= render 'winner_results', participant: current_participant %>
   <% elsif current_participant.loser? %>

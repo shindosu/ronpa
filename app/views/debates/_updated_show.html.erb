@@ -1,6 +1,6 @@
 <div class="d-flex debate-show">
     <div class="timeline-sidebar">
-    <%= render "timeline", debate: @debate %>
+    <%= render "debates/timeline", debate: debate %>
   </div>
 
   <div class="container pl-0 pr-0">
@@ -47,8 +47,8 @@
                 <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
               </div>
             </div>
-          </div>
         <% end %>
+        </div>
         <div>
           <div class="user-pane-negative">
             <% if debate.negative_user %>
@@ -57,20 +57,12 @@
           </div>
           <% if debate.negative_turn? %>
             <div class="button-negative text-center mt-4">
-              s<div class="end-turn-button">
+              <div class="end-turn-button">
                 <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
               </div>
             </div>
           <% end %>
         </div>
-        
-        <% if debate.negative_turn? %>
-          <div class="button-negative text-center mt-4">
-            <div class="end-turn-button">
-              <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %>
-            </div>
-          </div>
-        <% end %>
       </div>
 
       <!-- MOD STUFF -->

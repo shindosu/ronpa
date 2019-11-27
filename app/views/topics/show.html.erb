@@ -20,7 +20,6 @@
           <%= cl_image_tag @topic.user.photo, size: "70x70", class: "rounded-circle" %> 
           <p class="py-2"> <%= @topic.user.username %> </p>
         </div>
-        
         <% else %>
           <h3>No available debates :(</h3>
         <% end %>

@@ -83,12 +83,17 @@
   height: 72vh;
   overflow: scroll;
   border-radius: 0 0 16px 16px;
+  background: #f9f4d463;
+  // box-shadow: #533d4a57 10px 5px;
+  box-shadow: #533d4a1a 10px 5px 10px;
 }
 
 .dashboard-header {
+  // box-shadow: #533d4a57 10px 5px;
+  box-shadow: #533d4a1a 10px 5px 10px;
+  background: #c34f49;
   text-align: center;
-  color: #212121;
-  background-color: #D3D6D9;
+  color: $ronpa-tan;
   padding: 24px 0;
   font-weight: bold;
   border-radius: 16px 16px 0 0;

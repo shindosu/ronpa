@@ -43,12 +43,12 @@ span{
 
 .row-logo {
   margin-left: -80px;
-  margin-top: 40px;
+  margin-top: 60px;
 }
 
 .ml11 {
   font-weight: 700;
-  font-size: 3.5em;
+  // font-size: 3.5em;
 }
 
 .ml11 .text-wrapper {
@@ -83,4 +83,38 @@ span{
 
 .big {
   font-size: 250px;
+}
+
+@media (max-width: 992px) {
+  .big {
+    font-size: 100px;
+    margin-left: 57px;
+  }
+  .welcome-message {
+    min-width: 100%;
+  }
+  .buttons {
+    min-width: 100%;
+    margin-top: 0 !important;
+    line-height: 4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .big {
+    font-size: 100px;
+    margin-left: 57px;
+  }
+  .welcome-message {
+    min-width: 100%;
+  }
+  .buttons {
+    min-width: 100%;
+
+  }
+}
+
+
+.logo-nav img {
+  width: 200px;
 }

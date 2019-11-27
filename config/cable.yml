@@ -6,5 +6,7 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
+  url: redis://redistogo:13a5ca1be704259d86cc8780daf82d25@porgy.redistogo.com:11678/
+  # url: <%=ENV['REDIS_URL']%>
+  # url: <%= ENV['redis://rediscloud:HJ2V7621lEUMMrhNNbPVwmKVRvracr8R@redis-17478.c6.eu-west-1-1.ec2.cloud.redislabs.com:17478'] %>
   channel_prefix: ronpa_production

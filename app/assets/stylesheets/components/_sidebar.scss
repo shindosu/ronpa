@@ -7,11 +7,12 @@
   display: flex;
   flex-direction: column;
   width: 300px;
-  background-color:rgba(253, 251, 242, 0.8);
+  background-color: #f9f4d400;
   border-radius: 16px;
   padding: 8px;
   margin-left: 16px;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  // box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  box-shadow: #533d4a1a 10px 5px 10px;
 }
 
 
@@ -41,4 +42,21 @@
 
 .ratings {
   text-align: left;
+}
+
+.timeline-sidebar {
+  color: #212121;
+  display: flex;
+  flex-direction: column;
+  background-color:rgba(253, 251, 242, 0.8);
+  border-radius: 16px;
+  margin-left: 30px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  margin-top: 18px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  padding: 12px;
+  border: 2px solid #D95852;
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
+  background-color: #FCFAED;
 }

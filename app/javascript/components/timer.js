@@ -8,13 +8,14 @@ if (timer) {
     });
 
     timer.addEventListener('targetAchieved', (event) => {
-        const button = document.getElementById("mod-end-turn-button");
-        if (button) {
-                button.click();
+        // const button = document.getElementById("mod-end-turn-button");
+        const endTurnForm = document.getElementById('end-turn-form');
+        if (endTurnForm) {
+                endTurnForm.submit();
                 console.log("button clicked!")
         } else {
                 console.log('button not found')
-        }      
+        }
     });
 }
 

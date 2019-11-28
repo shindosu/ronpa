@@ -17,4 +17,8 @@ class DebatePolicy < ApplicationPolicy
   def next_phase?
     true
   end
+
+  def end_debate?
+    true
+  end
 end

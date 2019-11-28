@@ -4,16 +4,39 @@
 
 <% content_for :after_js do %>
   <script>
+
   function launchTimer(phase) {
     let event = new Event("newPhaseStarted");
     event.currentPhase = phase;
     window.dispatchEvent(event);
   }
+
+  function disableEndTurnButton(phaseType, affirmativeUserId, negativeUserId, moderatorUserId) {
+    var currentUserId = <%= current_user.id %>;
+    var endTurnForm = document.getElementById("end-turn-form");
+    // endTurnForm.addEventListener('submit', e => e.preventDefault());
+    switch (phaseType) {
+      case 'affirmative':
+      document.getElementById('end-turn-btn').disabled = !(affirmativeUserId === currentUserId);
+      break;
+
+      case 'negative':
+      document.getElementById('end-turn-btn').disabled = !(negativeUserId === currentUserId);
+      break;
+
+      case 'neutral':
+      document.getElementById('end-turn-btn').disabled = !(moderatorUserId === currentUserId);
+      break;
+    }
+  };
+
   launchTimer('<%= @debate.phase %>');
+  disableEndTurnButton("<%= @debate.phase_type %>", <%= @debate.affirmative_user&.id || 0 %>, <%= @debate.negative_user&.id || 0 %>, <%= @debate.moderator_user&.id || 0 %>);
 
     App['debate_<%= @debate.id %>'] = App.cable.subscriptions.create(
       { channel: 'DebatesChannel', debate_id: <%= @debate.id %> },
       { received: (data) => {
+        console.log(data)
 
         if (data.current_phase === "finished") {
           window.location.reload();
@@ -23,7 +46,7 @@
 
         launchTimer(data.current_phase)
 
-        hideEndTurnButton()
+        disableEndTurnButton(data.phase_type, data.affirmative_user.id, data.negative_user.id, data.moderator_user.id);
 
         }
       }

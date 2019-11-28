@@ -9,6 +9,7 @@
       <div class="d-flex justify-content-around">
         <h3 class="role text-center ml-5">Affirmative Position</h3>
         <h4><%= link_to "Join Call", "https://whereby.com/ronpa", target: :_blank, class: "blue-hvr-outline-in"  %></h4>
+        <h4><%= link_to "Leave", debate_end_debate_path(debate), method: :patch, class: "blue-hvr-outline-in"  %></h4>
         <h3 class="role text-center mr-5">Negative Position</h3>
       </div>
       <div class="row justify-content-center">
@@ -47,7 +48,7 @@
           <div class="button-container">
             <div class="button-negative text-center mt-3">
               <% if debate.affirmative_user && debate.affirmative_turn? %>
-                <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
+                <h4><%#= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
               <% end %>
             </div>
           </div>
@@ -63,19 +64,22 @@
           <div class="button-container">
             <div class="button-negative text-center mt-3">
               <% if debate.negative_user && debate.negative_turn? %>
-                <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
+                <h4><%#= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in"  %></h4>
               <% end %>
             </div>
           </div>
         </div>
       </div>
 
+     <div class="button-container text-center">
+      <form id="end-turn-form" action="/debates/<%= debate.id %>/next_phase">
+          <button id="end-turn-btn" class="hvr-outline-in" type="submit" value="End Turn" disabled="disabled">End Turn</button>
+      </form>
+        <%#= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in", id: "mod-end-turn-button"  %>
+     </div>
       <!-- MOD STUFF -->
       <div>
-        <% if debate.moderator_user && debate.moderator_turn? %>
-           <div class="button-container text-center">
-              <%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in", id: "mod-end-turn-button"  %>
-           </div>
+        <% if debate.moderator_user %>
         <div class="text-center text-moderator">
           <div class="moderator-icon d-flex">
             <div class="mr-2">

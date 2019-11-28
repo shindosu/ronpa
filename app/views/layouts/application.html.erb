@@ -26,6 +26,9 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+     <% if params[:action] == "dashboard" || params[:controller] == 'topics/index' || params[:action] == "index"  %>
+      <%= render 'shared/footer' %>
+     <% end %>
     <%= javascript_include_tag 'application' %>
     <%= javascript_pack_tag 'application' %>
     <%#= javascript_pack_tag "topic-show" %>

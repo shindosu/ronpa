@@ -9,8 +9,10 @@ if (timer) {
 
     timer.addEventListener('targetAchieved', (event) => {
         const button = document.getElementById("mod-end-turn-button");
-        button.click();
-        console.log("button clicked!")
+        if (button) {
+                button.click();
+                console.log("button clicked!")
+        }       
     });
 }
 
@@ -43,39 +45,25 @@ const initTimer = (phase) => {
         //     setTimer(timer, timerDurations[phase])
         switch (phase) {
             case "count_in":
-                setTimer(timer, 31);
+                setTimer(timer, 11);
             break;
             case "affirmative_speech":
-                    setTimer(timer, 121);
-            case "negative_cross_examination_preparation":
-                    setTimer(timer, 21);
-            break;
-            case "negative_cross_examination":
-                    setTimer(timer, 121);
-            break;
-            case "negative_speech_preparation":
-                    setTimer(timer, 21);
-            break;
+                    setTimer(timer, 11);
+                break;
             case "negative_speech":
-                    setTimer(timer, 121);
-            break;
-            case "affirmative_cross_examination_preparation":
-                    setTimer(timer, 21);
+                    setTimer(timer, 11);
             break;
             case "affirmative_cross_examination":
-                    setTimer(timer, 121);
+                    setTimer(timer, 11);
             break;
-            case "affirmative_closing_statement_preparation":
+            case "negative_cross_examination":
                     setTimer(timer, 11);
             break;
             case "affirmative_closing_statement":
-                    setTimer(timer, 61);
-            break;
-            case "negative_closing_statement_preparation":
                     setTimer(timer, 11);
             break;
             case "negative_closing_statement":
-                    setTimer(timer, 61);
+                    setTimer(timer, 11);
             break;
             case "waiting_end":
                     setTimer(timer, 31);

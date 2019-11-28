@@ -25,13 +25,13 @@
   top: 0;
   width: 200px;
   height: 200px;
-  background: #D95852;
+  background: $ronpa-red;
   clip-path: ellipse(200px 200px at 0% 0%);
 }
 
 .rating-background-yellow{
   // font-family: 'Orbitron', sans-serif;
-  background-color: #F9F4D4;
+  background-color: $ronpa-tan;
   padding: 10px 20px;
   border-radius: 20px;
 }
@@ -45,7 +45,7 @@
 
 .rating-background-red{
   // font-family: 'Orbitron', sans-serif;
-  background-color: rgb(212, 64, 64);
+  background-color: $ronpa-red;
   padding: 10px 20px;
   border-radius: 20px;
 }

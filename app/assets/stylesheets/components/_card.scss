@@ -1,6 +1,6 @@
 .card {
-  border: 1px solid #F3F3F3;
-  box-shadow: 0 0 2px rgba(0,0,0,0.3);
+  border: 1px solid $light-gray;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
   padding: 8px;
   margin: 5px;
 }
@@ -14,7 +14,7 @@
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   padding: 8px;
   padding-top: 24px;
-  background-color: #fcfaed;
+  background-color: $ronpa-tan-light;
   border-radius: 8px;
   transition: transform .4s;
   &:hover {
@@ -22,10 +22,10 @@
   }
   h4 {
     height: 70px;
-    color: rgb(80, 80, 80);
+    color: $dark-gray;
     font-size: 18px;
     text-align: center;
-    border-bottom: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px $medium-gray;
     padding-bottom: 12px;
   }
   .details-text {
@@ -33,18 +33,18 @@
     font-weight: lighter;
     padding-top: 12px;
     padding-bottom: 0px;
-    color: rgb(150, 150, 150);
+    color: $medium-gray;
   }
 }
 
 .create-topic-card {
   position: relative;
-  border: 1px solid #F3F3F3;
+  border: 1px solid $light-gray;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   padding: 8px;
   padding-top: 24px;
   margin: 5px 20px ;
-  background-color: #fcfaed;
+  background-color: $ronpa-tan-light;
   border-radius: 8px;
   transition: transform .4s;
   &:hover {
@@ -52,7 +52,7 @@
   }
   h4 {
     height: 48px;
-    color: rgb(80, 80, 80);
+    color: $dark-gray;
     font-size: 16px;
     text-align: center;
     padding-bottom: 12px;
@@ -61,12 +61,12 @@
 
 .dashboard-card {
   position: relative;
-  border: 1px solid #F3F3F3;
+  border: 1px solid $light-gray;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   padding: 8px;
   padding-top: 24px;
   margin: 5px 20px ;
-  background-color: #fcfaed;
+  background-color: $ronpa-tan-light;
   border-radius: 8px;
   transition: transform .4s;
   &:hover {
@@ -74,10 +74,10 @@
   }
   h4 {
     height: 70px;
-    color: rgb(80, 80, 80);
+    color: $dark-gray;
     font-size: 16px;
     text-align: center;
-    border-bottom: 1px solid rgb(200, 200, 200);
+    border-bottom: 1px solid $lighter-gray;
     padding-bottom: 12px;
   }
 
@@ -86,7 +86,7 @@
     font-weight: lighter;
     padding-top: 8px;
     padding-bottom: 0px;
-    color: rgb(150, 150, 150);
+    color: $medium-gray;
   }
 
   .p {

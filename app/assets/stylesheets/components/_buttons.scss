@@ -1,46 +1,46 @@
   .btn-default {
-    border: 1px solid rgb(200, 200, 200);
+    border: 1px solid $medium-gray;
     border-radius: 4px;
   }
 
 .btn-new {
-  background-color: #D95852;
-  color: #F9F4D4;
+  background-color: $ronpa-red;
+  color: $ronpa-tan;
   padding: 10px;
   border-radius: 8px;
   margin: 4px;
   transition: 0.3s;
   &:hover {
-    color: #F9F4D4;
-    background-color: #c34f49;
+    color: $ronpa-tan;
+    background-color: $ronpa-red;
   }
 }
 
 .btn-landing-tan {
-  color: #F9F4D4;
+  color: $ronpa-tan;
   background-color: transparent;
-  border: 2px solid #F9F4D4;
+  border: 2px solid $ronpa-tan;
   border-radius: 8px;
   padding: 8px 12px;
   font-size: 20px;
   transition: 0.3s;
    &:hover {
-    background-color: #F9F4D4;
-    color: #c34f49;
+    background-color: $ronpa-tan;
+    color: $ronpa-red;
    }
 }
 
 .btn-landing-red {
-  color: #c34f49;
+  color: $ronpa-red;
   background-color: transparent;
-  border: 2px solid #c34f49;
+  border: 2px solid $ronpa-red;
   border-radius: 8px;
   padding: 8px 12px;
   font-size: 24px;
   transition: 0.3s;
    &:hover {
-    background-color: #c34f49;
-    color: #F9F4D4;
+    background-color: $ronpa-red;
+    color: $ronpa-tan;
    }
 }
 

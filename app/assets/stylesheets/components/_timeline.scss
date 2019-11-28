@@ -7,11 +7,11 @@
   text-align: center;
   margin: 7px 2px;
   border-radius: 16px;
-  border: 1px solid gray;
+  border: 1px solid $medium-gray;
 
   transition: transform .6;
   border-bottom-width: thick;
-  background: #4950573d;
+  background: $light-gray;
   width: 100%;
 }
 
@@ -24,12 +24,11 @@
   text-align: center;
   margin: 7px 2px;
   border-radius: 16px;
-  border: 1px solid gray;
+  border: 1px solid $ronpa-purple;
   transition: transform .6;
   border-bottom-width: thick;
-  border-color: #26b642ab;
   width: 100%;
-  background: #26b64214;
+  background: $ronpa-purple-light;
 }
 
 .phase-bubble-negative {
@@ -41,12 +40,11 @@
   text-align: center;
   margin: 7px 2px;
   border-radius: 16px;
-  border: 1px solid gray;
+  border: 1px solid $ronpa-red;
   transition: transform .6;
   border-bottom-width: thick;
-  border-color: #c34f49;
   width: 100%;
-  background: #c34f4914;
+  background: $ronpa-red-light;
 }
 
 .phase-bubble-active {
@@ -54,5 +52,5 @@
   border-right-width: thick;
   border-bottom-width: thick;
   font-weight: bolder;
-  background: #fff;
+  background: white;
 }

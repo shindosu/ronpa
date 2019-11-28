@@ -1,5 +1,7 @@
+<div class="middle-line">
 <% Debate.phases.keys[1..-2].each do |phase| %>
   <div class="phase-bubble-<%= Debate.phase_type(phase.to_sym) %><%= " phase-bubble-active" if phase == debate.phase %>">
     <p><%= Debate::PHASE_TITLES[phase.to_sym] %></p>
   </div>
 <% end %>
+</div>

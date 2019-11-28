@@ -32,8 +32,6 @@
         <div id="negative-user-info">
           <% if debate.negative_user %>
             <%= render 'debates/user_info', user: debate.negative_user %>
-          <% else %>
-            <%= render 'waiting_for_participant' %>
           <% end %>
         </div>
       </div>

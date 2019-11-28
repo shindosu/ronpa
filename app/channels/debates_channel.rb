@@ -9,7 +9,7 @@ class DebatesChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def self.broadcast_debate_data(debate, my_participant)
+  def self.broadcast_debate_data(debate)
     ActionCable.server.broadcast("debate_#{debate.id}", {
       current_phase: debate.phase,
       affirmative_turn: debate.affirmative_turn?,
@@ -20,7 +20,7 @@ class DebatesChannel < ApplicationCable::Channel
       moderator_user: debate.moderator_user,
       page_html: ApplicationController.render(
         template: 'debates/_updated_show',
-        locals: { debate: debate, my_participant: my_participant }
+        locals: { debate: debate }
         )
     })
   end

@@ -91,7 +91,7 @@
                 <%= link_to "Affirmative Wins", debate_set_result_path(debate, winner_id: debate.participants.affirmative.first), method: :patch, class: "hvr-outline-in", id: "affirmative-win-button"  %>
               <% end %>
               <% if true %>
-                <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in", id: "mod-end-turn-button"  %></h4>
+                <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in" %></h4>
               <% end %>
               <% if debate.negative_user && debate.waiting_end? %>
                 <%= link_to "Negative Wins", debate_set_result_path(debate, winner_id: debate.participants.negative.first), method: :patch, class: "hvr-outline-in", id: "negative-win-button" %>

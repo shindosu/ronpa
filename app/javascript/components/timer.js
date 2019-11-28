@@ -12,7 +12,9 @@ if (timer) {
         if (button) {
                 button.click();
                 console.log("button clicked!")
-        }       
+        } else {
+                console.log('button not found')
+        }      
     });
 }
 

@@ -36,24 +36,33 @@
     }
   };
 
+  function showResultsBtns(moderatorUserId) {
+    var currentUserId = <%= current_user.id %>;
+
+    if (moderatorUserId === currentUserId) document.getElementById('set-results-controls').classList.remove('hidden');
+  }
+
   launchTimer('<%= @debate.phase %>');
   disableEndTurnButton("<%= @debate.phase_type %>", <%= @debate.affirmative_user&.id || 0 %>, <%= @debate.negative_user&.id || 0 %>, <%= @debate.moderator_user&.id || 0 %>);
+  if ('<%= @debate.phase %>' === 'waiting_end') showResultsBtns(<%= @debate.moderator_user&.id %>)
 
     App['debate_<%= @debate.id %>'] = App.cable.subscriptions.create(
       { channel: 'DebatesChannel', debate_id: <%= @debate.id %> },
       { received: (data) => {
-        console.log(data)
+        console.log(data);
+        console.log(data.current_phase);
 
         if (data.current_phase === "finished") {
           window.location.reload();
         }
 
         document.getElementById('updated_show').innerHTML = data.page_html;
+        launchTimer(data.current_phase);
 
-        launchTimer(data.current_phase)
 
         disableEndTurnButton(data.phase_type, data.affirmative_user.id, data.negative_user.id, data.moderator_user.id);
 
+        if (data.current_phase === 'waiting_end') showResultsBtns(data.moderator_user.id)
         }
       }
     );

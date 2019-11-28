@@ -31,11 +31,15 @@ class DebatesController < ApplicationController
     @debate = Debate.find(params[:debate_id])
     @topic = @debate.topic
     authorize @debate
-    @debate.update(phase: Debate.phases[@debate.phase] + 1)
-    DebatesChannel.broadcast_debate_data(@debate)
-    respond_to do |format|
-      format.html { render 'debates/show' }
-      format.js
+    if Debate.phases[@debate.phase.to_sym] < Debate.phases.count - 1
+      @debate.update(phase: Debate.phases[@debate.phase] + 1)
+      DebatesChannel.broadcast_debate_data(@debate)
+      respond_to do |format|
+        format.html { render 'debates/show' }
+        format.js
+      end
+    else
+      redirect_to debate_path(@debate)
     end
   end
 

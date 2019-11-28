@@ -2,7 +2,7 @@
   background-color: #26b64266;
   text-align: center;
   padding: 4px;
-  border-radius: 8px;
+  border-radius: 4px;
   width: auto;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
   h3 {
@@ -15,7 +15,7 @@
   background-color: $ronpa-red-light;
   text-align: center;
   padding: 4px;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
   width: auto;
   h3 {
@@ -28,7 +28,7 @@
   background-color: gray;
   text-align: center;
   padding: 4px;
-  border-radius: 8px;
+  border-radius: 4px;
   width: auto;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
   h3 {
@@ -41,7 +41,7 @@
   background-color: gray;
   text-align: center;
   padding: 4px;
-  border-radius: 8px;
+  border-radius: 4px;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
   width: auto;
   h3 {
@@ -89,12 +89,12 @@
 
 .phase {
   padding: 2px 16px 2px 16px;
-  border-radius: 8px;
+  border-radius: 4px;
   background-color: $ultra-light-gray;
   color: $ronpa-red;
   width: 50%;
   text-align: center;
-  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  border: 1px solid #999999;
   justify-content: center;
   margin-top: 8px;
 }

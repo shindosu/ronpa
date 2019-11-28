@@ -98,6 +98,9 @@ span{
     margin-top: 0 !important;
     line-height: 4rem;
   }
+  .info-landing {
+    margin-left: 0;
+  }
 }
 
 @media (max-width: 768px) {
@@ -110,7 +113,9 @@ span{
   }
   .buttons {
     min-width: 100%;
-
+  }
+  .info-landing {
+    margin-left: 0;
   }
 }
 

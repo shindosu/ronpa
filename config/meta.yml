@@ -1,0 +1,5 @@
+meta_product_name: "Ronpa"
+meta_title: "Ronpa - Debate the things that matter live, online!"
+meta_description: "Join out community and debate about the latest topics!"
+meta_image: "cover.png" # should exist in `app/assets/images/` photo htat will appear on fb
+# twitter_account: "@product_twitter_account"   # required for Twitter Cards

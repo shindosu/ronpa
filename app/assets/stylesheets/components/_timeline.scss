@@ -6,9 +6,8 @@
   padding: 16px;
   text-align: center;
   margin: 7px 2px;
-  border-radius: 16px;
-  background: #4950571f;
   width: 100%;
+  border-left: 4px solid #b2b2b2c4;
 }
 .phase-bubble-affirmative {
   p {
@@ -18,10 +17,8 @@
   padding: 16px;
   text-align: center;
   margin: 7px 2px;
-  border-radius: 16px;
-  border-color: #26b642ab;
   width: 100%;
-  background: #26b64214;
+  border-left: 4px solid #26b642ab;
 }
 .phase-bubble-negative {
   p {
@@ -31,15 +28,12 @@
   padding: 16px;
   text-align: center;
   margin: 7px 2px;
-  border-radius: 16px;
-  border-color: #c34f49;
   width: 100%;
-  background: #c34f4914;
+  border-left: 4px solid #ef8984;
 }
 .phase-bubble-active {
-  transform: scale(1.02);
-  border-right-width: thick;
-  border-bottom-width: thick;
-  font-weight: bolder;
-  background: #fff;
+  // border-left: 8px solid ;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 4px;
+
 }

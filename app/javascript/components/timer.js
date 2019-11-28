@@ -8,14 +8,15 @@ if (timer) {
     });
 
     timer.addEventListener('targetAchieved', (event) => {
-        // const button = document.getElementById("mod-end-turn-button");
-        const endTurnForm = document.getElementById('end-turn-form');
-        if (endTurnForm) {
-                endTurnForm.submit();
-                console.log("button clicked!")
-        } else {
-                console.log('button not found')
-        }
+    console.log('timer finished')
+    //     // const button = document.getElementById("mod-end-turn-button");
+    //     const endTurnForm = document.getElementById('end-turn-form');
+    //     if (endTurnForm) {
+    //             // endTurnForm.submit();
+    //             console.log("button clicked!")
+    //     } else {
+    //             console.log('button not found')
+    //     }
     });
 }
 

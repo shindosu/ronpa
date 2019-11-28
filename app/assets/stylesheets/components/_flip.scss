@@ -11,7 +11,7 @@
 // }
 
 .card__face {
-  color: white;
+  color: $light-gray;
   text-align: center;
   font-weight: bold;
   font-size: 18px;
@@ -19,19 +19,19 @@
 }
 
 .card__face--front {
-  background: #D95852;
-  color: #F9F4D4;
+  background: $ronpa-red;
+  color: $ronpa-tan;
   border-radius: 8px;
   transition: transform .4s;
   &:hover {
-    color: #F9F4D4;
-    background-color: #c34f49;
+    color: $ronpa-tan;
+    background-color: $ronpa-red;
     transform: scale(1.06);
   }
 }
 
 .card__face--back {
-  color: black;
+  color: $dark-gray;
   transform: rotateX(180deg);
   border-radius: 8px;
 }

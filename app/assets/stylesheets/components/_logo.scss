@@ -2,11 +2,11 @@ span{
     transform: skew(-10deg);
     display: block;
     float: left;
-    text-shadow: #533d4a 16px 14px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px;
+    text-shadow: $ronpa-purple-dark 16px 14px, $ronpa-purple-dark 2px 2px, $ronpa-purple-dark 3px 3px, $ronpa-purple-dark 4px 4px;
   }
 
 .el {
-  color: #F9F4D4;
+  color: $ronpa-tan;
   text-transform: uppercase;
   font-size: 42px;
   margin: 0;
@@ -26,7 +26,7 @@ span{
     transform: skew(-10deg);
     display: block;
     float: left;
-    text-shadow: #533d4a 1px 1px, #533d4a 2px 2px, #533d4a 3px 3px, #533d4a 4px 4px, #533d4a 5px 5px, #533d4a 6px 6px;
+    text-shadow: $ronpa-purple-dark 1px 1px, $ronpa-purple-dark 2px 2px, $ronpa-purple-dark 3px 3px, $ronpa-purple-dark 4px 4px, $ronpa-purple-dark 5px 5px, $ronpa-purple-dark 6px 6px;
     min-width: 10px;
     min-height: 10px;
     position: relative;
@@ -66,7 +66,7 @@ span{
   left: 0;
   height: 100%;
   width: 5px;
-  background-color: #fff;
+  background-color: $light-gray;
   transform-origin: 0 50%;
 }
 

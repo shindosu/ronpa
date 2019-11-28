@@ -1,25 +1,25 @@
 #argument-uses-left {
-  background-color: #65c97040;
+  background-color: $ronpa-purple-light;
   text-align: center;
   padding: 4px;
   border-radius: 8px;
   width: auto;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
   h3 {
-    border-bottom: 1px solid #D95852;
+    border-bottom: 1px solid $ronpa-red;
     padding-bottom: 2px;
   }
 }
 
 #argument-uses-right {
-  background-color: #d9585240;
+  background-color: $ronpa-red-light;
   text-align: center;
   padding: 4px;
   border-radius: 8px;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
   width: auto;
   h3 {
-    border-bottom: 1px solid rgb(150, 150, 150);
+    border-bottom: 1px solid $medium-gray;
     padding-bottom: 2px;
   }
 }
@@ -34,7 +34,7 @@
   border-radius: 8px;
   padding-top: 4px;
   box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
-  background-color: #FCFAED;
+  background-color: $ronpa-tan-light;
 }
 
 .role {
@@ -43,7 +43,7 @@
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   text-align: center;
   align-items: center;
-  border-bottom: 1px solid #D95852;
+  border-bottom: 1px solid $ronpa-red;
   width: 30%;
 }
 
@@ -60,8 +60,8 @@
 .phase {
   padding: 2px 16px 2px 16px;
   border-radius: 8px;
-  background-color: white;
-  color: #D95852;
+  background-color: $ultra-light-gray;
+  color: $ronpa-red;
   width: 50%;
   text-align: center;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
@@ -79,7 +79,7 @@
   align-items: center;
   justify-content: center;
   padding-top: 30px;
-  border-bottom: 1px solid #D95852;
+  border-bottom: 1px solid $ronpa-red;
   width: 100%;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
 }
@@ -91,14 +91,14 @@
 }
 
 .argument-use-affirmative {
-  background-color: #FFFFFF;
+  background-color: $ultra-light-gray;
   border-radius: 4px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   width: 400px;
 }
 
 .argument-use-negative {
-  background-color: white;
+  background-color: $ultra-light-gray;
   border-radius: 4px;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   width: 400px;
@@ -141,8 +141,8 @@
 
 /* Outline In */
 .hvr-outline-in {
-  background-color: #D95852;
-  color: #F9F4D4;
+  background-color: $ronpa-red;
+  color: $ronpa-tan;
   border-radius: 8px;
   transition: 0.3s;
   padding: 8px;
@@ -151,14 +151,14 @@
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 1px $off-black;
   position: relative;
 }
 .hvr-outline-in:before {
   pointer-events: none;
   content: '';
   position: absolute;
-  border: #D95852 solid 4px;
+  border: $ronpa-red solid 4px;
   border-radius: 8px;
   top: -16px;
   right: -16px;
@@ -181,8 +181,8 @@
 
 
 .blue-hvr-outline-in {
-  background-color: #535896;
-  color: #F9F4D4;
+  background-color: $ronpa-purple;
+  color: $ronpa-tan;
   border-radius: 8px;
   transition: 0.3s;
   padding: 8px;
@@ -191,14 +191,14 @@
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);
   transform: perspective(1px) translateZ(0);
-  box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+  box-shadow: 0 0 1px $off-black;
   position: relative;
 }
 .blue-hvr-outline-in:before {
   pointer-events: none;
   content: '';
   position: absolute;
-  border: #535896 solid 4px;
+  border: $ronpa-purple solid 4px;
   border-radius: 8px;
   top: -16px;
   right: -16px;

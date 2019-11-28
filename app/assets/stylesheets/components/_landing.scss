@@ -1,25 +1,25 @@
 
 .home-header {
 
-  background: linear-gradient(160deg, #D95852 50%, #F9F4D4 50%);
+  background: linear-gradient(160deg, $ronpa-red 50%, $ronpa-tan 50%);
   // clip-path: polygon(0 0, 100% 0, 100% 8%, 0% 100%);
 
 }
 
 .home-header {
-    height: 615px;
+    height: 616px;
     overflow: hidden;
     position: relative;
 }
 
 
 .landing-nav {
-  background-color: #D95852;
+  background-color: $ronpa-red;
   transition: 0.5s background-color ease;
   top: 0;
   z-index: 2;
   flex-grow: 0;
-  color: #212121;
+  color: $off-black;
 }
 
 #site-nav{
@@ -27,7 +27,7 @@
 }
 
 .home-content {
-  background: #F9F4D4;
+  background: $ronpa-tan;
   margin-top: -200px;
   min-height: 430px;
 }

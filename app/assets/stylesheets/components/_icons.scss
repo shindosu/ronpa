@@ -1,22 +1,21 @@
 .knight-blue {
-  color: #D95852;
+  color: $ronpa-red;
 }
-
 .knight-grey {
-  color: #E5E1EE;
+  color: #D2D1C9;
 }
 
 .category-icon {
   position: absolute;
   top: -22px;
   left: calc(50% - 17px);
-  color: #F9F4D4;
-  background-color: #D95852;
+  color: $ronpa-tan;
+  background-color: $ronpa-red;
   height: 40px;
   width: 40px;
   border-radius: 50%;
   padding-top: 6px;
-  border: 3px solid white;
+  border: 3px solid $light-gray;
   box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   opacity: 0.8;
 }
@@ -26,8 +25,8 @@
 }
 
 .topic-show-icon{
-  color: white;
-  color: #F9F4D4;
+  color: $light-gray;
+  color: $ronpa-tan;
   position: relative;
   left: 50px;
   top: 50px;

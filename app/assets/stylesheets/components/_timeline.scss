@@ -7,9 +7,7 @@
   text-align: center;
   margin: 7px 2px;
   border-radius: 16px;
-
-
-  background: #4950571f;
+  background: $light-gray;
   width: 100%;
 }
 
@@ -24,7 +22,7 @@
   border-radius: 16px;
   border-color: #26b642ab;
   width: 100%;
-  background: #26b64214;
+  background: $ronpa-purple-light;
 }
 
 .phase-bubble-negative {
@@ -38,12 +36,12 @@
   border-radius: 16px;
   border-color: #c34f49;
   width: 100%;
-  background: #c34f4914;
+  background: $ronpa-red-light;
 }
 
 .phase-bubble-active {
   transform: scale(1.02);
   border-left-width: thick;
   font-weight: bolder;
-  background: #fff;
+  background: white;
 }

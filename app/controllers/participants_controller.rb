@@ -20,7 +20,7 @@ class ParticipantsController < ApplicationController
         @participant.assign_attributes(role: role, debate: @debate)
       end
       if @participant.save
-        DebatesChannel.broadcast_debate_data(@debate)
+        DebatesChannel.broadcast_debate_data(@debate, @participant)
         redirect_to debate_path(@debate)
       end
     else
@@ -35,9 +35,10 @@ class ParticipantsController < ApplicationController
     @winner.result = :winner
     @loser = @winner.affirmative? ? @debate.participants.negative.first : @debate.participants.affirmative.first
     @loser.result = :loser
+    @my_participant = @debate.participants.find { |p| p.user == current_user }
     if @winner.save && @loser.save
       @debate.update(phase: Debate.phases[@debate.phase] + 1)
-      DebatesChannel.broadcast_debate_data(@debate)
+      DebatesChannel.broadcast_debate_data(@debate, @my_participant)
     end
     respond_to do |format|
       format.html { redirect_to debate_path(@debate) }

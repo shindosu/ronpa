@@ -8,7 +8,7 @@ if (timer) {
     });
 
     timer.addEventListener('targetAchieved', (event) => {
-        const button = document.querySelector(".hvr-outline-in");
+        const button = document.getElementById("mod-end-turn-button");
         button.click();
         console.log("button clicked!")
     });
@@ -22,7 +22,6 @@ const setTimer = (timer, seconds) => {
 
 const initTimer = (phase) => {
         const values = document.querySelector("#value");
-        const button = document.querySelector(".hvr-outline-in");
     if (values){
         //     const timerDurations = {
         //             "count_in": 31,

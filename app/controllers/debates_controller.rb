@@ -1,6 +1,8 @@
 class DebatesController < ApplicationController
   def show
-    @debate = Debate.find(params[:id])
+    @debate = Debate.includes(:participants).find(params[:id])
+    @participants = @debate.participants
+    @my_participant = @participants.find { |p| p.user == current_user }
     authorize @debate
     if @debate.finished?
       render 'debates/results'
@@ -28,8 +30,9 @@ class DebatesController < ApplicationController
     @debate = Debate.find(params[:debate_id])
     @topic = @debate.topic
     authorize @debate
+    @my_participant = @debate.participants.find { |p| p.user == current_user }
     @debate.update(phase: Debate.phases[@debate.phase] + 1)
-    DebatesChannel.broadcast_debate_data(@debate)
+    DebatesChannel.broadcast_debate_data(@debate, @my_participant)
     respond_to do |format|
       format.html { render 'debates/show' }
       format.js

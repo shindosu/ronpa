@@ -1,7 +1,7 @@
 class DebatesChannel < ApplicationCable::Channel
   def subscribed
     stream_from "debate_#{params[:debate_id]}"
-    broadcast_debate_data(Debate.find(params[:debate_id]))
+    # broadcast_debate_data(Debate.find(params[:debate_id]))
     # stream_from "some_channel"
   end
 
@@ -9,7 +9,7 @@ class DebatesChannel < ApplicationCable::Channel
     # Any cleanup needed when channel is unsubscribed
   end
 
-  def self.broadcast_debate_data(debate)
+  def self.broadcast_debate_data(debate, my_participant)
     ActionCable.server.broadcast("debate_#{debate.id}", {
       current_phase: debate.phase,
       affirmative_turn: debate.affirmative_turn?,
@@ -20,7 +20,7 @@ class DebatesChannel < ApplicationCable::Channel
       moderator_user: debate.moderator_user,
       page_html: ApplicationController.render(
         template: 'debates/_updated_show',
-        locals: { debate: debate }
+        locals: { debate: debate, my_participant: my_participant }
         )
     })
   end

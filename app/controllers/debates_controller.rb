@@ -30,9 +30,8 @@ class DebatesController < ApplicationController
     @debate = Debate.find(params[:debate_id])
     @topic = @debate.topic
     authorize @debate
-    @my_participant = @debate.participants.find { |p| p.user == current_user }
     @debate.update(phase: Debate.phases[@debate.phase] + 1)
-    DebatesChannel.broadcast_debate_data(@debate, @my_participant)
+    DebatesChannel.broadcast_debate_data(@debate)
     respond_to do |format|
       format.html { render 'debates/show' }
       format.js

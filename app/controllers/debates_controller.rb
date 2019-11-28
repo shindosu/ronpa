@@ -39,6 +39,14 @@ class DebatesController < ApplicationController
     end
   end
 
+  def end_debate
+    @debate = Debate.find(params[:debate_id])
+    @topic = @debate.topic
+    authorize @debate
+    @debate.update(phase: 9)
+    redirect_to dashboard_path
+  end
+
   private
 
   def debate_params

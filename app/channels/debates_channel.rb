@@ -18,10 +18,11 @@ class DebatesChannel < ApplicationCable::Channel
       affirmative_user: debate.affirmative_user,
       negative_user: debate.negative_user,
       moderator_user: debate.moderator_user,
+      phase_type: debate.phase_type,
       page_html: ApplicationController.render(
         template: 'debates/_updated_show',
         locals: { debate: debate }
-        )
+      )
     })
   end
 end

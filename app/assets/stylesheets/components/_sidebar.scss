@@ -6,11 +6,9 @@
   color: $off-black;
   display: flex;
   flex-direction: column;
-  width: 300px;
   background-color: $ultra-light-gray;
   border-radius: 16px;
   padding: 8px;
-  margin-left: 16px;
   // box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
   box-shadow: $ronpa-purple-dark-50 10px 5px 10px;
 }
@@ -55,6 +53,6 @@
     -webkit-box-pack: center;
     justify-content: center;
     padding: 16px;
-    width: 320px;
+    width: 310px;
     align-items: center;
 }

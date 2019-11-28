@@ -90,19 +90,19 @@
             <% end %>
           </div>
           <% if debate.moderator_user %>
-            <div class="button-container" id="moderator-buttons">
+            <div class="button-container d-flex justify-content-around" id="moderator-buttons">
               <%#= simple_form_for :debate, url: debate_next_phase_path(debate), method: :patch, remote: true do |f| %>
                   <%#= f.submit "End Turn", class: "hvr-outline-in"   %>
               <%# end %>
               <% if debate.affirmative_user && debate.waiting_end? %>
-                <%= link_to "Affirmative Wins", debate_set_result_path(debate, winner_id: debate.participants.affirmative.first), method: :patch, class: "hvr-outline-in", id: "affirmative-win-button"  %>
+                 <h4><%= link_to "Affirmative Wins", debate_set_result_path(debate, winner_id: debate.participants.affirmative.first), method: :patch, class: "hvr-outline-in", id: "affirmative-win-button"  %></h4>
               <% end %>
               <%# if debate.moderator_turn? %>
               <% if true %>
                 <h4><%= link_to "End Turn", debate_next_phase_path(debate), method: :patch, remote: true, class: "hvr-outline-in" %></h4>
               <% end %>
               <% if debate.negative_user && debate.waiting_end? %>
-                <%= link_to "Negative Wins", debate_set_result_path(debate, winner_id: debate.participants.negative.first), method: :patch, class: "hvr-outline-in", id: "negative-win-button" %>
+                <h4><%= link_to "Negative Wins", debate_set_result_path(debate, winner_id: debate.participants.negative.first), method: :patch, class: "hvr-outline-in", id: "negative-win-button" %></h4>
               <% end %>
             </div>
           <% end %>

@@ -25,15 +25,11 @@
         <div id="affirmative-user-info">
           <% if debate.affirmative_user %>
             <%= render 'debates/user_info', user: debate.affirmative_user %>
-          <% else %>
-            <%= render 'waiting_for_participant' %>
           <% end %>
         </div>
         <div id="negative-user-info">
           <% if debate.negative_user %>
             <%= render 'debates/user_info', user: debate.negative_user %>
-          <% else %>
-            <%= render 'waiting_for_participant' %>
           <% end %>
         </div>
       </div>

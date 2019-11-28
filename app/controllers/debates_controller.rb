@@ -16,6 +16,7 @@ class DebatesController < ApplicationController
     authorize @topic
     if current_user.arguments.where(topic_id: @topic.id).count >= 6 && !current_user.in_debate?
       @debate = Debate.new(topic: @topic)
+      @debate.phase = 0
       authorize @debate
       if @debate.save
         Participant.create(debate: @debate, role: "moderator", user: current_user)

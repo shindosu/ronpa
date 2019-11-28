@@ -16,6 +16,7 @@ class ParticipantsController < ApplicationController
         end
       else
         @debate = Debate.create(topic: @topic)
+        @debate.phase = 0
         role = params[:moderator] ? "moderator" : ["affirmative", "negative"].sample
         @participant.assign_attributes(role: role, debate: @debate)
       end

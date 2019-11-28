@@ -47,14 +47,14 @@
 .timeline-sidebar {
   display: inline-grid;
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
     box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
-    background-color: $ronpa-tan;
+    background-color: #FCFAED;
     border-radius: 16px;
     max-width: 400px;
     margin: 16px 0 16px 16px;
-
     -webkit-box-pack: center;
     justify-content: center;
     padding: 16px;
+    width: 320px;
+    align-items: center;
 }

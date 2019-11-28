@@ -38,16 +38,23 @@
   background: #fff;
 }
 
-.middle-line:before {
-   content: '';
-   position: absolute;
-   top: 0;
-   left: 50%;
-   margin-left: -1px;
-   width: 2px;
-   height: 100%;
-   background: #CCD1D9;
-   z-index: 1
+ul {
+  position: relative;
 }
 
+ul:before
+{
+    content: "";
+    background-color: #6b6b6b42;
+    position: absolute;
+    width: 1px;
+    left: 132px;
+    top: 49px;
+    /* bottom: -13px; */
+    z-index: 1;
+    height: 50px;
+}
 
+ul:last-child:before {
+      display: none;
+  }

@@ -15,7 +15,7 @@ class User < ApplicationRecord
 
   validates :first_name, :last_name, :username, :email, presence: true
   validates :username, :email, uniqueness: true
-  validates :email, format: { with: /\A[a-z0-9.]+@[a-z]+\.[a-z]{2,3}\z/i }
+  validates :email, format: { with: /\A([\w+\-].?)+@[a-z\d\-]+(\.[a-z]+)*\.[a-z]+\z/i }
 
   def in_debate?
     debates.active.any?
@@ -52,4 +52,13 @@ class User < ApplicationRecord
     end
     rank
   end
+
+  def prepared_topics
+    prepared_topics = []
+    arguments.each do |argument|
+      prepared_topics << argument.topic
+    end
+    prepared_topics.uniq
+  end
+
 end

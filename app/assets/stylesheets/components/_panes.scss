@@ -1,5 +1,5 @@
 #argument-uses-left-active {
-  background-color: $ronpa-purple-light;
+  background-color: #26b64266;
   text-align: center;
   padding: 4px;
   border-radius: 8px;
@@ -50,10 +50,10 @@
   }
 }
 
-
-
 .debate-show {
   max-height: 100vh;
+  justify-content: around;
+  display: flex;
 }
 
 #debate-box {

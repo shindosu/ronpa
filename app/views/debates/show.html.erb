@@ -2,12 +2,6 @@
   <%= render 'updated_show', debate: @debate %>
 </div>
 
-<% if @my_participant.moderator? %>
-  <div class="button-container">
-    <%= link_to "End Turn", debate_next_phase_path(@debate), method: :patch, remote: true, class: "hvr-outline-in", id: "mod-end-turn-button"  %>
-  </div>
-<% end %>
-
 <% content_for :after_js do %>
   <script>
   function launchTimer(phase) {

@@ -36,7 +36,6 @@
   align-items: center;
   margin-bottom: 8px;
   transition: 0.3s;
-  outline: none;
   transition: 0.3s ease-in-out;
   &:hover {
     color: $ronpa-red;
@@ -57,7 +56,6 @@
   align-items: center;
   margin-bottom: 8px;
   transition: 0.3s;
-  outline: none;
   transition: 0.3s ease-in-out;
   &:hover {
     color: $ronpa-tan;
@@ -71,14 +69,13 @@
   justify-content: space-around;
   margin-bottom: 50px;
   transition: 0.3s;
-  outline: none;
   transition: 0.3s ease-in-out;
 }
 
 .feedback-button-active-tan{
   transform: scale(1.1);
   background-color: $ronpa-tan;
-  color: $ronpa-red
+  color: $ronpa-red;
 }
 
 .feedback-button-active-red{

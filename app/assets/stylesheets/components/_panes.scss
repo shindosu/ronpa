@@ -1,4 +1,4 @@
-#argument-uses-left {
+#argument-uses-left-active {
   background-color: $ronpa-purple-light;
   text-align: center;
   padding: 4px;
@@ -11,7 +11,7 @@
   }
 }
 
-#argument-uses-right {
+#argument-uses-right-active {
   background-color: $ronpa-red-light;
   text-align: center;
   padding: 4px;
@@ -23,6 +23,33 @@
     padding-bottom: 2px;
   }
 }
+
+#argument-uses-left-inactive {
+  background-color: gray;
+  text-align: center;
+  padding: 4px;
+  border-radius: 8px;
+  width: auto;
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
+  h3 {
+    border-bottom: 1px solid $ronpa-red;
+    padding-bottom: 2px;
+  }
+}
+
+#argument-uses-right-inactive {
+  background-color: gray;
+  text-align: center;
+  padding: 4px;
+  border-radius: 8px;
+  box-shadow: 2px 2px 8px 4px rgba(0, 0, 0, 0.2);
+  width: auto;
+  h3 {
+    border-bottom: 1px solid $medium-gray;
+    padding-bottom: 2px;
+  }
+}
+
 
 
 .debate-show {

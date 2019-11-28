@@ -1,5 +1,5 @@
 
-<%= render 'updated_show', debate: @debate %>
+<%= render 'updated_show', debate: @debate, my_participant: @my_participant %>
 
 <% content_for :after_js do %>
   <script>
@@ -60,22 +60,13 @@
 
         // const button = {
           // "waiting_start": '<%#= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
-                 method: :patch, remote: true %>',
+                //  method: :patch, remote: true %>',
           // "count_in": '<%#= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
-                method: :patch, remote: true %>',
+                // method: :patch, remote: true %>',
           // "waiting_end": '<%#= link_to "Affirmative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.affirmative.first),method: :patch, class: "btn-new"  %><%#= link_to "End Turn", debate_next_phase_path(@debate), class: "btn-new next-phase",
-                method: :patch, remote: true %><%#= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>'
+                // method: :patch, remote: true %><%#= link_to "Negative Wins", debate_set_result_path(@debate, winner_id: @debate.participants.negative.first), method: :patch, class: "btn-new"  %>'
 
         // }
-        if (currentUserId !== data.affirmative_user.id) {
-          buttonAffirmative.classList.add("hidden");
-        }
-        if (currentUserId !== data.negative_user.id) {
-          buttonNegative.classList.add("hidden");
-        }
-        if (currentUserId !== data.moderator_user.id) {
-          buttonsModerator.classList.add("hidden");
-        }
 
         // phaseText.innerText = phases[data.current_phase]
         // endTurnButton.innerHTML = button[data.current_phase]

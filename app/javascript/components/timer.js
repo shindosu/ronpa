@@ -47,25 +47,25 @@ const initTimer = (phase) => {
         //     setTimer(timer, timerDurations[phase])
         switch (phase) {
             case "count_in":
-                setTimer(timer, 11);
+                setTimer(timer, 31);
             break;
             case "affirmative_speech":
-                    setTimer(timer, 11);
+                    setTimer(timer, 61);
                 break;
             case "negative_speech":
-                    setTimer(timer, 11);
+                    setTimer(timer, 61);
             break;
             case "affirmative_cross_examination":
-                    setTimer(timer, 11);
+                    setTimer(timer, 121);
             break;
             case "negative_cross_examination":
-                    setTimer(timer, 11);
+                    setTimer(timer, 121);
             break;
             case "affirmative_closing_statement":
-                    setTimer(timer, 11);
+                    setTimer(timer, 61);
             break;
             case "negative_closing_statement":
-                    setTimer(timer, 11);
+                    setTimer(timer, 61);
             break;
             case "waiting_end":
                     setTimer(timer, 31);

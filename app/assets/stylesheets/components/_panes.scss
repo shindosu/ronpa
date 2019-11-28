@@ -63,21 +63,20 @@
   background-color: $ronpa-tan-light;
   height: 95.5vh;
   position: relative;
+  max-width: 1000px;
 }
 
 .role {
-  padding-top: 18px;
-  padding-bottom: 8px;
+  margin-top: 8px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   text-align: center;
   align-items: center;
-  border-bottom: 1px solid $ronpa-red;
-  width: 30%;
 }
 
 .topic-proposition-text {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
   margin-top: 8px;
+  font-size: 34px;
 }
 
 .text-moderator {
@@ -105,8 +104,7 @@
 
 .user-icon {
   align-items: center;
-  justify-content: center;
-  padding-top: 30px;
+  justify-content: left;
   border-bottom: 1px solid $ronpa-red;
   width: 100%;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
@@ -115,9 +113,13 @@
 .moderator-icon {
   margin-top: 16px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-  position: absolute;
   left: 37.5%;
   top: 83%;
+}
+
+.moderator-username {
+  font-size: 18px;
+  margin-bottom: 0;
 }
 
 .argument-use-affirmative {
@@ -135,14 +137,14 @@
 }
 
 .moderator-image {
- height: 60px;
- width: 60px;
- position: relative;
+ height: 50px;
+ width: 50px;
  border: 2px solid white;
  border-radius: 50%;
  margin-bottom: 8px;
  object-fit: cover;
  box-shadow: 0 0 4px rgba(0,0,0,0.3);
+ text-align: center;
 }
 
 .debator-image {
@@ -176,7 +178,7 @@
   border-radius: 8px;
   transition: 0.3s;
   padding: 8px;
-  margin-top: 8px;
+  margin-bottom: 10px;
   display: inline-block;
   vertical-align: middle;
   -webkit-transform: perspective(1px) translateZ(0);

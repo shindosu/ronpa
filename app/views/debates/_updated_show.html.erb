@@ -6,10 +6,24 @@
   <div class="container pl-0 pr-0">
     <div id="debate-box" class="ml-5">
       <h1 class="text-center topic-proposition-text mb-3"><%= debate.topic.proposition%></h1>
-      <div class="text-center">
-       <h4><%= link_to "Join Call", "https://whereby.com/ronpa", target: :_blank, class: "blue-hvr-outline-in", id: "join-call"  %></h4>
-     </div>
-     <div class="row justify-content-center ml-2 mr-2">
+
+     <div class="row justify-content-center align-items-center ml-2 mr-2">
+
+       <div class="d-flex justify-content-around mt-3 col-4">
+          <div id="affirmative-user-info">
+            <% if debate.moderator_user %>
+            <div class="user-icon d-flex moderator-call">
+              <div class="mr-2">
+                <%= cl_image_tag debate.participants.moderator.first.user.photo, class:"moderator-image" %>
+              </div>
+              <div>
+                <h4 class='moderator-username'><%= debate.moderator_user.username %></h4>
+              </div>
+            </div>
+            <p class="role text-right ml-5">Moderator</p>
+            <% end %>
+          </div>
+        </div>
         <!-- <div class="col-4">
           <div class="text-center">
            <h4><%#= link_to "Quit Match", debate_end_debate_path(debate), method: :patch, class: "blue-hvr-outline-in"  %></h4>
@@ -21,28 +35,13 @@
         </h3>
         <%= render 'shared/timer' %>
       </div>
-
-    </div>
-
-    <div class="d-flex justify-content-around mt-3">
-      <div id="affirmative-user-info">
-        <% if debate.moderator_user %>
-        <div class="user-icon d-flex moderator-call">
-          <div class="mr-2">
-            <%= cl_image_tag debate.participants.moderator.first.user.photo, class:"moderator-image" %>
-          </div>
-          <div>
-            <h4 class='moderator-username'><%= debate.moderator_user.username %></h4>
-          </div>
-        </div>
-        <p class="role text-right ml-5">Moderator</p>
-        <% end %>
+      <div class="text-center col-4">
+        <h4><%= link_to "Join Call", "https://whereby.com/ronpa", target: :_blank, class: "blue-hvr-outline-in", id: "join-call"  %></h4>
       </div>
     </div>
 
-
     <!-- USER INFO -->
-    <div class="d-flex justify-content-around pb-1">
+    <div class="d-flex justify-content-around pb-1 mt-5">
       <div id="affirmative-user-info">
         <% if debate.affirmative_user %>
         <%= render 'debates/user_info', user: debate.affirmative_user %>

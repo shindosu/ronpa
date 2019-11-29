@@ -7,7 +7,7 @@ const removeCallButton = () => {
     document.querySelectorAll(".phone-call")[1].insertAdjacentHTML('beforeend', '<i class="fas fa-phone call"></i>');
     joinCall.addEventListener("click", (event) => {
       joinCall.remove();
-      document.querySelector(".phone-call").insertAdjacentHTML('beforeend', '<i class="fas fa-phone call"></i>');
+      document.querySelector(".phone-call").insertAdjacentHTML('beforeend', '<i class="fas fa-phone call-three"></i>');
     })
   }
 }

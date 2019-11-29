@@ -24,11 +24,6 @@
             <% end %>
           </div>
         </div>
-        <!-- <div class="col-4">
-          <div class="text-center">
-           <h4><%#= link_to "Quit Match", debate_end_debate_path(debate), method: :patch, class: "blue-hvr-outline-in"  %></h4>
-         </div>
-       </div> -->
        <div class="phase text-center col-4">
         <h3 class='phase-text'>
           <%= render "debates/debate_phase", debate: debate %>
@@ -111,8 +106,14 @@
       </h4>
     </div>
   </div>
-
-
 </div>
 </div>
+</div>
+
+
+
+<div class="col-4">
+  <div class="text-center">
+   <h4><%= link_to "Quit Match", debate_end_debate_path(debate), method: :patch, class: "blue-hvr-outline-in"  %></h4>
+ </div>
 </div>

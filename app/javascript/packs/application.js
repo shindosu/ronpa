@@ -8,7 +8,7 @@ import { initPop } from 'components/logo';
 import { submitForm } from 'components/argument-form';
 import { feedbackButtonActiveTan } from 'components/feedback-button';
 import { feedbackButtonActiveRed } from 'components/feedback-button';
-import { removeCallButton } from 'components/join_call';
+// import { removeCallButton } from 'components/join_call';
 // import { giveFeedback } from 'components/review-button';
 
 window.addEventListener('newPhaseStarted', (event) => {
@@ -16,7 +16,7 @@ window.addEventListener('newPhaseStarted', (event) => {
   initTimer(event.currentPhase);
 })
 
-removeCallButton();
+// removeCallButton();
 initLetter();
 initFlip();
 initIconHover();

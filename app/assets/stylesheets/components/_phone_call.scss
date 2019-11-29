@@ -1,0 +1,33 @@
+.phone-call{
+  position: relative;
+}
+
+.call {
+  font-size: 21px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  padding: 5px;
+  position: absolute;
+  background: #fff;
+  bottom: 46px;
+  right: 97px;
+  color:  #48a723;
+  box-shadow: 0 0 3px rgba(0,0,0,0.6);
+}
+
+.moderator-call {
+  position: relative;
+}
+
+.call-two {
+  font-size: 21px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  padding: 5px;
+  position: absolute;
+  background: #fff;
+  bottom: 41px;
+  right: 74px;
+  color:  #48a723;
+  box-shadow: 0 0 3px rgba(0,0,0,0.6);
+}

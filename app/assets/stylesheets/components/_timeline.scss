@@ -48,11 +48,11 @@ ul:before
     background-color: #6b6b6b42;
     position: absolute;
     width: 1px;
-    left: 132px;
-    top: 49px;
+    left: 50%;
+    top: 59px;
     /* bottom: -13px; */
     z-index: 1;
-    height: 50px;
+    height: 32px;
 }
 
 ul:last-child:before {

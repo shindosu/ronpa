@@ -1,6 +1,5 @@
 .container-topic-show{
   position: relative;
-  bottom: 200px;
   width: 70%;
   margin: 0 auto;
 }
@@ -21,7 +20,7 @@
 }
 
 .quarter-circle-top-left{
-  position: relative;
+  position: absolute;
   top: 0;
   width: 200px;
   height: 200px;
@@ -49,3 +48,45 @@
   padding: 10px 20px;
   border-radius: 20px;
 }
+
+//media queries -- needs fix
+@media (max-width: 768px) {
+
+
+  .topic-show-icon {
+    left: 35px;
+    top: 50px;
+  }
+  .quarter-circle-top-left {
+    clip-path: ellipse(159px 167px at 0% 0%);
+    position: relative;
+  }
+  .topic-show-icon {
+    left: 35px;
+    top: 50px;
+  }
+  .container-topic-show  {
+    position: relative;
+    width: 100%;
+  }
+}
+
+@media (max-width: 992px) {
+  .topic-show-icon {
+    left: 35px;
+    top: 50px;
+  }
+  .quarter-circle-top-left {
+    clip-path: ellipse(159px 167px at 0% 0%);
+    position: relative;
+  }
+  .topic-show-icon {
+    left: 35px;
+    top: 50px;
+  }
+  .container-topic-show  {
+    position: relative;
+    width: 100%;
+  }
+}
+  // media queries

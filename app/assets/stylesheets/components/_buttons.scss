@@ -10,9 +10,10 @@
   border-radius: 8px;
   margin: 4px;
   transition: 0.3s;
+  border: 1px solid  $ronpa-red;
   &:hover {
-    color: $ronpa-tan;
-    background-color: $ronpa-red;
+    color: $ronpa-red;
+    background: transparent;
   }
 }
 
@@ -31,16 +32,17 @@
 }
 
 .btn-landing-red {
-  color: $ronpa-red;
-  background-color: transparent;
+  color: $ronpa-tan;
+  background-color: $ronpa-red;
   border: 2px solid $ronpa-red;
   border-radius: 8px;
   padding: 8px 12px;
   font-size: 24px;
-  transition: 0.3s;
+  transition: 0.4s;
    &:hover {
-    background-color: $ronpa-red;
-    color: $ronpa-tan;
+    background-color: transparent;
+    color: $ronpa-red;
+    transition: 0.4s;
    }
 }
 
@@ -119,3 +121,6 @@
 // .join-button {
 //   padding-right: 25px;
 // }
+.join-as-moderator {
+  margin-left: 220px;
+}

@@ -14,6 +14,7 @@
 
 #   # Specify URI for violation reports
 #   # policy.report_uri "/csp-violation-report-endpoint"
+  # policy.frame_ancestors :self, "https://whereby.com" ADDED BY EDDO DOES NOT WORK
 # end
 
 # If you are using UJS then enable automatic nonce generation

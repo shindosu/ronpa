@@ -5,6 +5,7 @@
   padding: 100px;
   color: $ronpa-tan;
   border-radius: 16px;
+  box-shadow: $ronpa-purple-dark-50 10px 5px 10px;
 }
 
 #results-box-loser {
@@ -15,6 +16,7 @@
   color: $ronpa-red;
   border-radius: 16px;
   border: 2px solid $ronpa-red;
+  box-shadow: $ronpa-purple-dark-50 10px 5px 10px;
 }
 
 #results-buttons {

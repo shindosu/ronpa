@@ -1,4 +1,4 @@
-<div class="container pb-5">
+<div class="topics-index container pb-5">
   <h1 class="text-center mb-5" id = "topic-index-header"> Browse Topics</h1>
   <div class="mb-5">
     <%= form_tag topics_path, method: :get, class: "search-form d-flex ml-3 mt-3" do %>
@@ -18,7 +18,7 @@
       <%= render 'topic_card', topic: topic %>
       <% end %>
     </div>
-  </div>
+</div>
 
 
 
